@@ -1,0 +1,17 @@
+{
+  "name": "DESC Registration Server",
+  "description": "A registration server for LSST DESC collaboration meetings",
+  "keywords": [
+    "flask",
+    "python"
+  ],
+  "repository": "https://github.com/LSSTDESC/meeting-registration-form",
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/stomita/heroku-buildpack-python"
+    }
+  ],
+}
