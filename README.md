@@ -7,19 +7,26 @@ Checkout a preview of the registration form
 
 ## Deploy
 
-- Step 1: Click this button: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+- Step 1: Click this button:
+
+ [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 - Step 2: Create a free account
 
 - Step 3: Choose a name for your registration server:
+ ![alt text](.static/im1.png)
 
   In this example, the `SERVER_URL` will be `https://desc-summer-meeting.herokuapp.com`
 
-- Step 4: Retrieve registration key:
-  - Click on "Manage App" then "Settings" and finally click the "Reveal Config Vars" button:
-  - Copy the value of `SECRET_KEY`:
+- Step 4: Click the *Deploy* button and let the magic happen.
 
-- Step 5: Replace in the following URL the values for `SERVER_URL` and `SECRET_KEY`:
+- Step 5: Retrieve registration key:
+  - Click on *Manage App* then *Settings* and finally click the *Reveal Config Vars* button:
+   ![alt text](.static/im2.png)
+  - Copy the value of `SECRET_KEY`:
+   ![alt text](.static/im3.png)
+
+- Step 6: Replace in the following URL the values for `SERVER_URL` and `SECRET_KEY`:
 ```
 https://lsstdesc.github.io/meeting-registration-form/index.html?backend=SERVER_URL&secret=SECRET_KEY
 ```
@@ -31,7 +38,7 @@ the following html code (again, replace `SERVER_URL` and `SECRET_KEY`):
 <iframe src="https://lsstdesc.github.io/meeting-registration-form/index.html?backend=SERVER_URL&secret=SECRET_KEY"  width="1000" height="1000" scrolling="yes" style="border:none" seamless></iframe>
 ```
 
-- Step 6 (optional): Embed on Confluence page:
+- Step 7 (optional): Embed on Confluence page:
    - Click the *Insert* button, go to *Other macros*.
    - Insert and *HTML* macro (not *HTML Include*).
    - Add the above html snippet. Save. Done !
