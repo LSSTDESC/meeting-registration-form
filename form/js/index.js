@@ -21,7 +21,7 @@ $(function(){
     $("#main_form :input").prop('disabled', true);
     $('#backendModal').modal({show: true});
   }
-  $("#main_form").action = backend+'/register';
+  $("#main_form").attr('action', backend+'/register');
   $("#secret").attr('value', secret);
 });
 

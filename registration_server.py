@@ -58,11 +58,10 @@ def check_email():
 @requires_auth
 def register():
     # Extract fields from form data and create participant
-    kwargs = {}
-    for k in request.form:
-        if k == 'secret':
-            continue
-        kwargs[k] = form[k]
+    kwargs = {k:request.form[k] for k in request.form}
+    # Remove secret field
+    del kwargs['secret'];
+
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
