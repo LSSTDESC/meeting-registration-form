@@ -2,6 +2,10 @@
   font-family: "Raleway";
 }
 
+#form-check{
+  input-value:1;
+}
+
 #badge {
   position: relative;
   height: 3in;

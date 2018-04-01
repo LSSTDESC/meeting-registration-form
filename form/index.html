@@ -4,14 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>DESC registration form</title>
-  
-  
+
+
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:400,400i,700'>
 
       <link rel="stylesheet" href="css/style.css">
 
-  
 </head>
 
 <body>
@@ -21,24 +20,27 @@
   Please fill-in the following form to register to the DESC meeting
   <br>
   <br>
-  <form>
+  <form action="http://0.0.0.0:5000/register" method="POST"  class="needs-validation" novalidate>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputFirstName">First Name</label>
-        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>
       </div>
       <div class="form-group col-md-6">
-        <label for="inputLastName">Last Name</label>
-        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" id="last_name" placeholder="Last Name" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail">Email</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+        <div class="invalid-feedback">
+          Invalid email or already registered.
+        </div>
     </div>
     <div class="form-group">
       <label for="affili">Affiliation</label>
-      <input type="text" class="form-control" id="affili" placeholder="Affiliation" required>
+      <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" required>
     </div>
 
     <hr>
@@ -48,16 +50,16 @@
       <div class="col-sm">
         <div class="form-group">
           <label for="lname">Large-font name</label>
-          <input type="text" class="form-control" id="lname" placeholder="optional, defaults to first name">
+          <input type="text" class="form-control" name="lname" id="lname" placeholder="optional, defaults to first name">
         </div>
         <div class="form-group">
           <label for="sname">Small-font name</label>
-          <input type="text" class="form-control" id="sname" placeholder="optional, defaults to last name">
+          <input type="text" class="form-control" name="sname" id="sname" placeholder="optional, defaults to last name">
         </div>
         <div class="form-group">
           <label for="pronoun">Third-person pronoun</label>
-          <input type="text" class="form-control" id="pronoun" placeholder="e.g. she/her, he/his, they/their..." required>
-          <small id="inputPronounHelp" class="form-text text-muted">Third-pronoun you want people to use to refer to you. 
+          <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/his, they/their..." required>
+          <small id="inputPronounHelp" class="form-text text-muted">Third-pronoun you want people to use to refer to you.
        <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns">Why ask for pronouns ?</a></small>
         </div>
       </div>
@@ -76,7 +78,7 @@
             <span id="pronoun-s"></span>
           </div>
           <div id="event-d">
-            <span id="event-s">Collaboration Meeting, July 20-28, 2018 </span>
+            <span id="event-s">Collaboration Meeting, July 23-27, 2018 </span>
           </div>
           <div id="location-d">
             <span id="location-s">Carnegie Mellon University</span>
@@ -86,40 +88,40 @@
         </div>
       </div>
     </div>
-    
+
     <hr>
-    
+
     <h5>Logistics</h5>
     <div class="form-group">
       <label for="inputAttendance">What days will you attend ?</label>
       <div id="Attendance">
       <div class="form-check form-check-inline" id="inputAttendance">
-        <input class="form-check-input" name="attendance[]" type="checkbox" id="inlineCheckbox1" value="Monday" >
-        <label class="form-check-label" for="inlineCheckbox1">Monday (DE School)</label>
+        <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
+        <label class="form-check-label" for="attend_mon">Monday (DE School)</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" name="attendance[]" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Tuesday</label>
+        <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
+        <label class="form-check-label" for="attend_tue">Tuesday</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" name="attendance[]" type="checkbox" id="inlineCheckbox3" value="option3" >
-        <label class="form-check-label" for="inlineCheckbox3">Wednesday</label>
+        <input class="form-check-input" type="checkbox"  name="attend_wed" id="attend_wed">
+        <label class="form-check-label" for="attend_wed">Wednesday</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" name="attendance[]" type="checkbox" id="inlineCheckbox3" value="option3" >
-        <label class="form-check-label" for="inlineCheckbox3">Thursday</label>
+        <input class="form-check-input" type="checkbox"  name="attend_thu" id="attend_thu">
+        <label class="form-check-label" for="attend_thu">Thursday</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" name="attendance[]" type="checkbox" id="inlineCheckbox3" value="option3" >
-        <label class="form-check-label" for="inlineCheckbox3">Friday (Hack day)</label>
+        <input class="form-check-input" type="checkbox" name="attend_fri" id="attend_fri">
+        <label class="form-check-label" for="attend_fri">Friday (Hack day)</label>
       </div>
         </div>
     </div>
     <hr>
     <div class="form-group">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck" required>
-        <label class="form-check-label" for="gridCheck">
+        <input class="form-check-input" type="checkbox" name="code_of_conduct" id="code_of_conduct" required>
+        <label class="form-check-label" for="code_of_conduct">
         I have read, and will abide by, the DESC Meetings <a href="http://lsst-desc.org/sites/default/files/DESCProfessionalConductPolicies-2.pdf">Code of Conduct</a>.
       </label>
       </div>
@@ -129,13 +131,7 @@
 
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
-  
-
     <script  src="js/index.js"></script>
-
-
-
 
 </body>
 

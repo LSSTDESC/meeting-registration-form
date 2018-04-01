@@ -1,3 +1,46 @@
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+$("#email").change(function(){
+    $.post("http://0.0.0.0:5000/check_email",
+            {email: $(this).val()},
+            function(data, status){
+              var d = document.getElementById("email");
+              if (status === "success"){
+                if(data === "Ok"){
+                  d.setCustomValidity("");
+                  d.classList.remove('is-invalid');
+                }else{
+                  d.setCustomValidity("Already registered.");
+                  d.classList.add('is-invalid');
+                }
+
+              }else{
+                  // Server is unavailable...
+                  // make sure we don't block the form at this stage
+                  d.setCustomValidity("");
+                  d.classList.remove('is-invalid');
+                }
+              console.log("Data: " + data + "\nStatus: " + status);
+            });
+});
+
 $("input").keyup(function() {
   var target = $("#" + $(this).attr("id") + "-s");
   target.text($(this).val());
@@ -9,6 +52,7 @@ $("input").keyup(function() {
 $("#local").change(function() {
   $("#lname-s, #sname-s").toggleClass("local");
 });
+
 const load_params = function() {
   const searchParams = new URLSearchParams(window.location.search);
   const keys = ["lname", "sname", "affili", "pronoun"];
