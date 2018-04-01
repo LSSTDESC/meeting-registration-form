@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent app:registration_server
+web: gunicorn -w 2 app:registration_server
