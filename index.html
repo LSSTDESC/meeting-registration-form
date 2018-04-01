@@ -8,7 +8,74 @@
 
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:400,400i,700'>
-  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+#badge span {
+  font-family: "Raleway";
+}
+
+#badge {
+  position: relative;
+  height: 3in;
+  border: 1px solid black;
+}
+
+#badge div {
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  line-height: 0.8;
+}
+#lname-d,
+#sname-d {
+  font-weight: bold;
+}
+#lname-d {
+  font-size: 68pt;
+  bottom: 2.05in;
+}
+#sname-d {
+  font-size: 26pt;
+  font-weight: bold;
+  bottom: 1.55in;
+}
+#affili-d,
+#pronoun-d {
+  font-size: 22pt;
+  bottom: 1.08in;
+}
+#pronoun-d {
+  font-style: italic;
+  bottom: 0.64in;
+}
+#event-d,
+#location-d {
+  font-size: 7pt;
+  bottom: 0.29in;
+  left: 0.025in;
+}
+#location-d {
+  bottom: 0.15in;
+}
+
+#logo1 {
+  width: 92px !important;
+  height: 61px;
+  background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/desc-logo.png");
+  bottom: 0.02in;
+  left: 0.1in;
+}
+
+#logo2 {
+  width: 64px !important;
+  height: 22px;
+  background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/lsstc-logo.png");
+  bottom: 0.15in;
+  right: 0.2in;
+}
+  </style>
+
 </head>
 
 <body>
@@ -152,7 +219,69 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
-  <script  src="js/index.js"></script>
+  <script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+var backend = getUrlParameter('backend');
+var secret  = getUrlParameter('secret');
+
+$(function(){
+  // Disable the form if the required info about backend server is missing
+  if((backend === undefined) || (secret === undefined)){
+    $("#main_form :input").prop('disabled', true);
+    $('#backendModal').modal({show: true});
+  }
+  $("#main_form").attr('action', backend+'/register');
+  $("#secret").attr('value', secret);
+});
+
+$("#email").change(function(){
+    $.post(backend+"/check_email",
+            {email: $(this).val(),
+             secret: secret},
+            function(data, status){
+              var d = document.getElementById("email");
+              if (status === "success"){
+                if(data === "Ok"){
+                  d.setCustomValidity("");
+                  d.classList.remove('is-invalid');
+                }else{
+                  d.setCustomValidity("Already registered.");
+                  d.classList.add('is-invalid');
+                }
+
+              }else{
+                  // Server is unavailable...
+                  // make sure we don't block the form at this stage
+                  d.setCustomValidity("");
+                  d.classList.remove('is-invalid');
+                }
+              console.log("Data: " + data + "\nStatus: " + status);
+            });
+});
+
+$("input").keyup(function() {
+  var target = $("#" + $(this).attr("id") + "-s");
+  target.text($(this).val());
+  target.css("font-size", "100%");
+  var badge = $("#badge");
+  var scale = badge.width() / target.width();
+  if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
+});
+</script>
+
 
 </body>
 
