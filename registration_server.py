@@ -1,5 +1,5 @@
 import os
-
+import argparse
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Boolean
@@ -36,7 +36,7 @@ class Participant(db.Model):
         super(Participant, self).__init__(**kwargs)
 
     def __repr__(self):
-        return '<User %r>' % self.first_name
+        return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
 
 @app.route('/check_email', methods=['POST'])
 def check_email():
@@ -55,5 +55,17 @@ def register():
     return "Registered ok"
 
 if __name__ == '__main__':
-    db.create_all()
-    print(Participant.query.all())
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--create", action='store_true')
+    parser.add_argument("--dump", action='store_true')
+    args = parser.parse_args()
+
+    if args.create:
+        print("Creating database table if doesn't exist")
+        db.create_all()
+
+    if args.dump:
+        print("Printing content of database.")
+        for p in Participant.query.all():
+            print(p)
