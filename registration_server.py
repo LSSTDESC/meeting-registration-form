@@ -1,12 +1,14 @@
 import os
 import argparse
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response
+from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Boolean
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 db = SQLAlchemy(app)
 
 # Defines the registration entry
@@ -29,16 +31,21 @@ class Participant(db.Model):
 
     code_of_conduct = db.Column(db.String(5))
 
-    def __init__(self, form):
-        kwargs = {}
-        for k in form:
-            kwargs[k] = form[k]
-        super(Participant, self).__init__(**kwargs)
-
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
 
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.form['secret']
+        if not (auth == app.config['SECRET_KEY']):
+            return Response('Could not verify your access level for that URL.', 401,
+                            {'WWW-Authenticate': 'Include valid "secret" in form data.'})
+        return f(*args, **kwargs)
+    return decorated
+
 @app.route('/check_email', methods=['POST'])
+@requires_auth
 def check_email():
     email = request.form['email']
     # Check for already registered email
@@ -48,8 +55,15 @@ def check_email():
         return ("Email already registered", {'Access-Control-Allow-Origin':'*'})
 
 @app.route('/register', methods=['POST'])
+@requires_auth
 def register():
-    participant = Participant(request.form)
+    # Extract fields from form data and create participant
+    kwargs = {}
+    for k in request.form:
+        if k == 'secret':
+            continue
+        kwargs[k] = form[k]
+    participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
     return "Registered ok"

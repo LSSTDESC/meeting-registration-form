@@ -1,25 +1,34 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
         }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+    }
+};
+var backend = getUrlParameter('backend');
+var secret  = getUrlParameter('secret');
+
+$(function(){
+  // Disable the form if the required info about backend server is missing
+  if((backend === undefined) || (secret === undefined)){
+    $("#main_form :input").prop('disabled', true);
+    $('#backendModal').modal({show: true});
+  }
+  $("#main_form").action = backend+'/register';
+  $("#secret").attr('value', secret);
+});
 
 $("#email").change(function(){
-    $.post("https://desc-cmu-meeting.herokuapp.com/check_email",
-            {email: $(this).val()},
+    $.post(backend+"/check_email",
+            {email: $(this).val(),
+             secret: secret},
             function(data, status){
               var d = document.getElementById("email");
               if (status === "success"){
@@ -49,33 +58,3 @@ $("input").keyup(function() {
   var scale = badge.width() / target.width();
   if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
 });
-$("#local").change(function() {
-  $("#lname-s, #sname-s").toggleClass("local");
-});
-
-const load_params = function() {
-  const searchParams = new URLSearchParams(window.location.search);
-  const keys = ["lname", "sname", "affili", "pronoun"];
-  if (
-    keys.reduce(
-      (accumulator, currentValue) =>
-        accumulator || searchParams.has(currentValue),
-      false
-    )
-  )
-    keys.forEach(function(currentValue) {
-      $("#" + currentValue).val(
-        searchParams.has(currentValue) ? searchParams.get(currentValue) : ""
-      );
-    });
-  ["event", "location"].forEach(function(currentValue) {
-    if (searchParams.has(currentValue))
-      $("#" + currentValue).val(searchParams.get(currentValue));
-  });
-  if (searchParams.get("local")) {
-    $("#local").prop("checked", true);
-    $("#local").change();
-  }
-};
-load_params();
-$("input").keyup();

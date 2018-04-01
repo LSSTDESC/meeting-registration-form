@@ -2,10 +2,6 @@
   font-family: "Raleway";
 }
 
-#form-check{
-  input-value:1;
-}
-
 #badge {
   position: relative;
   height: 3in;
@@ -49,9 +45,6 @@
 }
 #location-d {
   bottom: 0.15in;
-}
-.local {
-  color: orange;
 }
 
 #logo1 {

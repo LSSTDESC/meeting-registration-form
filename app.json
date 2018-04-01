@@ -14,6 +14,12 @@
       }
     }
    ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret registration key.",
+      "generator": "secret"
+    }
+  },
   "buildpacks": [
     {
       "url": "heroku/python"
