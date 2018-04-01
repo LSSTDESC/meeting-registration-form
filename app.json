@@ -6,9 +6,7 @@
     "python"
   ],
   "repository": "https://github.com/LSSTDESC/meeting-registration-form",
-  "addons": [
-    "heroku-postgresql"
-  ],
+  "addons": [ "heroku-postgresql" ],
   "buildpacks": [
     {
       "url": "https://github.com/stomita/heroku-buildpack-python"

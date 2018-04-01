@@ -6,7 +6,7 @@ from sqlalchemy.sql.sqltypes import Boolean
 
 app = Flask(__name__)
 
-DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db')
 db = SQLAlchemy(app)
 
 # Defines the registration entry
