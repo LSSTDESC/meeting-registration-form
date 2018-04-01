@@ -18,7 +18,7 @@
 })();
 
 $("#email").change(function(){
-    $.post("http://0.0.0.0:5000/check_email",
+    $.post("https://secret-brook-12922.herokuapp.com/check_email",
             {email: $(this).val()},
             function(data, status){
               var d = document.getElementById("email");
