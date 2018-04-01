@@ -1,1 +1,1 @@
-web: gunicorn -w 2 app:registration_server
+web: gunicorn -w 2 registration_server:app
