@@ -18,7 +18,7 @@
 })();
 
 $("#email").change(function(){
-    $.post("https://secret-brook-12922.herokuapp.com/check_email",
+    $.post("https://desc-cmu-meeting.herokuapp.com/check_email",
             {email: $(this).val()},
             function(data, status){
               var d = document.getElementById("email");
