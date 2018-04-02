@@ -22,12 +22,19 @@ class Participant(db.Model):
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
+    contact = db.Column(db.String(5))
+    visa    = db.Column(db.String(5))
 
     attend_mon = db.Column(db.String(5))
     attend_tue = db.Column(db.String(5))
     attend_wed = db.Column(db.String(5))
     attend_thu = db.Column(db.String(5))
     attend_fri = db.Column(db.String(5))
+
+    dinner = db.Column(db.String(5))
+    dinner_guests = db.Column(db.Integer())
+    dinner_diet = db.Column(db.String(512))
+    carpool = db.Column(db.String(5))
 
     code_of_conduct = db.Column(db.String(5))
 
@@ -61,11 +68,20 @@ def register():
     kwargs = {k:request.form[k] for k in request.form}
     # Remove secret field
     del kwargs['secret'];
-
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
     return "Registered ok"
+
+@app.route('/', methods=['GET'])
+def registered():
+    """Returns the list of registered participants
+    """
+    # Get list of participants
+    participants = Participant.query.with_entities(Participant.first_name,
+                                                   Participant.last_name,
+                                                   Participant.affiliation).order_by(Participant.last_name).all()
+    return render_template('participants.html', data=participants)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

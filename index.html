@@ -10,6 +10,16 @@
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:400,400i,700'>
 
   <style>
+
+body {
+  margin-bottom: 0px; /* Margin bottom by footer height */
+}
+.footer {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
 #badge span {
   font-family: "Raleway";
 }
@@ -108,6 +118,24 @@
       <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" required>
     </div>
 
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="contact" name="contact">
+        <label class="form-check-label" for="contact">
+        Check if you do NOT wish to be considered for the role of meeting contact person.
+         </label>
+       </div>
+      </div>
+
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="visa" name="visa">
+        <label class="form-check-label" for="visa">
+        Check if you require an invitation letter for visa applications.
+         </label>
+       </div>
+      </div>
+
     <hr>
     <h5>Badge information</h5>
     <br>
@@ -182,12 +210,55 @@
       </div>
         </div>
     </div>
+
+    <div class="form-group">
+      <label for="dinnerOptions">Will you attend the conference dinner ?</label>
+      <div class="form-row align-items-center" id="dinnerOptions">
+
+        <div class="col-md-3">
+          <div class="form-check form-check-inline mb-2">
+            <input class="form-check-input" type="radio" name="dinner" id="dinnerTrue" value="yes" required>
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+          <div class="form-check form-check-inline mb-2">
+            <input class="form-check-input" type="radio" name="dinner" id="dinnerFalse" value="no">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="dinner_guests">Additional guests</label>
+          <select class="form-control-inline" id="dinner_guests" name="dinner_guests">
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="dinner_diet" name="dinner_diet" placeholder="Please indicate any dietary restrictions">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+       <label for="carpooling">Will you be driving a car during the meeting and can help with carpooling?</label>
+        <div class="form-check form-check-inline mb-2" id="carpooling">
+            <input class="form-check-input" type="radio" name="carpool" id="carTrue" value="yes" required>
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="carpool" id="carFalse" value="no">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+    </div>
+
     <hr>
     <div class="form-group">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="code_of_conduct" id="code_of_conduct" required>
         <label class="form-check-label" for="code_of_conduct">
-        I have read, and will abide by, the DESC Meetings <a href="http://lsst-desc.org/sites/default/files/DESCProfessionalConductPolicies-2.pdf">Code of Conduct</a>.
+        I have read, and will abide by, the DESC <a href="http://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf">Code of Conduct</a>.
       </label>
       </div>
     </div>
@@ -195,6 +266,7 @@
     <input type="hidden" name="secret" id="secret" value=""/>
   </form>
 </div>
+
 <!-- Modal Warning-->
   <div class="modal fade" id="backendModal" role="dialog">
     <div class="modal-dialog">
@@ -216,6 +288,21 @@
     </div>
   </div>
 </div>
+
+
+<footer class="footer">
+    <div class="container">
+      <dl class="row">
+        <span class="text-muted">
+  <p class="lead">Privacy notice</p>
+  <p>Your <mark>first name, last name, and affiliation will appear on a public webpage</mark> associated with the meeting website. Your badge names, pronoun(s), and your affiliation will appear on your badge.  Your email will be used to contact you when necessary. All data collected here may be shared with LSST DESC members who are on the LOC, the SOC, the Meetings Committee, the Collaboration Council, and the Management Team.</p>
+         <div class="col-md-12">
+          <!--Footer Bottom-->
+          <p class="text-md-center"><small>This page uses the <a href="https://github.com/LSSTDESC/name-tag-guru/">badge template</a> designed by <a href="https://yymao.github.com/">Yao-Yuan Mao</a>. The logos appearing on the badge belong to the <a href="http://lsstdesc.org/">LSST Dark Energy Science Collaboration</a> and the <a href="https://www.lsstcorporation.org/">LSST Corporation</a>.</small></p>
+        </div></span>
+</dl>
+  </div>
+</footer>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
@@ -272,6 +359,19 @@ $("#email").change(function(){
             });
 });
 
+$("#dinnerOptions").change(function(){
+   selected_value = $("input[name='dinner']:checked").val();
+  if(selected_value === "yes"){
+    $("#dinner_guests").prop('disabled', false);
+    $("#dinner_diet").prop('disabled', false);
+  }else if(selected_value === "no"){
+    $("#dinner_guests").prop('disabled', true);
+    $("#dinner_guests").val(0);
+    $("#dinner_diet").prop('disabled', true);
+    $("#dinner_diet").val("");
+  }
+});
+
 $("input").keyup(function() {
   var target = $("#" + $(this).attr("id") + "-s");
   target.text($(this).val());
@@ -281,7 +381,6 @@ $("input").keyup(function() {
   if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
 });
 </script>
-
 
 </body>
 
