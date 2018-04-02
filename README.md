@@ -2,8 +2,8 @@
 Meetings committee compliant online registration form for LSST DESC meetings.
 Can be **deployed in under 5 minutes** and embedded on Confluence or anywhere else.
 
-Checkout a preview of the registration form
- [here](https://lsstdesc.github.io/meeting-registration-form/index.html).
+Checkout a live preview of the registration form
+ [here](https://lsstdesc.github.io/meeting-registration-form/index.html?backend=&secret=).
 
 ## Deploy
 
