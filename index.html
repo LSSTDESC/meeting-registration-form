@@ -350,12 +350,12 @@ var secret  = getUrlParameter('secret');
 
 $(function(){
   // Disable the form if the required info about backend server is missing
-  if((backend === undefined) || (secret === undefined)){
-    $("#main_form :input").prop('disabled', true);
-    $('#backendModal').modal({show: true});
-  }
-  $("#main_form").attr('action', backend+'/register');
-  $("#secret").attr('value', secret);
+  // if((backend === undefined) || (secret === undefined)){
+  //   $("#main_form :input").prop('disabled', true);
+  //   $('#backendModal').modal({show: true});
+  // }
+  // $("#main_form").attr('action', backend+'/register');
+  // $("#secret").attr('value', secret);
 });
 
 $("#email").change(function(){
