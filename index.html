@@ -265,6 +265,28 @@ body {
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
+    <!-- Noscript content for added SEO -->
+    <noscript><a href="https://www.eventbrite.com/e/cmu-desc-meeting-registration-44601052950" rel="noopener noreferrer" target="_blank"></noscript>
+    <!-- You can customize this button any way you like -->
+    <button id="eventbrite-widget-modal-trigger-44601052950" type="button">Buy Tickets</button>
+    <noscript></a>Buy Tickets on Eventbrite</noscript>
+
+    <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+
+    <script type="text/javascript">
+        var exampleCallback = function() {
+            console.log('Order complete!');
+        };
+
+        window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '44601052950',
+            modal: true,
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-44601052950',
+            onOrderComplete: exampleCallback
+        });
+    </script>
+
     <input type="hidden" name="secret" id="secret" value=""/>
   </form>
 </div>
