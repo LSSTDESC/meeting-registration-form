@@ -230,7 +230,7 @@ body {
       <label for="dinner_diet">If attending the conference dinner, please indicate any dietary restrictions: </label>
       <input type="text" class="form-control" id="dinner_diet" name="dinner_diet" maxlength="256" placeholder="optional">
     </div>
-    
+
     <hr>
     <div class="form-group">
       <div class="form-check">
@@ -243,21 +243,6 @@ body {
     </div>
     <div class="form-group" id="register_button">
       <button id="eventbrite-widget-modal-trigger-45044537424" class="btn btn-primary" type="button">Pay and Register</button>
-      <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-      <script type="text/javascript">
-          var checkoutCallback = function() {
-              console.log('Order completed on Eventbrite, sending registration to backend server');
-              $("#main_form").submit();
-          };
-
-          window.EBWidgets.createWidget({
-              widgetType: 'checkout',
-              eventId: '45044537424',
-              modal: true,
-              modalTriggerElementId: 'eventbrite-widget-modal-trigger-45044537424',
-              onOrderComplete: checkoutCallback
-          });
-      </script>
   </div>
     <input type="hidden" name="secret" id="secret" value=""/>
   </form>
@@ -285,7 +270,6 @@ body {
   </div>
 </div>
 
-
 <footer class="footer">
     <div class="container">
       <dl class="row">
@@ -299,10 +283,37 @@ body {
 </dl>
   </div>
 </footer>
-
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
   <script>
+
+// Eventbrite widget support
+var checkoutCallback = function() {
+    $("#main_form").submit();
+};
+window.EBWidgets.createWidget({
+    widgetType: 'checkout',
+    eventId: '45044537424',
+    modal: true,
+    modalTriggerElementId: 'eventbrite-widget-modal-trigger-45044537424',
+    onOrderComplete: checkoutCallback
+});
+
+// Validate the form before authorising checkout
+$(function(){
+  document.getElementById("register_button").addEventListener("click", function(event) {
+    var form = document.getElementById("main_form");
+    // If form is not validated, don't trigger the registration
+    if(form.checkValidity() === false){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+}, true);
+});
+
+// Function to disable the form if the backend is unavailable
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -323,12 +334,12 @@ var secret  = getUrlParameter('secret');
 
 $(function(){
   // Disable the form if the required info about backend server is missing
-  // if((backend === undefined) || (secret === undefined)){
-  //   $("#main_form :input").prop('disabled', true);
-  //   $('#backendModal').modal({show: true});
-  // }
-  // $("#main_form").attr('action', backend+'/register');
-  // $("#secret").attr('value', secret);
+   if((backend === undefined) || (secret === undefined)){
+     $("#main_form :input").prop('disabled', true);
+     $('#backendModal').modal({show: true});
+   }
+   $("#main_form").attr('action', backend+'/register');
+   $("#secret").attr('value', secret);
 });
 
 $("#email").change(function(){
@@ -353,19 +364,6 @@ $("#email").change(function(){
                 }
               console.log("Data: " + data + "\nStatus: " + status);
             });
-});
-
-// Validate the form before authorising checkout
-$(function(){
-  document.getElementById("register_button").addEventListener("click", function(event) {
-    var form = document.getElementById("main_form");
-    // If form is not validated, don't trigger the registration
-    if(form.checkValidity() === false){
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    form.classList.add('was-validated');
-}, true);
 });
 
 $("input").keyup(function() {
