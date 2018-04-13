@@ -69,7 +69,7 @@ def register():
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
-    return "Registered ok"
+    return render_template('success.html', data=participant)
 
 @app.route('/', methods=['GET'])
 def registered():
