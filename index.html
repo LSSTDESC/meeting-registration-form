@@ -265,13 +265,13 @@ body {
     <!-- Noscript content for added SEO -->
     <noscript><a href="https://www.eventbrite.com/e/cmu-lsst-desc-collaboration-meeting-tickets-45044537424" rel="noopener noreferrer" target="_blank"></noscript>
     <!-- You can customize this button any way you like -->
-    <button id="eventbrite-widget-modal-trigger-45044537424" class="btn btn-primary" type="button">Checkout and Register</button>
-    <noscript></a>Register on Eventbrite</noscript>
+    <button id="eventbrite-widget-modal-trigger-45044537424" type="button">Buy Tickets</button>
+    <noscript></a>Buy Tickets on Eventbrite</noscript>
 
     <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
 
     <script type="text/javascript">
-        var checkout_callback = function() {
+        var exampleCallback = function() {
             console.log('Order complete!');
         };
 
@@ -280,7 +280,7 @@ body {
             eventId: '45044537424',
             modal: true,
             modalTriggerElementId: 'eventbrite-widget-modal-trigger-45044537424',
-            onOrderComplete: checkout_callback
+            onOrderComplete: exampleCallback
         });
     </script>
     <input type="hidden" name="secret" id="secret" value=""/>
