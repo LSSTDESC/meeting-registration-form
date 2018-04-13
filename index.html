@@ -5,10 +5,8 @@
   <meta charset="UTF-8">
   <title>DESC registration form</title>
 
-
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:400,400i,700'>
-
   <style>
 
 body {
@@ -102,22 +100,25 @@ body {
       <div class="form-group col-md-6">
         <label for="first_name">First Name</label>
         <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" maxlength="100" required>
+        <div class="invalid-feedback">Please provide your first name.</div>
       </div>
       <div class="form-group col-md-6">
         <label for="last_name">Last Name</label>
         <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" maxlength="100" required>
+        <div class="invalid-feedback">Please provide your last name.</div>
       </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" class="form-control" name="email" id="email" placeholder="Email" maxlength="100" required>
         <div class="invalid-feedback">
-          Email already registered.
+          Invalid email or already registered.
         </div>
     </div>
     <div class="form-group">
       <label for="affili">Affiliation</label>
       <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" maxlength="100" required>
+      <div class="invalid-feedback">Please provide your affiliation.</div>
     </div>
 
     <div class="form-group">
@@ -153,9 +154,10 @@ body {
         </div>
         <div class="form-group">
           <label for="pronoun">Third-person pronoun</label>
-          <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/his, they/their..." required maxlength="100">
+          <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them..." required maxlength="100">
           <small id="inputPronounHelp" class="form-text text-muted">Third-pronoun you want people to use to refer to you.
        <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_top">Why ask for pronouns ?</a></small>
+        <div class="invalid-feedback">Please provide your choice of pronoun.</div>
         </div>
       </div>
       <div class="col-sm">
@@ -185,10 +187,9 @@ body {
     </div>
 
     <hr>
-
     <h5>Logistics</h5>
     <div class="form-group">
-      <label for="inputAttendance">What days will you attend ?</label>
+      <label for="inputAttendance">What days will you attend?</label>
       <div id="Attendance">
       <div class="form-check form-check-inline" id="inputAttendance">
         <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
@@ -214,45 +215,20 @@ body {
     </div>
 
     <div class="form-group">
-      <label for="dinnerOptions">Will you attend the conference dinner ?</label>
-      <div class="form-row align-items-center" id="dinnerOptions">
-
-        <div class="col-md-3">
-          <div class="form-check form-check-inline mb-2">
-            <input class="form-check-input" type="radio" name="dinner" id="dinnerTrue" value="yes" required>
-            <label class="form-check-label" for="inlineRadio1">Yes</label>
-          </div>
-          <div class="form-check form-check-inline mb-2">
-            <input class="form-check-input" type="radio" name="dinner" id="dinnerFalse" value="no">
-            <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <label for="dinner_guests">Additional guests</label>
-          <select class="form-control-inline" id="dinner_guests" name="dinner_guests">
-      <option>0</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-    </select>
-        </div>
-        <div class="col-md-6">
-          <input type="text" class="form-control" id="dinner_diet" name="dinner_diet" maxlength="256" placeholder="Please indicate any dietary restrictions">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
        <label for="carpooling">Will you be driving a car during the meeting and can help with carpooling?</label>
-        <div class="form-check form-check-inline mb-2" id="carpooling">
+        <div class="form-check  " id="carpooling">
             <input class="form-check-input" type="radio" name="carpool" id="carTrue" value="yes" required>
             <label class="form-check-label" for="inlineRadio1">Yes</label>
           </div>
-          <div class="form-check form-check-inline">
+          <div class="form-check ">
             <input class="form-check-input" type="radio" name="carpool" id="carFalse" value="no">
             <label class="form-check-label" for="inlineRadio2">No</label>
+          <div class="invalid-feedback">Please answer this question.</div>
           </div>
+    </div>
+    <div class="form-group">
+      <label for="dinner_diet">If attending the conference dinner, please indicate any dietary restrictions: </label>
+      <input type="text" class="form-control" id="dinner_diet" name="dinner_diet" maxlength="256" placeholder="optional">
     </div>
 
     <hr>
@@ -262,9 +238,12 @@ body {
         <label class="form-check-label" for="code_of_conduct">
         I have read, and will abide by, the DESC <a href="http://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf" target="_top">Code of Conduct</a>.
       </label>
+          <div class="invalid-feedback">You must agree to the code of conduct before registering.</div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <div class="form-group" id="register_button">
+      <button id="eventbrite-widget-modal-trigger-45044537424" class="btn btn-primary" type="button">Pay and Register</button>
+  </div>
     <input type="hidden" name="secret" id="secret" value=""/>
   </form>
 </div>
@@ -291,7 +270,6 @@ body {
   </div>
 </div>
 
-
 <footer class="footer">
     <div class="container">
       <dl class="row">
@@ -305,10 +283,50 @@ body {
 </dl>
   </div>
 </footer>
-
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
   <script>
+
+// Eventbrite widget support
+var checkoutCallback = function() {
+    $("#main_form").submit();
+};
+window.EBWidgets.createWidget({
+    widgetType: 'checkout',
+    eventId: '45044537424',
+    modal: true,
+    modalTriggerElementId: 'eventbrite-widget-modal-trigger-45044537424',
+    onOrderComplete: checkoutCallback
+});
+
+// Validate the form before authorising checkout
+$(function(){
+  document.getElementById("register_button").addEventListener("click", function(event) {
+    var form = document.getElementById("main_form");
+
+    // Custom checks
+    // Check that at least one day is selected
+    if($("#Attendance :input").filter(':checked').length >= 1){
+      $.each($("#Attendance :input"), function(index, obj){
+        obj.setCustomValidity("");
+      });
+    }else{
+      $.each($("#Attendance :input"), function(index, obj){
+        obj.setCustomValidity("Select at least one day");
+      });
+    }
+
+    // If form is not validated, don't trigger the registration
+    if(form.checkValidity() === false){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+}, true);
+});
+
+// Function to disable the form if the backend is unavailable
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -323,17 +341,18 @@ body {
         }
     }
 };
+
 var backend = getUrlParameter('backend');
 var secret  = getUrlParameter('secret');
 
 $(function(){
   // Disable the form if the required info about backend server is missing
-  if((backend === undefined) || (secret === undefined)){
-    $("#main_form :input").prop('disabled', true);
-    $('#backendModal').modal({show: true});
-  }
-  $("#main_form").attr('action', backend+'/register');
-  $("#secret").attr('value', secret);
+   if((backend === undefined) || (secret === undefined)){
+     $("#main_form :input").prop('disabled', true);
+     $('#backendModal').modal({show: true});
+   }
+   $("#main_form").attr('action', backend+'/register');
+   $("#secret").attr('value', secret);
 });
 
 $("#email").change(function(){
@@ -350,7 +369,6 @@ $("#email").change(function(){
                   d.setCustomValidity("Already registered.");
                   d.classList.add('is-invalid');
                 }
-
               }else{
                   // Server is unavailable...
                   // make sure we don't block the form at this stage
@@ -359,19 +377,6 @@ $("#email").change(function(){
                 }
               console.log("Data: " + data + "\nStatus: " + status);
             });
-});
-
-$("#dinnerOptions").change(function(){
-   selected_value = $("input[name='dinner']:checked").val();
-  if(selected_value === "yes"){
-    $("#dinner_guests").prop('disabled', false);
-    $("#dinner_diet").prop('disabled', false);
-  }else if(selected_value === "no"){
-    $("#dinner_guests").prop('disabled', true);
-    $("#dinner_guests").val(0);
-    $("#dinner_diet").prop('disabled', true);
-    $("#dinner_diet").val("");
-  }
 });
 
 $("input").keyup(function() {

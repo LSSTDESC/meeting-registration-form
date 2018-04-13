@@ -31,8 +31,6 @@ class Participant(db.Model):
     attend_thu = db.Column(db.String(5))
     attend_fri = db.Column(db.String(5))
 
-    dinner = db.Column(db.String(5))
-    dinner_guests = db.Column(db.Integer())
     dinner_diet = db.Column(db.String(512))
     carpool = db.Column(db.String(5))
 
