@@ -267,7 +267,7 @@ body {
     <script type="text/javascript">
         var checkoutCallback = function() {
             console.log('Order completed on Eventbrite, sending registration to backend server');
-            $("#main_form").submit()
+            $("#main_form").submit();
         };
 
         window.EBWidgets.createWidget({
