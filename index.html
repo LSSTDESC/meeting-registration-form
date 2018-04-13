@@ -304,6 +304,19 @@ window.EBWidgets.createWidget({
 $(function(){
   document.getElementById("register_button").addEventListener("click", function(event) {
     var form = document.getElementById("main_form");
+
+    // Custom checks
+    // Check that at least one day is selected
+    if($("#Attendance :input").filter(':checked').length >= 1){
+      $.each($("#Attendance :input"), function(index, obj){
+        obj.setCustomValidity("");
+      });
+    }else{
+      $.each($("#Attendance :input"), function(index, obj){
+        obj.setCustomValidity("Select at least one day");
+      });
+    }
+
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
       event.preventDefault();
