@@ -264,11 +264,10 @@ body {
     </div>
     <button id="eventbrite-widget-modal-trigger-45044537424" class="btn btn-primary" type="button">Pay and Register</button>
     <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-
     <script type="text/javascript">
         var checkoutCallback = function() {
             console.log('Order completed on Eventbrite, sending registration to backend server');
-            $(#main_form).submit()
+            $("#main_form").submit()
         };
 
         window.EBWidgets.createWidget({
