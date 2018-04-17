@@ -69,7 +69,9 @@ def register():
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
-    return render_template('success.html', data=participant)
+    r = make_response(render_template('success.html', data=participant))
+    r.headers.set('Access-Control-Allow-Origin',"*")
+    return r
 
 @app.route('/', methods=['GET'])
 def registered():
