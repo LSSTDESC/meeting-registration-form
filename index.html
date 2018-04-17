@@ -306,7 +306,7 @@ window.EBWidgets.createWidget({
     onOrderComplete: checkoutCallback
 });
 // Deactivate redirection warning
-$(window).on('beforeunload', function(e) { });
+$(window).bind('beforeunload', function(){});
 
 // Validate the form before authorising checkout
 $(function(){
