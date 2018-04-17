@@ -305,14 +305,13 @@ window.EBWidgets.createWidget({
     modalTriggerElementId: 'eventbrite-widget-modal-trigger-45044537424',
     onOrderComplete: checkoutCallback
 });
+// Deactivate redirection warning
+$(window).on('beforeunload', function(e) { });
 
 // Validate the form before authorising checkout
 $(function(){
   document.getElementById("register_button").addEventListener("click", function(event) {
     var form = document.getElementById("main_form");
-    
-    // Deactivate warning about being redirected
-    window.onbeforeunload = function(){};
 
     // Custom checks
     // Check that at least one day is selected
