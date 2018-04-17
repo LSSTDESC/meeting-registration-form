@@ -295,6 +295,9 @@ body {
 
 // Eventbrite widget support
 var checkoutCallback = function() {
+    // Deactivate redirection warning
+    $(window).bind('beforeunload', function(){});
+
     $("#main_form").submit();
 };
 
