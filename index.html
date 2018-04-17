@@ -296,10 +296,6 @@ body {
 // Eventbrite widget support
 var checkoutCallback = function() {
   
-    // Disable redirection warning in Firefox
-    window.addEventListener("beforeunload", function (event) {
-      event.preventDefault();
-    });
     $("#main_form").submit();
 };
 
