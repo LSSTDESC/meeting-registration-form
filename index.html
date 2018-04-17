@@ -295,8 +295,6 @@ body {
 
 // Eventbrite widget support
 var checkoutCallback = function() {
-    // Deactivate warning about being redirected
-    window.onbeforeunload = function(){};
     $("#main_form").submit();
 };
 
@@ -312,6 +310,9 @@ window.EBWidgets.createWidget({
 $(function(){
   document.getElementById("register_button").addEventListener("click", function(event) {
     var form = document.getElementById("main_form");
+    
+    // Deactivate warning about being redirected
+    window.onbeforeunload = function(){};
 
     // Custom checks
     // Check that at least one day is selected
