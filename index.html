@@ -295,9 +295,8 @@ body {
 
 // Eventbrite widget support
 var checkoutCallback = function() {
-    // Deactivate redirection warning
-    $(window).bind('beforeunload', function(){});
 
+    window.onbeforeunload = function () { alert(“onbeforeunload”); }
     $("#main_form").submit();
 };
 
@@ -308,8 +307,8 @@ window.EBWidgets.createWidget({
     modalTriggerElementId: 'eventbrite-widget-modal-trigger-45044537424',
     onOrderComplete: checkoutCallback
 });
-// Deactivate redirection warning
-$(window).bind('beforeunload', function(){});
+
+window.onbeforeunload = function () { alert(“onbeforeunload”); }
 
 // Validate the form before authorising checkout
 $(function(){
