@@ -296,7 +296,7 @@ body {
 // Eventbrite widget support
 var checkoutCallback = function() {
 
-    window.onbeforeunload = function () { alert(“onbeforeunload”); }
+    window.onbeforeunload = function () { alert("onbeforeunload"); }
     $("#main_form").submit();
 };
 
@@ -308,7 +308,7 @@ window.EBWidgets.createWidget({
     onOrderComplete: checkoutCallback
 });
 
-window.onbeforeunload = function () { alert(“onbeforeunload”); }
+window.onbeforeunload = function () { alert("onbeforeunload"); }
 
 // Validate the form before authorising checkout
 $(function(){
