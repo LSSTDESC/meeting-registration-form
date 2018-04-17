@@ -1,6 +1,6 @@
 import os
 import argparse
-from flask import Flask, render_template, request, redirect, url_for, Response
+from flask import Flask, render_template, request, redirect, url_for, Response, make_response
 from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Boolean
@@ -69,7 +69,9 @@ def register():
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
-    return render_template('success.html', data=participant)
+    r = make_response(render_template('success.html', data=participant))
+    r.headers.set('Access-Control-Allow-Origin',"*")
+    return r
 
 @app.route('/', methods=['GET'])
 def registered():
