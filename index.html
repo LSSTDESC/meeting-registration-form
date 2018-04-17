@@ -295,8 +295,11 @@ body {
 
 // Eventbrite widget support
 var checkoutCallback = function() {
+    // Deactivate warning about being redirected
+    window.onbeforeunload = function(){};
     $("#main_form").submit();
 };
+
 window.EBWidgets.createWidget({
     widgetType: 'checkout',
     eventId: '45044537424',
