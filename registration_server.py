@@ -81,7 +81,7 @@ def register():
 def registered():
     """Returns the list of registered participants
     """
-    # Get list of participants 
+    # Get list of participants
     participants = Participant.query.filter(Participant.registration_complete=='true').with_entities(Participant.first_name,
                                                    Participant.last_name,
                                                    Participant.affiliation).order_by(Participant.last_name).all()
@@ -89,14 +89,16 @@ def registered():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-
-    parser.add_argument("--create", action='store_true')
+    #
+    # parser.add_argument("--create", action='store_true')
     parser.add_argument("--dump", action='store_true')
     args = parser.parse_args()
+    print("Creating database table if doesn't exist")
+    db.create_all()
 
-    if args.create:
-        print("Creating database table if doesn't exist")
-        db.create_all()
+    # if args.create:
+    #     print("Creating database table if doesn't exist")
+    #     db.create_all()
 
     if args.dump:
         print("Printing content of database.")
