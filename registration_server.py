@@ -82,7 +82,7 @@ def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.with_entities(Participant.first_name,
+    participants = Participant.query.filter(Participant.registration_complete=='true').with_entities(Participant.first_name,
                                                    Participant.last_name,
                                                    Participant.affiliation).order_by(Participant.last_name).all()
     return render_template('participants.html', data=participants)
