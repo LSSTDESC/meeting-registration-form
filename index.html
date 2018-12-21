@@ -402,6 +402,9 @@ $(function(){
       });
     }
 
+    // Check that the user is not already registered
+    $("#email").fireEvent("onchange");
+
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
       event.preventDefault();
