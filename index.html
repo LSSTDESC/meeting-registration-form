@@ -385,6 +385,30 @@ document.getElementById("register").onclick = function(e) {
   return false;
 }
 
+var checkEmail = function(){
+    $.post(backend+"/check_email",
+            {email: $(this).val(),
+             secret: secret},
+            function(data, status){
+              var d = document.getElementById("email");
+              if (status === "success"){
+                if(data === "Ok"){
+                  d.setCustomValidity("");
+                  d.classList.remove('is-invalid');
+                }else{
+                  d.setCustomValidity("Already registered.");
+                  d.classList.add('is-invalid');
+                }
+              }else{
+                  // Server is unavailable...
+                  // make sure we don't block the form at this stage
+                  d.setCustomValidity("");
+                  d.classList.remove('is-invalid');
+                }
+              console.log("Data: " + data + "\nStatus: " + status);
+            });
+};
+
 // Validate the form before authorising checkout
 $(function(){
   document.getElementById("register_button").addEventListener("click", function(event) {
@@ -403,8 +427,7 @@ $(function(){
     }
 
     // Check that the user is not already registered
-    event  = new Event("change")
-    $("#email").dispatchEvent(event);
+    checkEmail();
 
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
@@ -444,29 +467,7 @@ $(function(){
    $("#secret").attr('value', secret);
 });
 
-$("#email").change(function(){
-    $.post(backend+"/check_email",
-            {email: $(this).val(),
-             secret: secret},
-            function(data, status){
-              var d = document.getElementById("email");
-              if (status === "success"){
-                if(data === "Ok"){
-                  d.setCustomValidity("");
-                  d.classList.remove('is-invalid');
-                }else{
-                  d.setCustomValidity("Already registered.");
-                  d.classList.add('is-invalid');
-                }
-              }else{
-                  // Server is unavailable...
-                  // make sure we don't block the form at this stage
-                  d.setCustomValidity("");
-                  d.classList.remove('is-invalid');
-                }
-              console.log("Data: " + data + "\nStatus: " + status);
-            });
-});
+$("#email").change(checkEmail());
 
 $("input").keyup(function() {
   var target = $("#" + $(this).attr("id") + "-s");
