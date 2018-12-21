@@ -299,7 +299,7 @@ body {
         <div class="modal-body" id="confirmation-content">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$( "#email" ).trigger( "change" );">Close</button>
         </div>
       </div>
     </div>
@@ -367,6 +367,7 @@ var checkoutCallback = function() {
             $("#confirmationModal").modal("show");
         }
     });
+
 };
 
 
@@ -402,8 +403,6 @@ $(function(){
       });
     }
 
-    // Check for  already registered email
-    $( "#email" ).trigger( "change" );
 
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
