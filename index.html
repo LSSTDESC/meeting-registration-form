@@ -402,27 +402,8 @@ $(function(){
       });
     }
 
-    // Check that the user is not already registered
-    $.post(backend+"/check_email",
-            {email: $("email").val(),
-             secret: secret},
-            function(data, status){
-              var d = document.getElementById("email");
-              if (status === "success"){
-                if(data === "Ok"){
-                  d.setCustomValidity("");
-                  d.classList.remove('is-invalid');
-                }else{
-                  d.setCustomValidity("Already registered.");
-                  d.classList.add('is-invalid');
-                }
-              }else{
-                  // Server is unavailable...
-                  // make sure we don't block the form at this stage
-                  d.setCustomValidity("Registration server appears unavailable, please contact the LOC");
-                  d.classList.remove('is-invalid');
-                }
-            });
+    // Check for  already registered email
+    $( "#email" ).trigger( "change" );
 
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
