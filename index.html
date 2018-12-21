@@ -316,7 +316,7 @@ body {
           <div class="embed-responsive embed-responsive-1by1">
             <iframe class="embed-responsive-item" src="https://www.cvent.com/events/lsst-desc-winter-collaboration-meeting/registration-1672e3a8972a4d608897b80dd32f5ce4.aspx?fqp=true" allowfullscreen></iframe>
           </div>
-          <small class="form-text text-muted" align="right">Please make sure to complete the payement process, your registration will not be considered valid otherwise. </small>
+          <small class="form-text text-muted" align="right">Please make sure to complete the payement process, <u>your registration will not be considered valid otherwise.</u> </small>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-warning" data-dismiss="modal" id="cancelRegistration">Cancel</button>
@@ -403,7 +403,7 @@ $(function(){
     }
 
     // Check that the user is not already registered
-    $("#email").fireEvent("onchange");
+    $("#email").dispatchEvent(Event("change"));
 
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
