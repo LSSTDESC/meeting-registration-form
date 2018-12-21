@@ -403,7 +403,8 @@ $(function(){
     }
 
     // Check that the user is not already registered
-    $("#email").dispatchEvent(Event("change"));
+    event  = new Event("change")
+    $("#email").dispatchEvent(event);
 
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
