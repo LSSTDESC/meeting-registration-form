@@ -387,7 +387,7 @@ document.getElementById("register").onclick = function(e) {
 
 var checkEmail = function(){
     $.post(backend+"/check_email",
-            {email: $(this).val(),
+            {email: $("#email").val(),
              secret: secret},
             function(data, status){
               var d = document.getElementById("email");
