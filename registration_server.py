@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for, Response, 
 from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Boolean
+from sqlalchemy import and_
 
 app = Flask(__name__)
 
@@ -36,6 +37,8 @@ class Participant(db.Model):
 
     code_of_conduct = db.Column(db.String(5))
 
+    registration_complete = db.Column(db.String(5))
+
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
 
@@ -54,7 +57,8 @@ def requires_auth(f):
 def check_email():
     email = request.form['email']
     # Check for already registered email
-    if Participant.query.filter(Participant.email == email).count() == 0:
+    if Participant.query.filter(and_(Participant.email == email,
+                                     Participant.registration_complete=='true')).count() == 0:
         return ("Ok", {'Access-Control-Allow-Origin':'*'})
     else:
         return ("Email already registered", {'Access-Control-Allow-Origin':'*'})
