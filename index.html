@@ -26,10 +26,10 @@ body {
 .embed-responsive{
     max-height: calc(100vh - 225px);
 }
-
+/*
 #registrationModal .modal-footer {
   justify-content: space-between;
-}
+} */
 
 #badge span {
   font-family: "Raleway";
@@ -316,10 +316,13 @@ body {
           <div class="embed-responsive embed-responsive-1by1">
             <iframe class="embed-responsive-item" src="https://www.cvent.com/events/lsst-desc-winter-collaboration-meeting/registration-1672e3a8972a4d608897b80dd32f5ce4.aspx?fqp=true" allowfullscreen></iframe>
           </div>
-          <small class="form-text text-muted" align="right">Please make sure to complete the payement process, <u>your registration will not be considered valid otherwise.</u> </small>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal" id="cancelRegistration">Cancel</button>
+          <small class="form-text text-muted" align="right">Please make sure to complete the payement process, <u>your registration will not be considered valid otherwise.</u>
+            <br>
+            Upon successful completion you will receive a confirmation email, please contact the LOC should you encouter any issues with your payment.
+           </small>
+          <!-- <button type="button" class="btn btn-warning" data-dismiss="modal" id="cancelRegistration">Cancel</button>
           <form class="form-inline">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" onchange="document.getElementById('completeRegistration').disabled = !this.checked; document.getElementById('registration_complete').value = true;" value="" id="cventCheck">
@@ -329,7 +332,7 @@ body {
           <div class="form-group">
           <button type="button" class="btn btn-success" data-dismiss="modal" id="completeRegistration" disabled="true" onclick="checkoutCallback()">Finalize Registration</button>
         </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
