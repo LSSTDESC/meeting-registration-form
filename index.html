@@ -103,10 +103,7 @@ body {
 
 <body>
   <div class="container">
-  <h2>Registration for the 2019 Winter Berkeley DESC meeting</h2>
-  The registration fee for the collaboration meeting is <u><i>$100</i></u>, which
-  covers attendance to the 5-day meeting and coffee breaks. Fees do not cover a
-  Collaboration Meeting Dinner, which is still undetermined.
+  <h2>Registration for the 2020 July DESC meeting</h2>
   <br>
   <br>
   <form action="" method="POST" id="main_form">
@@ -139,20 +136,21 @@ body {
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="contact" name="contact">
         <label class="form-check-label" for="contact">
-          Check if you do NOT wish to be considered for the role of a
-          <a href="https://lsstdesc.org/assets/pdf/policies/LSST_DESC_Professional_Conduct.pdf#page=6" target="_blank">Meeting Contact Person</a>.
+          As described in the <a href="http://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=11" target="_blank">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by Zoom and Slack) to meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful situations.
+MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting. 
+          Check if you do NOT wish to be considered for the role of an MCP.
          </label>
        </div>
       </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="visa" name="visa">
         <label class="form-check-label" for="visa">
         Check if you require an invitation letter for visa applications.
          </label>
        </div>
-      </div>
+      </div> -->
 
     <hr>
     <h5>Badge information</h5>
@@ -171,7 +169,7 @@ body {
           <label for="pronoun">Third-person pronoun</label>
           <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
           <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to refer to you, such as: they/she/he/ze, or simply just your names.
-            You can also say "no preference" or just enter a space. <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
+            You can also say "no preference" or just enter a space. As physical badges will not be distributed, please indicate your preferred pronouns on your displayed names on Zoom and Slack. <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
         <div class="invalid-feedback">Please provide your choice of pronoun.</div>
         </div>
       </div>
@@ -190,10 +188,10 @@ body {
             <span id="pronoun-s"></span>
           </div>
           <div id="event-d">
-            <span id="event-s">Collaboration Meeting, Feb 25-Mar 1 2019</span>
+            <span id="event-s">Collaboration Meeting, Jul 20-24 2020</span>
           </div>
           <div id="location-d">
-            <span id="location-s">International House, Berkeley</span>
+            <span id="location-s">Earth, Solar System, Milky Way</span>
           </div>
           <div id="logo1" class="logo"></div>
           <div id="logo2" class="logo"></div>
@@ -208,7 +206,7 @@ body {
       <div id="Attendance">
       <div class="form-check form-check-inline" id="inputAttendance">
         <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-        <label class="form-check-label" for="attend_mon">Monday (DE School)</label>
+        <label class="form-check-label" for="attend_mon">Monday</label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
@@ -224,12 +222,12 @@ body {
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="attend_fri" id="attend_fri">
-        <label class="form-check-label" for="attend_fri">Friday (Hack day)</label>
+        <label class="form-check-label" for="attend_fri">Friday (Overflow)</label>
       </div>
         </div>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
        <label for="carpooling">Will you be driving a car during the meeting and can help with carpooling?</label>
         <div class="form-check  " id="carpooling">
             <input class="form-check-input" type="radio" name="carpool" id="carTrue" value="yes" required>
@@ -244,7 +242,7 @@ body {
     <div class="form-group" hidden="true">
       <label for="dinner_diet">If attending the conference dinner, please indicate any dietary restrictions: </label>
       <input type="text" class="form-control" id="dinner_diet" name="dinner_diet" maxlength="256" placeholder="optional">
-    </div>
+    </div> -->
 
     <hr>
     <div class="form-group">
@@ -306,6 +304,7 @@ body {
   </div>
 
 <!-- Cvent registration modal -->
+<!--
     <div class="modal fade" id="registrationModal" role="document">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -318,10 +317,11 @@ body {
           </div>
         </div>
         <div class="modal-footer">
-          <small class="form-text text-muted" align="right">Please make sure to complete the payement process, <u>your registration will not be considered valid otherwise.</u>
+          <small class="form-text text-muted" align="right">Please make sure to complete the payment process, <u>your registration will not be considered valid otherwise.</u>
             <br>
             Upon successful completion you will receive a confirmation email, please contact the LOC should you encouter any issues with your payment.
            </small>
+         -->
           <!-- <button type="button" class="btn btn-warning" data-dismiss="modal" id="cancelRegistration">Cancel</button>
           <form class="form-inline">
           <div class="form-check">
@@ -333,11 +333,13 @@ body {
           <button type="button" class="btn btn-success" data-dismiss="modal" id="completeRegistration" disabled="true" onclick="checkoutCallback()">Finalize Registration</button>
         </div>
           </form> -->
+          <!--
         </div>
       </div>
     </div>
   </div>
- <!-- </div>  -->
+-->
+ <!-- </div>  --> 
 
 <footer class="footer">
     <div class="container">
@@ -382,9 +384,11 @@ document.getElementById("register").onclick = function(e) {
         url : $("#main_form").attr('action')
     });
 
+  /*
   $('#registrationModal').modal({show: true,
   keyboard: false,
   backdrop: 'static'});
+  */
   e.preventDefault();
   return false;
 }
