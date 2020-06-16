@@ -169,7 +169,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
           <label for="pronoun">Third-person pronoun</label>
           <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
           <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to refer to you, such as: they/she/he/ze, or simply just your names.
-            You can also say "no preference" or just enter a space. <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
+            You can also say "no preference" or just enter a space. As physical badges will not be distributed, please indicate your preferred pronouns on your displayed names on Zoom and Slack. <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
         <div class="invalid-feedback">Please provide your choice of pronoun.</div>
         </div>
       </div>
@@ -206,7 +206,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
       <div id="Attendance">
       <div class="form-check form-check-inline" id="inputAttendance">
         <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-        <label class="form-check-label" for="attend_mon">Monday (DE School)</label>
+        <label class="form-check-label" for="attend_mon">Monday</label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
@@ -222,7 +222,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="attend_fri" id="attend_fri">
-        <label class="form-check-label" for="attend_fri">Friday (Hack day)</label>
+        <label class="form-check-label" for="attend_fri">Friday (Overflow)</label>
       </div>
         </div>
     </div>
@@ -304,6 +304,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
   </div>
 
 <!-- Cvent registration modal -->
+<!--
     <div class="modal fade" id="registrationModal" role="document">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -316,10 +317,11 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
           </div>
         </div>
         <div class="modal-footer">
-          <small class="form-text text-muted" align="right">Please make sure to complete the payement process, <u>your registration will not be considered valid otherwise.</u>
+          <small class="form-text text-muted" align="right">Please make sure to complete the payment process, <u>your registration will not be considered valid otherwise.</u>
             <br>
             Upon successful completion you will receive a confirmation email, please contact the LOC should you encouter any issues with your payment.
            </small>
+         -->
           <!-- <button type="button" class="btn btn-warning" data-dismiss="modal" id="cancelRegistration">Cancel</button>
           <form class="form-inline">
           <div class="form-check">
@@ -331,11 +333,13 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
           <button type="button" class="btn btn-success" data-dismiss="modal" id="completeRegistration" disabled="true" onclick="checkoutCallback()">Finalize Registration</button>
         </div>
           </form> -->
+          <!--
         </div>
       </div>
     </div>
   </div>
- <!-- </div>  -->
+-->
+ <!-- </div>  --> 
 
 <footer class="footer">
     <div class="container">
@@ -380,9 +384,11 @@ document.getElementById("register").onclick = function(e) {
         url : $("#main_form").attr('action')
     });
 
+  /*
   $('#registrationModal').modal({show: true,
   keyboard: false,
   backdrop: 'static'});
+  */
   e.preventDefault();
   return false;
 }
