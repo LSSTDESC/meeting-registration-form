@@ -24,6 +24,8 @@ class Participant(db.Model):
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
     contact = db.Column(db.String(5))
+    volunteer = db.Column(db.String(5))
+    volunteer_responsibilities = db.Column(db.String(200))
     # visa    = db.Column(db.String(5))
 
     attend_mon = db.Column(db.String(5))
