@@ -10,8 +10,19 @@
   <style>
 
 body {
+  margin-top : 2%;
   margin-bottom: 0px; /* Margin bottom by footer height */
 }
+
+.outer { 
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.inner {
+  margin-left: 5%;
+}
+
 .footer {
   margin-top: 40px;
   width: 100%;
@@ -120,6 +131,17 @@ body {
         <div class="invalid-feedback">Please provide your last name.</div>
       </div>
     </div>
+
+    <!--
+    <div class="form-group">
+      <label for="pronoun">Third-person pronoun</label>
+        <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
+        <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to refer to you, such as: they/she/he/ze, or simply just your names.
+            You can also say "no preference" or just enter a space. <b>As physical badges will not be distributed, please indicate your preferred pronouns on your displayed names on Zoom and Slack.</b> <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
+      <div class="invalid-feedback">Please provide your choice of pronoun.</div>
+    </div>
+  -->
+
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" class="form-control" name="email" id="email" placeholder="Email" maxlength="100" required>
@@ -133,30 +155,122 @@ body {
       <div class="invalid-feedback">Please provide your affiliation.</div>
     </div>
 
-    <div class="form-group">
+    <hr>
+    <h5>DESC Meeting Contact Persons</h5>
+    
+      As described in the <a href="http://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=11" target="_blank">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by Zoom and Slack) to meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful situations.
+MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
+
+      <div class="form-group">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="contact" name="contact">
         <label class="form-check-label" for="contact">
-          As described in the <a href="http://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=11" target="_blank">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by Zoom and Slack) to meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful situations.
-MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
-          Check if you do NOT wish to be considered for the role of an MCP.
+          <b>Check if you do NOT wish to be considered for the role of an MCP.</b>
          </label>
        </div>
       </div>
 
+    <hr>
+    <h5>Session Facilitators</h5>
+    Special opportunity! The July 2020 meeting will be DESC’s first large-scale purely virtual event. You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator, which would involve, e.g. time keeping, monitoring the chat window or raised hands in the participant list on Zoom, and generally helping where needed. The Meetings Accessibility Committee (MAC) will provide reference material(s) and any necessary training prior to the meeting. New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community. 
     <div class="form-group">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="volunteer" name="volunteer">
         <label class="form-check-label" for="volunteer">
-          Special opportunity! The July 2020 meeting will be DESC’s first large-scale purely virtual event. You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Collaboration Meeting Facilitator, which would involve, e.g. monitoring a Zoom session for technical problems, time keeping, facilitating Q&A, and generally helping where needed. The Meetings Accessibility Committee (MAC) will provide reference material(s) and any necessary training prior to the meeting. New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community. Please check this box if you do NOT wish to be considered for helping out.
+          <b>Yes, I definitely want to help out!</b>
          </label>
        </div>
       </div>
 
-    <div class="form-group">
-      <label for="volunteer_responsibilities">Also, if you have preferred facilitator responsibilities, please mention them briefly here.</label>
-      <input type="text" class="form-control" name="volunteer_responsibilities" id="volunteer_responsibilities" placeholder="Preferred responsibilities" maxlength="200">
+      <div class="form-group">
+      <label for="volunteer_responsibilities">Also, if you have preferred facilitator responsibilities or sessions you'd like to join, please mention them briefly here.</label>
+      <input type="text" class="form-control" name="volunteer_responsibilities" id="volunteer_responsibilities" placeholder="e.g. blending-related sessions, plenaries" maxlength="200">
+      </div>
+
+
+  <!--
+  <div class="outer">
+    <div class="inner">
+      <div class="form-group">
+      <label for="wg_sessions">Which WG-related sessions would you be most likely to attend? Check all that apply.</label>
+      <div id="wg_sessions">
+      <div class="form-check form-check-inline" id="wg_sessions">
+        <input class="form-check-input" type="checkbox" name="CL" id="CL">
+        <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="LSS" id="LSS">
+        <label class="form-check-label" for="LSS">LSS: Large Scale Structure</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox"  name="SL" id="SL">
+        <label class="form-check-label" for="SL">SL: Strong Lensing</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox"  name="SN" id="SN">
+        <label class="form-check-label" for="SN">SN: Supernova</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="WL" id="WL">
+        <label class="form-check-label" for="WL">WL: Weak Lensing</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="BL" id="BL">
+        <label class="form-check-label" for="BL">BL: Blending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="CO" id="CO">
+        <label class="form-check-label" for="CO">CO: Computing</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="COM" id="COM">
+        <label class="form-check-label" for="COM">COM: Commissioning</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="CS" id="CS">
+        <label class="form-check-label" for="CS">CS: Cosmological Simulations</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="DKM" id="DKM">
+        <label class="form-check-label" for="DKM">DKM: Dark Matter</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="ES" id="ES">
+        <label class="form-check-label" for="ES">ES: External Synergies</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="OS" id="OS">
+        <label class="form-check-label" for="OS">OS: Observing Strategy</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="PC" id="PC">
+        <label class="form-check-label" for="PC">PC: Photometric Corrections</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="PSF" id="PSF">
+        <label class="form-check-label" for="PSF">PSF: Point Spread Function</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="PZ" id="PZ">
+        <label class="form-check-label" for="PZ">PZ: Photometric Redshifts</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="SA" id="SA">
+        <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="SSim" id="SSim">
+        <label class="form-check-label" for="SSim">SSim: Survey Simulations</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="TJP" id="TJP">
+        <label class="form-check-label" for="TJP">TJP: Theory & Joint Probes</label>
+      </div>
+        </div>
     </div>
+    </div>
+  </div>
+-->
 
     <!-- <div class="form-group">
       <div class="form-check">
@@ -167,6 +281,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
        </div>
       </div> -->
 
+    <!--
     <hr>
     <h5>Badge information</h5>
     <br>
@@ -213,7 +328,9 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
         </div>
       </div>
     </div>
+  -->
 
+  <!--
     <hr>
     <h5>Logistics</h5>
     <div class="form-group">
@@ -237,10 +354,11 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="attend_fri" id="attend_fri">
-        <label class="form-check-label" for="attend_fri">Friday (Overflow)</label>
+        <label class="form-check-label" for="attend_fri">Friday (followup items)</label>
       </div>
         </div>
     </div>
+  -->
 
     <!-- <div class="form-group">
        <label for="carpooling">Will you be driving a car during the meeting and can help with carpooling?</label>
@@ -264,7 +382,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
         <label class="form-check-label" for="recording">
-        All sessions will be recorded and recordings will be posted online. As a presenter or participant of the meeting, I understand that my voice may appear in the recording. (If you prefer your image not to appear, you are welcome to keep your video turned off.)
+        All the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter or participant of the meeting, I understand that my voice may appear in the recording. (All participants will be informed in Zoom when they are joining a session that is being recorded. Organizers of parallel sessions will be asked to consider the preferences of the speakers. If you prefer your image not to appear, you are welcome to keep your video turned off.)
       </label>
           <div class="invalid-feedback">Please acknowledge that you may be recorded.</div>
       </div>
@@ -298,7 +416,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
         </div>
         <div class="modal-body">
           <p>The URL for this form does not contain a valid registration link.
-            Please contact the LOC for a valid registration URL.</p>
+            Please contact the Logistics Organizing Committee (LOC) for a valid registration URL.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -369,12 +487,16 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
       <dl class="row">
         <span class="text-muted">
   <p class="lead">Privacy notice</p>
-  <p>Your <mark>first name, last name, and affiliation will appear on a public webpage</mark> associated with the meeting website. Your badge names, pronoun(s), and your affiliation will appear on your badge. Your email will be used to contact you when necessary. All data collected here may be shared with LSST DESC members who are on the LOC, the SOC, the Meetings Committee, the Collaboration Council, and the Management Team.
+  <p>Your <mark>first name, last name, and affiliation will appear on a public webpage</mark> associated with the meeting website. Your email will be used to contact you when necessary. All data collected here may be shared with LSST DESC members who are on the Logistics Organizing Committee (LOC), the Scientific Organizing Committee (SOC), the Meetings Committee, the Collaboration Council, and the Management Team.
   </p>
-         <div class="col-md-12">
+  <!--
+         <div class="col-md-12"> -->
           <!--Footer Bottom-->
+          <!--
           <p class="text-md-center"><small>This page uses the <a href="https://github.com/LSSTDESC/name-tag-guru/" target="_blank">badge template</a> designed by <a href="https://yymao.github.com/" target="_blank">Yao-Yuan Mao</a>. The logos appearing on the badge belong to the <a href="http://lsstdesc.org/" target="_blank">LSST Dark Energy Science Collaboration</a> and the <a href="https://www.lsstcorporation.org/" target="_blank">LSST Corporation</a>.</small></p>
         </div></span>
+      -->
+
 </dl>
   </div>
 </footer>
