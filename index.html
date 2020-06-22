@@ -14,7 +14,7 @@ body {
   margin-bottom: 0px; /* Margin bottom by footer height */
 }
 
-.outer { 
+.outer {
   width: 1000px;
   margin: 0 auto;
 }
@@ -160,7 +160,7 @@ body {
 
     <hr>
     <h5>DESC Meeting Contact Persons</h5>
-    
+
       As described in the <a href="https://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=6" target="_blank">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by Zoom and Slack) to meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful situations.
 MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
 
@@ -175,7 +175,7 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
 
     <hr>
     <h5>Session Facilitators</h5>
-    Special opportunity! The July 2020 meeting will be DESC’s first large-scale purely virtual event. You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator for one or two sessions; this would involve, e.g. time keeping, monitoring the chat window or raised hands in the participant list on Zoom, and generally helping where needed. The Meetings Accessibility Committee (MAC) will provide reference material(s) and any necessary training prior to the meeting. New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community. 
+    Special opportunity! The July 2020 meeting will be DESC’s first large-scale purely virtual event. You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator for one or two sessions; this would involve, e.g. time keeping, monitoring the chat window or raised hands in the participant list on Zoom, and generally helping where needed. The Meetings Accessibility Committee (MAC) will provide reference material(s) and any necessary training prior to the meeting. New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community.
     <div class="form-group">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="volunteer" name="volunteer">
@@ -440,9 +440,6 @@ MCPs will be selected from eligible participants, and be appointed by the Collab
         </div>
         <div class="modal-body" id="confirmation-content">
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$('#email').trigger('change');">Close</button>
-        </div>
       </div>
     </div>
   </div>
@@ -522,7 +519,6 @@ var checkoutCallback = function() {
 
 };
 
-
 document.getElementById("register").onclick = function(e) {
   checkoutCallback()
 
@@ -534,18 +530,6 @@ document.getElementById("register").onclick = function(e) {
 $(function(){
   document.getElementById("register_button").addEventListener("click", function(event) {
     var form = document.getElementById("main_form");
-
-    // Custom checks
-    // Check that at least one day is selected
-    if($("#Attendance :input").filter(':checked').length >= 1){
-      $.each($("#Attendance :input"), function(index, obj){
-        obj.setCustomValidity("");
-      });
-    }else{
-      $.each($("#Attendance :input"), function(index, obj){
-        obj.setCustomValidity("Select at least one day");
-      });
-    }
 
     // If form is not validated, don't trigger the registration
     if(form.checkValidity() === false){
