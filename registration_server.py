@@ -99,7 +99,7 @@ def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.distinct(Participant.email).order_by(Participant.email, Participant.last_name).with_entities(Participant.first_name,
+    participants = Participant.query.distinct(Participant.email).order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name,
                                                    Participant.last_name,
                                                    Participant.affiliation).all()
     return render_template('participants.html', data=participants)
