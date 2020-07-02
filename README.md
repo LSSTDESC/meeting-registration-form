@@ -42,3 +42,16 @@ the following html code (again, replace `SERVER_URL` and `SECRET_KEY`):
    - Click the *Insert* button, go to *Other macros*.
    - Insert and *HTML* macro (not *HTML Include*).
    - Add the above html snippet. Save. Done !
+
+- Step 8 (optional): View the database:
+   - From the Heroku dashboard, once again, click on *Manage App* then *Settings* and finally click the *Reveal Config Vars* button.
+   - Copy the value of `DATABASE_URL`. The database can be viewed and edited using this URL using a postgres server. Whoever creates the Heroku app should share this URL with the Meetings Committee but ensure that it's never publicly accessible.
+   - To read it as a Pandas DataFrame, install `sqlalchemy`, e.g. via `pip3 install sqlalchemy` and run
+
+```python
+import pandas as pd
+from sqlalchemy import create_engine
+engine = create_engine(DATABASE_URL)
+df = pd.read_sql_table('participants', engine) # read as DataFrame
+df.to_csv('participants.csv') # optionally export as a csv file 
+```
