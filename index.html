@@ -185,8 +185,8 @@
       <hr>
       <h5>Session Facilitators</h5>
       Special opportunity! The July 2020 meeting will be DESC’s first large-scale purely virtual event. You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator for one or two sessions; this
-      would involve, e.g. time keeping, monitoring the chat window or raised hands in the participant list on Zoom, and generally helping where needed. The Meetings Accessibility Committee (MAC) will provide reference material(s) and any necessary
-      training prior to the meeting. New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community.
+      would involve, e.g. time keeping, monitoring the chat window or raised hands in the participant list on Zoom, and generally helping where needed. The Meetings Accessibility Committee (MAC) will provide reference material(s) prior to the
+      meeting. New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community.
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="volunteer" name="volunteer">
@@ -196,10 +196,10 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="volunteer_responsibilities">Also, if you have preferred facilitator responsibilities or sessions you'd like to join, please mention them briefly here.</label>
         <input type="text" class="form-control" name="volunteer_responsibilities" id="volunteer_responsibilities" placeholder="e.g. blending-related sessions, plenaries" maxlength="200">
-      </div>
+      </div> -->
 
 
       <!--
@@ -348,6 +348,64 @@
       <h5>Logistics</h5>
       <div class="form-group">
         <label for="inputAttendance">What days will you attend?</label>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Monday</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">Synchronous</option>
+            <option value="2">Asynchronous</option>
+            <option value="3">Not Sprinting</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Tuesday</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">Synchronous</option>
+            <option value="2">Asynchronous</option>
+            <option value="3">Not Sprinting</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Wednesday</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">Synchronous</option>
+            <option value="2">Asynchronous</option>
+            <option value="3">Not Sprinting</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Thursday</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">Synchronous</option>
+            <option value="2">Asynchronous</option>
+            <option value="3">Not Sprinting</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Friday</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">Synchronous</option>
+            <option value="2">Asynchronous</option>
+            <option value="3">Not Sprinting</option>
+          </select>
+        </div>
+
+        <!--
         <div id="Attendance">
           <div class="form-check form-check-inline" id="inputAttendance">
             <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
@@ -369,7 +427,8 @@
             <input class="form-check-input" type="checkbox" name="attend_fri" id="attend_fri">
             <label class="form-check-label" for="attend_fri">Friday</label>
           </div>
-        </div>
+        </div> -->
+
       </div>
 
       <div class="form-group">
@@ -395,11 +454,11 @@
         <div id="NERSC">
           <div class="form-check form-check-inline" id="inputNersc">
             <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-            <label class="form-check-label" for="attend_mon">Yes</label>
+            <label class="form-check-label" for="attend_mon">Yes, I can access Jupyter Hub without problem</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
-            <label class="form-check-label" for="attend_tue">No</label>
+            <label class="form-check-label" for="attend_tue">No, I would appreciate some help to get started</label>
           </div>
         </div>
       </div>
@@ -409,9 +468,7 @@
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
           <label class="form-check-label" for="recording">
-            All the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded. (All participants will
-            be informed in Zoom when they are joining a session that is being recorded. Organizers of parallel sessions will be asked to consider the preferences of the speakers. If you prefer your image not to appear, you are welcome to keep your
-            video turned off.)
+            Some of the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded.
           </label>
           <div class="invalid-feedback">Please acknowledge that you may be recorded.</div>
         </div>
