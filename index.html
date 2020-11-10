@@ -345,19 +345,47 @@
   -->
 
       <hr>
-      <h5>Logistics</h5>
-      <div class="form-group">
-        <label for="inputAttendance">What days will you attend?</label>
 
+      <h5>Logistics</h5>
+      <div class="alert alert-info" role="alert">
+
+        <p>Because of the virtual format of this meeting, several attendance modes
+          are proposed:</p>
+        <ul>
+          <li><b>Fully synchronous participation</b>: You expect to be available for
+            sprint activities for most of the designated sprint timeslot,
+            can attend live tutorials, and can join impromptu discussions on Zoom.
+          </li>
+          <li><b>Fully asynchronous participation</b>: You will be working on sprints
+            but on your own schedule, which may not overlap with the designated sprint timeslot.
+            You will be able to keep in touch with other sprint participants on GitHub and Slack.</li>
+          <li><b>Partially synchronous participation</b>: A mix of the above, you expect to only be
+            available for part of the day to join a few live sessions (like tag-ups) and have some
+            discussions, but you may expect to be working on sprints mostly outside of the designated timeslots.
+          </li>
+        </ul>
+        To help accomodate participants from both sides of the Atlantic, two different sprint timeslots are proposed centered on Central European Standard Time, and
+        East Standard Time
+        <ul>
+          <li> <b>American Sprint Time</b>: 8am-2pm PST, or equivalently 11am-5pm EST
+          </li>
+          <li> <b>European Sprint Time</b>: 1pm-7pm CEST
+          </li>
+        </ul>
+        These two regional sprint timeslots will overlap each day for 2 hours, allowing from some globally synchronous discussions and events.
+      </div>
+      <div class="form-group">
+        <label for="inputAttendance">What days will you attend and which sprint mode are you most likely to follow?</label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">Monday</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">Synchronous</option>
-            <option value="2">Asynchronous</option>
-            <option value="3">Not Sprinting</option>
+            <option value="1">Fully Synchronous</option>
+            <option value="2">Partially Synchronous</option>
+            <option value="3">Fully Asynchronous</option>
+            <option value="4">Not attending that day</option>
           </select>
         </div>
         <div class="input-group mb-3">
@@ -366,9 +394,10 @@
           </div>
           <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">Synchronous</option>
-            <option value="2">Asynchronous</option>
-            <option value="3">Not Sprinting</option>
+            <option value="1">Fully Synchronous</option>
+            <option value="2">Partially Synchronous</option>
+            <option value="3">Fully Asynchronous</option>
+            <option value="4">Not attending that day</option>
           </select>
         </div>
         <div class="input-group mb-3">
@@ -377,9 +406,10 @@
           </div>
           <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">Synchronous</option>
-            <option value="2">Asynchronous</option>
-            <option value="3">Not Sprinting</option>
+            <option value="1">Fully Synchronous</option>
+            <option value="2">Partially Synchronous</option>
+            <option value="3">Fully Asynchronous</option>
+            <option value="4">Not attending that day</option>
           </select>
         </div>
         <div class="input-group mb-3">
@@ -388,9 +418,10 @@
           </div>
           <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">Synchronous</option>
-            <option value="2">Asynchronous</option>
-            <option value="3">Not Sprinting</option>
+            <option value="1">Fully Synchronous</option>
+            <option value="2">Partially Synchronous</option>
+            <option value="3">Fully Asynchronous</option>
+            <option value="4">Not attending that day</option>
           </select>
         </div>
         <div class="input-group mb-3">
@@ -399,9 +430,10 @@
           </div>
           <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">Synchronous</option>
-            <option value="2">Asynchronous</option>
-            <option value="3">Not Sprinting</option>
+            <option value="1">Fully Synchronous</option>
+            <option value="2">Partially Synchronous</option>
+            <option value="3">Fully Asynchronous</option>
+            <option value="4">Not attending that day</option>
           </select>
         </div>
 
@@ -449,16 +481,24 @@
         </div>
       </div>
 
+      <div class="alert alert-warning" role="alert">
+        Having a working <a href="#" data-toggle="tooltip" title="
+National Energy Research Scientific Computing Center">NERSC</a> computing account
+        <b>before</b> the sprint week is <b>highly</b> recommended. This will let you access the shared
+        DESC computing environment and DESC data products. <br>
+        Information about accessing NERSC resources is available on the DESC <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Getting+Started+at+NERSC">Confluence</a>.
+      </div>
+
       <div class="form-group">
-        <label for="inputNERSC">Do you have a working NERSC account?</label>
+        <label for="inputNERSC">Do you have a working NERSC account and can access the JupyterHub platform?</label>
         <div id="NERSC">
           <div class="form-check form-check-inline" id="inputNersc">
             <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-            <label class="form-check-label" for="attend_mon">Yes, I can access Jupyter Hub without problem</label>
+            <label class="form-check-label" for="attend_mon">Yes, I can access JupyterHub without problem</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
-            <label class="form-check-label" for="attend_tue">No, I would appreciate some help to get started</label>
+            <label class="form-check-label" for="attend_tue">No/I'm not sure, I would appreciate some help to get started</label>
           </div>
         </div>
       </div>
@@ -468,7 +508,7 @@
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
           <label class="form-check-label" for="recording">
-            Some of the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded.
+            Some sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded.
           </label>
           <div class="invalid-feedback">Please acknowledge that you may be recorded.</div>
         </div>
