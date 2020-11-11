@@ -150,8 +150,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="attend_mon">Monday</label>
           </div>
-          <select class="custom-select" name="attend_mon" id="attend_mon">
-            <option selected>Choose...</option>
+          <select class="custom-select" name="attend_mon" id="attend_mon" required>
+            <option selected value="0">Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
             <option value="3">Fully Asynchronous</option>
@@ -162,8 +162,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="attend_tue">Tuesday</label>
           </div>
-          <select class="custom-select" name="attend_tue" id="attend_tue">
-            <option selected>Choose...</option>
+          <select class="custom-select" name="attend_tue" id="attend_tue" required>
+            <option selected value="0">Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
             <option value="3">Fully Asynchronous</option>
@@ -174,8 +174,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="attend_wed">Wednesday</label>
           </div>
-          <select class="custom-select" name="attend_wed" id="attend_wed">
-            <option selected>Choose...</option>
+          <select class="custom-select" name="attend_wed" id="attend_wed" required>
+            <option selected value="0">Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
             <option value="3">Fully Asynchronous</option>
@@ -186,8 +186,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="attend_thu">Thursday</label>
           </div>
-          <select class="custom-select" name="attend_thu" id="attend_thu">
-            <option selected>Choose...</option>
+          <select class="custom-select" name="attend_thu" id="attend_thu" required>
+            <option selected value="0">Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
             <option value="3">Fully Asynchronous</option>
@@ -198,8 +198,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="attend_fri">Friday</label>
           </div>
-          <select class="custom-select" name="attend_fri" id="attend_fri">
-            <option selected>Choose...</option>
+          <select class="custom-select" name="attend_fri" id="attend_fri" required>
+            <option selected value="0">Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
             <option value="3">Fully Asynchronous</option>
@@ -212,15 +212,15 @@
         <label for="inputTimezone">Which timezone are you the closest to and will be sprinting from?</label>
         <div id="inputTimezone">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timezone" id="tz_pst" value="pst">
+            <input class="form-check-input" type="radio" name="timezone" id="tz_pst" value="pst" required>
             <label class="form-check-label" for="tz_pst">Pacific Standard Time</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timezone" id="tz_est" value="est">
+            <input class="form-check-input" type="radio" name="timezone" id="tz_est" value="est" required>
             <label class="form-check-label" for="tz_est">Eastern Standard Time</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="timezone" id="tz_cest" value="cest">
+            <input class="form-check-input" type="radio" name="timezone" id="tz_cest" value="cest" required>
             <label class="form-check-label" for="tz_cest">Central European Standard Time</label>
           </div>
         </div>
@@ -237,11 +237,11 @@
         <label for="inputNERSC">Do you have a working NERSC account and can access the JupyterHub platform?</label>
         <div>
           <div class="form-check form-check-inline" id="inputNersc">
-            <input class="form-check-input" type="radio" name="nersc" id="nersc_ok" value="ok">
+            <input class="form-check-input" type="radio" name="nersc" id="nersc_ok" value="ok" required>
             <label class="form-check-label" for="nersc_ok">Yes, I can access JupyterHub without problem</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="nersc" id="nersc_notok" value="notok">
+            <input class="form-check-input" type="radio" name="nersc" id="nersc_notok" value="notok" required>
             <label class="form-check-label" for="nersc_notok">No/I'm not sure, I would appreciate some help to get started</label>
           </div>
         </div>
