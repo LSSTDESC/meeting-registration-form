@@ -148,9 +148,9 @@
         <label for="inputAttendance">What days will you attend and which sprint mode are you most likely to follow?</label>
         <div class="input-group mb-3" id="inputAttendance">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="mondayAttendance">Monday</label>
+            <label class="input-group-text" for="attend_mon">Monday</label>
           </div>
-          <select class="custom-select" id="mondayAttendance">
+          <select class="custom-select" name="attend_mon" id="attend_mon">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -160,9 +160,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="tuesdayAttendance">Tuesday</label>
+            <label class="input-group-text" for="attend_tue">Tuesday</label>
           </div>
-          <select class="custom-select" id="tuesdayAttendance">
+          <select class="custom-select" name="attend_tue" id="attend_tue">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -172,9 +172,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="wednesdayAttendance">Wednesday</label>
+            <label class="input-group-text" for="attend_wed">Wednesday</label>
           </div>
-          <select class="custom-select" id="wednesdayAttendance">
+          <select class="custom-select" name="attend_wed" id="attend_wed">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -184,9 +184,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="thursdayAttendance">Thursday</label>
+            <label class="input-group-text" for="attend_thu">Thursday</label>
           </div>
-          <select class="custom-select" id="thursdayAttendance">
+          <select class="custom-select" name="attend_thu" id="attend_thu">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -196,9 +196,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="fridayAttendance">Friday</label>
+            <label class="input-group-text" for="attend_fri">Friday</label>
           </div>
-          <select class="custom-select" id="fridayAttendance">
+          <select class="custom-select" name="attend_fri" id="attend_fri">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -212,15 +212,15 @@
         <label for="inputTimezone">Which timezone are you the closest to and will be sprinting from?</label>
         <div id="inputTimezone">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="tz_pst">
+            <input class="form-check-input" type="radio" name="timezone" id="tz_pst" value="pst">
             <label class="form-check-label" for="tz_pst">Pacific Standard Time</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="tz_est">
+            <input class="form-check-input" type="radio" name="timezone" id="tz_est" value="est">
             <label class="form-check-label" for="tz_est">Eastern Standard Time</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="tz_cest">
+            <input class="form-check-input" type="radio" name="timezone" id="tz_cest" value="cest">
             <label class="form-check-label" for="tz_cest">Central European Standard Time</label>
           </div>
         </div>
@@ -237,11 +237,11 @@
         <label for="inputNERSC">Do you have a working NERSC account and can access the JupyterHub platform?</label>
         <div>
           <div class="form-check form-check-inline" id="inputNersc">
-            <input class="form-check-input" type="radio" name="nersc" id="nersc_ok">
+            <input class="form-check-input" type="radio" name="nersc" id="nersc_ok" value="ok">
             <label class="form-check-label" for="nersc_ok">Yes, I can access JupyterHub without problem</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="nersc" id="nersc_notok">
+            <input class="form-check-input" type="radio" name="nersc" id="nersc_notok" value="notok">
             <label class="form-check-label" for="nersc_notok">No/I'm not sure, I would appreciate some help to get started</label>
           </div>
         </div>
