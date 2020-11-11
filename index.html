@@ -301,9 +301,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Registration successful</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> -->
         </div>
         <div class="modal-body" id="confirmation-content">
         </div>
@@ -334,7 +334,11 @@
         url: $("#main_form").attr('action'),
         success: function(data) {
           $("#confirmation-content").html(data);
-          $("#confirmationModal").modal("show");
+          $("#confirmationModal").modal({
+            show: true,
+            backdrop: 'static',
+            keyboard: false
+          });
         }
       });
 
@@ -385,7 +389,9 @@
       if ((backend === undefined) || (secret === undefined)) {
         $("#main_form :input").prop('disabled', true);
         $('#backendModal').modal({
-          show: true
+          show: true,
+          backdrop: 'static',
+          keyboard: false
         });
       }
       $("#main_form").attr('action', backend + '/register');
