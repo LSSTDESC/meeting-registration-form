@@ -42,80 +42,6 @@
 #registrationModal .modal-footer {
   justify-content: space-between;
 } */
-
-    #badge span {
-      font-family: "Raleway";
-    }
-
-    #badge {
-      position: relative;
-      margin: 0 auto;
-      width: 4in;
-      height: 3in;
-      border: 1px solid black;
-    }
-
-    #badge div {
-      white-space: nowrap;
-      text-align: center;
-      width: 100%;
-      position: absolute;
-      line-height: 0.8;
-    }
-
-    #lname-d,
-    #sname-d {
-      font-weight: bold;
-    }
-
-    #lname-d {
-      font-size: 68pt;
-      bottom: 2.05in;
-    }
-
-    #sname-d {
-      font-size: 26pt;
-      font-weight: bold;
-      bottom: 1.55in;
-    }
-
-    #affili-d,
-    #pronoun-d {
-      font-size: 22pt;
-      bottom: 1.08in;
-    }
-
-    #pronoun-d {
-      font-style: italic;
-      bottom: 0.64in;
-    }
-
-    #event-d,
-    #location-d {
-      font-size: 7pt;
-      bottom: 0.29in;
-      left: 0.025in;
-    }
-
-    #location-d {
-      bottom: 0.15in;
-    }
-
-    #logo1 {
-      width: 92px !important;
-      height: 61px;
-      background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/desc-logo.png");
-      bottom: 0.02in;
-      left: 0.1in;
-    }
-
-    #logo2 {
-      width: 64px !important;
-      height: 22px;
-      background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/lsstc-logo.png");
-      bottom: 0.15in;
-      right: 0.2in;
-    }
   </style>
 
 </head>
@@ -142,16 +68,6 @@
           <div class="invalid-feedback">Please provide your last name.</div>
         </div>
       </div>
-
-      <!--
-    <div class="form-group">
-      <label for="pronoun">Third-person pronoun</label>
-        <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
-        <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to refer to you, such as: they/she/he/ze, or simply just your names.
-            You can also say "no preference" or just enter a space. <b>As physical badges will not be distributed, please indicate your preferred pronouns on your displayed names on Zoom and Slack.</b> <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
-      <div class="invalid-feedback">Please provide your choice of pronoun.</div>
-    </div>
-  -->
 
       <div class="form-group">
         <label for="email">Email</label>
@@ -197,154 +113,6 @@
         </div>
       </div>
 
-      <!-- <div class="form-group">
-        <label for="volunteer_responsibilities">Also, if you have preferred facilitator responsibilities or sessions you'd like to join, please mention them briefly here.</label>
-        <input type="text" class="form-control" name="volunteer_responsibilities" id="volunteer_responsibilities" placeholder="e.g. blending-related sessions, plenaries" maxlength="200">
-      </div> -->
-
-
-      <!--
-  <div class="outer">
-    <div class="inner">
-      <div class="form-group">
-      <label for="wg_sessions">Which WG-related sessions would you be most likely to attend? Check all that apply.</label>
-      <div id="wg_sessions">
-      <div class="form-check form-check-inline" id="wg_sessions">
-        <input class="form-check-input" type="checkbox" name="CL" id="CL">
-        <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="LSS" id="LSS">
-        <label class="form-check-label" for="LSS">LSS: Large Scale Structure</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox"  name="SL" id="SL">
-        <label class="form-check-label" for="SL">SL: Strong Lensing</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox"  name="SN" id="SN">
-        <label class="form-check-label" for="SN">SN: Supernova</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="WL" id="WL">
-        <label class="form-check-label" for="WL">WL: Weak Lensing</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="BL" id="BL">
-        <label class="form-check-label" for="BL">BL: Blending</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="CO" id="CO">
-        <label class="form-check-label" for="CO">CO: Computing</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="COM" id="COM">
-        <label class="form-check-label" for="COM">COM: Commissioning</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="CS" id="CS">
-        <label class="form-check-label" for="CS">CS: Cosmological Simulations</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="DKM" id="DKM">
-        <label class="form-check-label" for="DKM">DKM: Dark Matter</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="ES" id="ES">
-        <label class="form-check-label" for="ES">ES: External Synergies</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="OS" id="OS">
-        <label class="form-check-label" for="OS">OS: Observing Strategy</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="PC" id="PC">
-        <label class="form-check-label" for="PC">PC: Photometric Corrections</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="PSF" id="PSF">
-        <label class="form-check-label" for="PSF">PSF: Point Spread Function</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="PZ" id="PZ">
-        <label class="form-check-label" for="PZ">PZ: Photometric Redshifts</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="SA" id="SA">
-        <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="SSim" id="SSim">
-        <label class="form-check-label" for="SSim">SSim: Survey Simulations</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="TJP" id="TJP">
-        <label class="form-check-label" for="TJP">TJP: Theory & Joint Probes</label>
-      </div>
-        </div>
-    </div>
-    </div>
-  </div>
--->
-
-      <!-- <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="visa" name="visa">
-        <label class="form-check-label" for="visa">
-        Check if you require an invitation letter for visa applications.
-         </label>
-       </div>
-      </div> -->
-
-      <!--
-    <hr>
-    <h5>Badge information</h5>
-    <br>
-    <div class="row">
-      <div class="col-sm">
-        <div class="form-group">
-          <label for="lname">Large-font name</label>
-          <input type="text" class="form-control" name="lname" id="lname" placeholder="optional, defaults to first name" maxlength="100">
-        </div>
-        <div class="form-group">
-          <label for="sname">Small-font name</label>
-          <input type="text" class="form-control" name="sname" id="sname" placeholder="optional, defaults to last name" maxlength="100">
-        </div>
-        <div class="form-group">
-          <label for="pronoun">Third-person pronoun</label>
-          <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
-          <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to refer to you, such as: they/she/he/ze, or simply just your names.
-            You can also say "no preference" or just enter a space. As physical badges will not be distributed, please indicate your preferred pronouns on your displayed names on Zoom and Slack. <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
-        <div class="invalid-feedback">Please provide your choice of pronoun.</div>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div id="badge">
-          <div id="lname-d">
-            <span id="lname-s"></span>
-          </div>
-          <div id="sname-d">
-            <span id="sname-s"></span>
-          </div>
-          <div id="affili-d">
-            <span id="affili-s"></span>
-          </div>
-          <div id="pronoun-d">
-            <span id="pronoun-s"></span>
-          </div>
-          <div id="event-d">
-            <span id="event-s">Collaboration Meeting, Jul 20-24 2020</span>
-          </div>
-          <div id="location-d">
-            <span id="location-s">Earth, Solar System, Milky Way</span>
-          </div>
-          <div id="logo1" class="logo"></div>
-          <div id="logo2" class="logo"></div>
-        </div>
-      </div>
-    </div>
-  -->
-
       <hr>
 
       <h5>Logistics</h5>
@@ -378,11 +146,11 @@
       </div>
       <div class="form-group">
         <label for="inputAttendance">What days will you attend and which sprint mode are you most likely to follow?</label>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" id="inputAttendance">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Monday</label>
+            <label class="input-group-text" for="mondayAttendance">Monday</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
+          <select class="custom-select" id="mondayAttendance">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -392,9 +160,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Tuesday</label>
+            <label class="input-group-text" for="tuesdayAttendance">Tuesday</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
+          <select class="custom-select" id="tuesdayAttendance">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -404,9 +172,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Wednesday</label>
+            <label class="input-group-text" for="wednesdayAttendance">Wednesday</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
+          <select class="custom-select" id="wednesdayAttendance">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -416,9 +184,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Thursday</label>
+            <label class="input-group-text" for="thursdayAttendance">Thursday</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
+          <select class="custom-select" id="thursdayAttendance">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -428,9 +196,9 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Friday</label>
+            <label class="input-group-text" for="fridayAttendance">Friday</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
+          <select class="custom-select" id="fridayAttendance">
             <option selected>Choose...</option>
             <option value="1">Fully Synchronous</option>
             <option value="2">Partially Synchronous</option>
@@ -438,47 +206,22 @@
             <option value="4">Not attending that day</option>
           </select>
         </div>
-
-        <!--
-        <div id="Attendance">
-          <div class="form-check form-check-inline" id="inputAttendance">
-            <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-            <label class="form-check-label" for="attend_mon">Monday</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
-            <label class="form-check-label" for="attend_tue">Tuesday</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_wed" id="attend_wed">
-            <label class="form-check-label" for="attend_wed">Wednesday</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_thu" id="attend_thu">
-            <label class="form-check-label" for="attend_thu">Thursday</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_fri" id="attend_fri">
-            <label class="form-check-label" for="attend_fri">Friday</label>
-          </div>
-        </div> -->
-
       </div>
 
       <div class="form-group">
         <label for="inputTimezone">Which timezone are you the closest to and will be sprinting from?</label>
-        <div id="Attendance">
-          <div class="form-check form-check-inline" id="inputTimezone">
-            <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-            <label class="form-check-label" for="attend_mon">Pacific Standard Time</label>
+        <div id="inputTimezone">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="tz_pst">
+            <label class="form-check-label" for="tz_pst">Pacific Standard Time</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
-            <label class="form-check-label" for="attend_tue">Eastern Standard Time</label>
+            <input class="form-check-input" type="checkbox" id="tz_est">
+            <label class="form-check-label" for="tz_est">Eastern Standard Time</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_wed" id="attend_wed">
-            <label class="form-check-label" for="attend_wed">Central European Standard Time</label>
+            <input class="form-check-input" type="checkbox" id="tz_cest">
+            <label class="form-check-label" for="tz_cest">Central European Standard Time</label>
           </div>
         </div>
       </div>
@@ -492,14 +235,14 @@
 
       <div class="form-group">
         <label for="inputNERSC">Do you have a working NERSC account and can access the JupyterHub platform?</label>
-        <div id="NERSC">
+        <div>
           <div class="form-check form-check-inline" id="inputNersc">
-            <input class="form-check-input" type="checkbox" name="attend_mon" id="attend_mon">
-            <label class="form-check-label" for="attend_mon">Yes, I can access JupyterHub without problem</label>
+            <input class="form-check-input" type="radio" name="nersc" id="nersc_ok">
+            <label class="form-check-label" for="nersc_ok">Yes, I can access JupyterHub without problem</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="attend_tue" id="attend_tue">
-            <label class="form-check-label" for="attend_tue">No/I'm not sure, I would appreciate some help to get started</label>
+            <input class="form-check-input" type="radio" name="nersc" id="nersc_notok">
+            <label class="form-check-label" for="nersc_notok">No/I'm not sure, I would appreciate some help to get started</label>
           </div>
         </div>
       </div>
@@ -568,44 +311,6 @@
     </div>
   </div>
 
-  <!-- Cvent registration modal -->
-  <!--
-    <div class="modal fade" id="registrationModal" role="document">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Please complete the payment process to finalize registration</h5>
-        </div>
-        <div class="modal-body">
-          <div class="embed-responsive embed-responsive-1by1">
-            <iframe class="embed-responsive-item" src="https://www.cvent.com/events/lsst-desc-winter-collaboration-meeting/registration-1672e3a8972a4d608897b80dd32f5ce4.aspx?fqp=true" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <small class="form-text text-muted" align="right">Please make sure to complete the payment process, <u>your registration will not be considered valid otherwise.</u>
-            <br>
-            Upon successful completion you will receive a confirmation email, please contact the LOC should you encouter any issues with your payment.
-           </small>
-         -->
-  <!-- <button type="button" class="btn btn-warning" data-dismiss="modal" id="cancelRegistration">Cancel</button>
-          <form class="form-inline">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" onchange="document.getElementById('completeRegistration').disabled = !this.checked; document.getElementById('registration_complete').value = true;" value="" id="cventCheck">
-            <label class="form-check-label" for="cventCheck">I have completed the payment process. </label>
-          </div>
-
-          <div class="form-group">
-          <button type="button" class="btn btn-success" data-dismiss="modal" id="completeRegistration" disabled="true" onclick="checkoutCallback()">Finalize Registration</button>
-        </div>
-          </form> -->
-  <!--
-        </div>
-      </div>
-    </div>
-  </div>
--->
-  <!-- </div>  -->
-
   <footer class="footer">
     <div class="container">
       <dl class="row">
@@ -614,14 +319,6 @@
           <p>Your <mark>first name, last name, and affiliation will appear on a public webpage</mark> associated with the meeting website. Your email will be used to contact you when necessary. All data collected here may be shared with LSST DESC
             members who are on the Logistics Organizing Committee (LOC), the Scientific Organizing Committee (SOC), the Meetings Committee, the Collaboration Council, and the Management Team.
           </p>
-          <!--
-         <div class="col-md-12"> -->
-          <!--Footer Bottom-->
-          <!--
-          <p class="text-md-center"><small>This page uses the <a href="https://github.com/LSSTDESC/name-tag-guru/" target="_blank">badge template</a> designed by <a href="https://yymao.github.com/" target="_blank">Yao-Yuan Mao</a>. The logos appearing on the badge belong to the <a href="http://lsstdesc.org/" target="_blank">LSST Dark Energy Science Collaboration</a> and the <a href="https://www.lsstcorporation.org/" target="_blank">LSST Corporation</a>.</small></p>
-        </div></span>
-      -->
-
       </dl>
     </div>
   </footer>
