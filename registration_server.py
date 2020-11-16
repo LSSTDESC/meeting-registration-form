@@ -36,6 +36,7 @@ class Participant(db.Model):
 
     tutorial = db.Column(db.String(2000))
     mentor = db.Column(db.String(20))
+    mentee = db.Column(db.String(20))
     accomodation = db.Column(db.String(2000))
 
 
