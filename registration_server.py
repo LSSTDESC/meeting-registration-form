@@ -22,7 +22,7 @@ class Participant(db.Model):
     affiliation = db.Column(db.String(100))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
-    
+
     attend_mon = db.Column(db.String(5))
     attend_tue = db.Column(db.String(5))
     attend_wed = db.Column(db.String(5))
@@ -33,6 +33,11 @@ class Participant(db.Model):
     nersc = db.Column(db.String(5))
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
+
+    tutorial = db.Column(db.String(2000))
+    mentor = db.Column(db.String(20))
+    accomodation = db.Column(db.String(2000))
+
 
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
