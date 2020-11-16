@@ -16,10 +16,10 @@ db = SQLAlchemy(app)
 class Participant(db.Model):
     __tablename__ = 'participants'
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(100))
-    last_name  = db.Column(db.String(100))
-    email = db.Column(db.String(100))
-    affiliation = db.Column(db.String(100))
+    first_name = db.Column(db.String(200))
+    last_name  = db.Column(db.String(200))
+    email = db.Column(db.String(200))
+    affiliation = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
@@ -34,10 +34,10 @@ class Participant(db.Model):
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
 
-    tutorial = db.Column(db.String(2000))
+    tutorial = db.Column(db.String(4000))
     mentor = db.Column(db.String(20))
     mentee = db.Column(db.String(20))
-    accomodation = db.Column(db.String(2000))
+    accomodation = db.Column(db.String(4000))
 
 
     def __repr__(self):
