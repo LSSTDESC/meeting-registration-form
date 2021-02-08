@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--IMPORTANT in order to activate registration, followinstruction line 356 -->
 <head>
   <meta charset="UTF-8">
   <title>DESC registration form</title>
@@ -46,10 +46,11 @@
 
 </head>
 
-<body>
+<body> 
   <div class="container">
     <h2>Registration for the February 2021 virtual DESC Meeting</h2>
     <h4>Monday - Friday, Feb. 1 - FEB. 5, 2021</h4>
+    <p style="color:red"> Registrations for this meeting are now closed </p>
     There is no registration fee for this meeting.
     <br>
     Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80" target="_blank">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the meeting.
@@ -353,7 +354,8 @@
         var form = document.getElementById("main_form");
 
         // If form is not validated, don't trigger the registration
-        if (form.checkValidity() === false) {
+        // IMPORTANT in order to activate the registration, uncomment below and remove `true`.
+        if true {//(form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
