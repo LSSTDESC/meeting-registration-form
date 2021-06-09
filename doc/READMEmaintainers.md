@@ -49,7 +49,7 @@ Connect to the database using DATABASE_URL.   It’s in sqlachemy format:
 
     `postgres://user:password@host:port/dbname`
 
-If you use sqlalchemy to connect, depending on version you might need to change the initial `postgres` to `postgresql`.   Then make a file, e.g. `database.ini`, consisting just of that string. Change protection on the file so only you can read it. François made a notebook using this connection method which will dump the contents of the database.
+If you use sqlalchemy to connect, depending on version you might need to change the initial `postgres` to `postgresql`.   Then make a file, e.g. `database.ini`, consisting just of that string. Change protection on the file so only you can read it. (Reference to Notebook here?)
 
 In theory you should be able to use the components of DATABASE_URL to log in with other client programs, such as psql, but I wasn’t able to make it work.
 
