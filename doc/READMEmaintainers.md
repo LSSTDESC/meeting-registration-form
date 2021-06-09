@@ -21,10 +21,10 @@ Since it’s very unlikely you’ll get everything right the first time (or even
 In order to be able to test everything thoroughly on your fork, you should set up github.io:
 1. create a repository in your space named your-github-name.github.io. My github name is JoanneBogart so the full path to mine is `JoanneBogart/JoanneBogart.github.io`. This repo needs a README.md file but nothing else.
 2. In the github web interface
-  * go to your fork of meeting-registration-form
-  * click **Settings** (along the top)
-  * click **Pages** (in the list to the left, under **Options**)
-  * the drop-down menu under **Source** should say **None**. Choose the branch (either master or main) which will be the source. And you’re done.
+* go to your fork of meeting-registration-form
+* click **Settings** (along the top)
+* click **Pages** (in the list to the left, under **Options**)
+* the drop-down menu under **Source** should say **None**. Choose the branch (either master or main) which will be the source. And you’re done.
 
 ### First deploy
 You can pretty much follow the instructions in README.md, but I suggest first creating your Heroku account, then starting over from the README page to do the actual deploy (I’m not positive but I think when I tried to continue immediately after creating my account the page I saw didn’t match the description in the README. But the next time around, with my account already created, it did.)
