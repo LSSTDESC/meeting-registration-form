@@ -48,7 +48,7 @@ Connect to the database using DATABASE_URL.   It’s in this format:
 
     `postgres://user:password@host:port/dbname`
 
-If you use sqlalchemy to connect, depending on version you might need to change the initial `postgres` to `postgresql`.   Then make a file, e.g. `database.ini`, consisting just of that string. Change protection on the file so only you can read it. (Reference to Notebook here?)
+If you use sqlalchemy to connect, depending on version you might need to change the initial `postgres` to `postgresql`.   Then make a file, e.g. `database.ini`, consisting just of that string. Change protection on the file so only you can read it. See the Jupyter notebook DatabaseQueries in this repo for an example.
 
 In theory you should be able to use the components of DATABASE_URL to log in with other client programs, such as psql, but I wasn’t able to make it work.
 
