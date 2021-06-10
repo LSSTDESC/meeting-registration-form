@@ -16,7 +16,7 @@ Checkout a preview of the registration form
 - Step 3: Choose a name for your registration server:
  ![alt text](.static/im1.png)
 
-  In this example, the `SERVER_URL` will be `https://desc-winter2021-meeting.herokuapp.com/`
+  In this example, the `SERVER_URL` will be `https://desc-july2021-meeting.herokuapp.com/`
 
 - Step 4: Click the *Deploy* button and let the magic happen.
 

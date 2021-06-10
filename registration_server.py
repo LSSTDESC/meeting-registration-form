@@ -8,7 +8,7 @@ from sqlalchemy import and_
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db').replace("s://", "sql://", 1)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 db = SQLAlchemy(app)
 
@@ -31,7 +31,7 @@ class Participant(db.Model):
     BL = db.Column(db.String(5))
     CO = db.Column(db.String(5))
     COM = db.Column(db.String(5))
-    CS = db.Column(db.String(5))
+    CSS = db.Column(db.String(5))
     DKM = db.Column(db.String(5))
     ES = db.Column(db.String(5))
     OS = db.Column(db.String(5))
@@ -39,7 +39,6 @@ class Participant(db.Model):
     PSF = db.Column(db.String(5))
     PZ = db.Column(db.String(5))
     SA = db.Column(db.String(5))
-    SSim = db.Column(db.String(5))
     TJP = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
