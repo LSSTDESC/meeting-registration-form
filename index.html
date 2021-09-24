@@ -2,12 +2,20 @@
 <html lang="en">
 
 <script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
+function openInPersonForm() {
+  document.getElementById("inPersonForm").style.display = "block";
 }
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+function openRemoteForm() {
+  document.getElementById("remoteForm").style.display = "block";
+}
+
+function closeRemoteForm() {
+  document.getElementById("remoteForm").style.display = "none";
+}
+
+function closeInPersonForm() {
+  document.getElementById("inPersonForm").style.display = "none";
 }
 </script>
 
@@ -113,14 +121,16 @@ function closeForm() {
 
 <body>
 
-<div class="form-popup" id="myForm", style="display: none;">
+<div class="form-popup" id="inPersonForm", style="display: none;">
       <hr>
       <h5>Participation Location</h5>
       Where will you be attending the October sprint week? 
       <br>
-      Please note that if you are attending at UIUC, you will have to present your 
-      vaccination record card in-person to gain entry to the university buildings. This 
-      is not required at Princeton. (APC?)
+      Please note that if you are attending at UIUC, 
+      you will have to present your 
+      vaccination record card in-person 
+      to gain entry to the university buildings. 
+      This is not required at Princeton. (APC?)
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
@@ -144,7 +154,7 @@ function closeForm() {
       </div>
 </div>
 
-<div class="form-popup" id="myForm", style="display: none;">
+<div class="form-popup" id="remoteForm", style="display: none;">
       <hr>
       <h5>Attendance Timezone</h5>
       Please select the timezone from which you will be attending the Sprint Week. 
@@ -221,7 +231,7 @@ function closeForm() {
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="remote" name="inperson">
+          <input class="form-check-input" type="radio" id="remote" name="inperson", onclick="openForm()">
           <label class="form-check-label" for="remote">
             <b>Remotely</b>
           </label>
@@ -353,7 +363,6 @@ function closeForm() {
 
    <hr>
 
-      <hr>
       <h5>DESC Computing Access</h5>
       Please indicate the computing resources to which you currently have access.
       <br>
