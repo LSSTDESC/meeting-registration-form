@@ -21,9 +21,10 @@ function closeForm() {
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
+/*  position: fixed;*/
+/*  bottom: 0;*/
+  /*right: 15px;*/
+  text-align: center;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
@@ -116,6 +117,10 @@ function closeForm() {
       <hr>
       <h5>Participation Location</h5>
       Where will you be attending the October sprint week? 
+      <br>
+      Please note that if you are attending at UIUC, you will have to present your 
+      vaccination record card in-person to gain entry to the university buildings. This 
+      is not required at Princeton. (APC?)
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
@@ -135,20 +140,35 @@ function closeForm() {
             <b>APC</b>
           </label>
         </div>
+		 <button type="submit" class="btn">Submit</button>
       </div>
+</div>
 
-  <form action="/action_page.php" class="form-container">
-    <h1>Login</h1>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
+<div class="form-popup" id="myForm", style="display: none;">
+      <hr>
+      <h5>Attendance Timezone</h5>
+      Please select the timezone from which you will be attending the Sprint Week. 
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="timezone" name="timezone">
+          <label class="form-check-label" for="timezone">
+            <b>UTC-4: TODO</b>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="timezone" name="timezone">
+          <label class="form-check-label" for="timezone">
+            <b>Another Option</b>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="timezone" name="timezone">
+          <label class="form-check-label" for="timezone">
+            <b>To complete later</b>
+          </label>
+        </div>
+         <button type="submit" class="btn">Submit</button>
+      </div>
 </div>
 
   <div class="container">
@@ -325,6 +345,30 @@ function closeForm() {
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="Social" id="Social">
         <label class="form-check-label" for="Social">Social Events</label>
+      </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+   <hr>
+<div class="outer">
+    <div class="inner">
+      <div class="form-group">
+      <hr>
+      <h5>DESC Computing Access</h5>
+      Please indicate the computing resources to which you currently have access.
+      <div class="form-check form-check-inline" id="computingResources">
+        <input class="form-check-input" type="checkbox" name="nersc" id="nersc">
+        <label class="form-check-label" for="nersc">NERSC</label>
+      </div>
+      <div class="form-check form-check-inline" id="computingResources">
+        <input class="form-check-input" type="checkbox" name="in2p3" id="in2p3">
+        <label class="form-check-label" for="in2p3">in2p3</label>
+      </div>
+      <div class="form-check form-check-inline" id="computingResources">
+        <input class="form-check-input" type="checkbox" name="rubinSciencePlatform" id="rubinSciencePlatform">
+        <label class="form-check-label" for="rubinSciencePlatform">Rubin Science Platform</label>
       </div>
         </div>
     </div>
