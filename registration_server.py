@@ -23,6 +23,14 @@ class Participant(db.Model):
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
+    inperson = db.Column(db.String(5))
+    remote = db.Column(db.String(5))
+    chosenhub = db.Column(db.String(5))
+
+    rubinSciencePlatform = db.Column(db.String(5))
+    nersc = db.Column(db.String(5))
+    in2p3 = db.Column(db.String(5))
+
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
     SL = db.Column(db.String(5))
