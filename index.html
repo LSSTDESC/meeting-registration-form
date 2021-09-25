@@ -141,7 +141,7 @@ function closeInPersonForm() {
 <body>
 
 <div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 20px;">
-      <span class="close" name="closeInPerson">&times;</span>
+      <span class="close" name="closeInPerson" onclick="closeInPersonForm()">&times;</span>
       <h5>Participation Location</h5>
       Where will you be attending the October sprint week? 
       <br>
@@ -176,7 +176,7 @@ function closeInPersonForm() {
 </div>
 
 <div class="form-popup" id="remoteForm", style="display: none;   text-align: left; padding: 20px;">
-      <span class="close" name="closeRemote">&times;</span>
+      <span class="close" name="closeRemote" onclick="closeRemoteForm()">&times;</span>
       <h5>Attendance Timezone</h5>
       Please select the timezone from which you will be attending the Sprint Week. 
 
