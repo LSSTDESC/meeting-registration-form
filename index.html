@@ -140,276 +140,11 @@ function closeInPersonForm() {
 
 <body>
 
-<form action="" method="POST" id="location_form">
-<div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 20px;">
-      <span class="close" id="closeInPerson" onclick="closeInPersonForm()">&times;</span>
-      <h5>Participation Location</h5>
-      Where will you be attending the October sprint week? 
-      <br>
-      Please note that if you are attending at UIUC, 
-      you will have to present your 
-      vaccination record card in-person 
-      to gain entry to the university buildings. 
-      This is not required at Princeton. (APC?)
-      <div class="form-group">
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
-          <label class="form-check-label" for="UIUC">
-            <b>UIUC</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
-          <label class="form-check-label" for="Princeton">
-            <b>Princeton</b>
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
-          <label class="form-check-label" for="APC">
-            <b>APC</b>
-          </label>
-        </div>
-		 <button type="submit" class="btn"  onclick="closeInPersonForm()">Submit</button>
-      </div>
-</div>
-</form>
-
-<div class="form-popup" id="remoteForm", style="display: none;   text-align: left; padding: 20px;">
-      <span class="close" id="closeRemote" onclick="closeRemoteForm()">&times;</span>
-      <h5>Attendance Timezone</h5>
-      Please select the timezone from which you will be attending the Sprint Week. 
-
-      <div class="form-group" style="overflow-x: hidden;  overflow-y: auto; max-height: 200px;">
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="MIT">
-            <b>MIT/Midway Islands Time/GMT-11:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="HST">
-            <b>HST/Hawaii Standard Time/GMT-10:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="AST">
-            <b>AST/Alaska Standard Time/GMT-9:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="PST">
-            <b>PST/Pacific Standard Time/GMT-8:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="PNT">
-            <b>PNT/Phoenix Standard Time/GMT-7:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="MST">
-            <b>MST/Mountain Standard Time/GMT-7:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="CST">
-            <b>CST/Central Standard Time/GMT-6:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="EST">
-            <b>EST/Eastern Standard Time/GMT-5:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="IET">
-            <b>IET/Indiana Eastern Standard Time/GMT-5:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="PRT">
-            <b>PRT/Puerto Rico and US Virgin Islands Time/GMT-4:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="CNT">
-            <b>CNT/Canada Newfoundland Time/GMT-3:30</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="AGT">
-            <b>AGT/Argentina Standard Time/GMT-3:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="BET">
-            <b>BET/Brazil Eastern Time/GMT-3:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="CAT">
-            <b>CAT/Central African Time/GMT-1:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="UTC">
-            <b>UTC/Universal Coordinated Time/GMT</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="ECT">
-            <b>ECT/European Central Time/GMT+1:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="EET">
-            <b>EET/Eastern European Time/GMT+2:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="ART">
-            <b>ART/(Arabic) Egypt Standard Time/GMT+2:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="EAT">
-            <b>EAT/Eastern African Time/GMT+3:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="MET">
-            <b>MET/Middle East Time/GMT+3:30</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="NET">
-            <b>NET/Near East Time/GMT+4:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="PLT">
-            <b>PLT/Pakistan Lahore Time/GMT+5:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="IST">
-            <b>IST/India Standard Time/GMT+5:30</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="BST">
-            <b>BST/Bangladesh Standard Time/GMT+6:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="VST">
-            <b>VST/Vietnam Standard Time/GMT+7:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="CTT">
-            <b>CTT/China Taiwan Time/GMT+8:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="JST">
-            <b>JST/Japan Standard Time/GMT+9:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="ACT">
-            <b>ACT/Australia Central Time/GMT+9:30</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="AET">
-            <b>AET/Australia Eastern Time/GMT+10:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="SST">
-            <b>SST/Solomon Standard Time/GMT+11:00</b>
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" id="timezone" name="timezone">
-          <label class="form-check-label" for="NST">
-            <b>NST/New Zealand Standard Time/GMT+12:00</b>
-          </label>
-        </div>
-
-      </div>
-         <button type="submit" class="btn" onclick="closeRemoteForm()">Submit</button>
-</div>
-
   <div class="container">
     <h2>Registration for the October 2021 DESC Sprint Week</h2>
     <h4>Monday - Friday, October 25 - October 29, 2021</h4>
     This meeting will be organized as a hybrid event. Participants are welcome to join over Zoom or in-person
-    at one of our three hubs: the University of Illinois at Urbana-Champaign (UIUC), Princeton University, 
+    at one of our three hubs: the University of Illinois at Urbana-Champaign (UIUC), Princeton University,
     or the Astroparticle and Cosmology (APC) laboratory in Paris. There is no registration fee for this meeting.
     <br>
     Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80" target="_blank">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the meeting.
@@ -418,6 +153,270 @@ function closeInPersonForm() {
     <br>
     <br>
     <form action="" method="POST" id="main_form">
+
+      <div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 20px;">
+            <span class="close" id="closeInPerson" onclick="closeInPersonForm()">&times;</span>
+            <h5>Participation Location</h5>
+            Where will you be attending the October sprint week?
+            <br>
+            Please note that if you are attending at UIUC,
+            you will have to present your
+            vaccination record card in-person
+            to gain entry to the university buildings.
+            This is not required at Princeton. (APC?)
+            <div class="form-group">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
+                <label class="form-check-label" for="UIUC">
+                  <b>UIUC</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
+                <label class="form-check-label" for="Princeton">
+                  <b>Princeton</b>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="chosenhub" name="chosenhub">
+                <label class="form-check-label" for="APC">
+                  <b>APC</b>
+                </label>
+              </div>
+      		 <button type="submit" class="btn"  onclick="closeInPersonForm()">Submit</button>
+            </div>
+      </div>
+
+      <div class="form-popup" id="remoteForm", style="display: none;   text-align: left; padding: 20px;">
+            <span class="close" id="closeRemote" onclick="closeRemoteForm()">&times;</span>
+            <h5>Attendance Timezone</h5>
+            Please select the timezone from which you will be attending the Sprint Week.
+
+            <div class="form-group" style="overflow-x: hidden;  overflow-y: auto; max-height: 200px;">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="MIT">
+                  <b>MIT/Midway Islands Time/GMT-11:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="HST">
+                  <b>HST/Hawaii Standard Time/GMT-10:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="AST">
+                  <b>AST/Alaska Standard Time/GMT-9:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="PST">
+                  <b>PST/Pacific Standard Time/GMT-8:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="PNT">
+                  <b>PNT/Phoenix Standard Time/GMT-7:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="MST">
+                  <b>MST/Mountain Standard Time/GMT-7:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="CST">
+                  <b>CST/Central Standard Time/GMT-6:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="EST">
+                  <b>EST/Eastern Standard Time/GMT-5:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="IET">
+                  <b>IET/Indiana Eastern Standard Time/GMT-5:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="PRT">
+                  <b>PRT/Puerto Rico and US Virgin Islands Time/GMT-4:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="CNT">
+                  <b>CNT/Canada Newfoundland Time/GMT-3:30</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="AGT">
+                  <b>AGT/Argentina Standard Time/GMT-3:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="BET">
+                  <b>BET/Brazil Eastern Time/GMT-3:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="CAT">
+                  <b>CAT/Central African Time/GMT-1:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="UTC">
+                  <b>UTC/Universal Coordinated Time/GMT</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="ECT">
+                  <b>ECT/European Central Time/GMT+1:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="EET">
+                  <b>EET/Eastern European Time/GMT+2:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="ART">
+                  <b>ART/(Arabic) Egypt Standard Time/GMT+2:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="EAT">
+                  <b>EAT/Eastern African Time/GMT+3:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="MET">
+                  <b>MET/Middle East Time/GMT+3:30</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="NET">
+                  <b>NET/Near East Time/GMT+4:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="PLT">
+                  <b>PLT/Pakistan Lahore Time/GMT+5:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="IST">
+                  <b>IST/India Standard Time/GMT+5:30</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="BST">
+                  <b>BST/Bangladesh Standard Time/GMT+6:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="VST">
+                  <b>VST/Vietnam Standard Time/GMT+7:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="CTT">
+                  <b>CTT/China Taiwan Time/GMT+8:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="JST">
+                  <b>JST/Japan Standard Time/GMT+9:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="ACT">
+                  <b>ACT/Australia Central Time/GMT+9:30</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="AET">
+                  <b>AET/Australia Eastern Time/GMT+10:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="SST">
+                  <b>SST/Solomon Standard Time/GMT+11:00</b>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="timezone" name="timezone">
+                <label class="form-check-label" for="NST">
+                  <b>NST/New Zealand Standard Time/GMT+12:00</b>
+                </label>
+              </div>
+
+            </div>
+               <button type="submit" class="btn" onclick="closeRemoteForm()">Submit</button>
+      </div>
+
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="first_name">First Name</label>
@@ -446,7 +445,7 @@ function closeInPersonForm() {
 
       <hr>
       <h5>Participation Format</h5>
-      Will you be attending the October Sprint Week in-person or remotely over zoom? 
+      Will you be attending the October Sprint Week in-person or remotely over zoom?
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="radio" id="inperson" name="inperson", onclick="openInPersonForm()">
@@ -491,7 +490,7 @@ function closeInPersonForm() {
             <b>Yes, I definitely want to help out!</b>
           </label>
         </div>
-      </div> 
+      </div>
 
       <hr>
 <div class="outer">
@@ -599,13 +598,13 @@ function closeInPersonForm() {
       <h5>Junior Membership and Mentor/Mentee Sign-Up</h5>
       <p>We all know how challenging it can be to navigate a new space,
         with a lot of things happening during DESC meetings and in the large DESC collaboration in general.
-        To address this, the LOC will set up mentor/mentee pairs with the overarching goal of having 
+        To address this, the LOC will set up mentor/mentee pairs with the overarching goal of having
         a point of contact for attendees who might not know where to start.
         Typically, the role of a mentor will simply be to be available and open to
         fielding questions and directing mentees to the right resources (people and/or documentation).
         Junior members who have experience with DESC meetings are encouraged to consider serving as a mentor!
       <br> <br>
-       Please indicate your experience with the DESC collaboration and your 
+       Please indicate your experience with the DESC collaboration and your
        interest in the mentorship program below.
       </p>
       <ul>
