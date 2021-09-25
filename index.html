@@ -4,10 +4,12 @@
 <script>
 function openInPersonForm() {
   document.getElementById("inPersonForm").style.display = "block";
+  document.getElementById("remoteForm").style.display = "none";
 }
 
 function openRemoteForm() {
   document.getElementById("remoteForm").style.display = "block";
+  document.getElementById("inPersonForm").style.display = "none";
 }
 
 function closeRemoteForm() {
@@ -123,8 +125,7 @@ function closeInPersonForm() {
 
 <body>
 
-<div class="form-popup" id="inPersonForm", style="display: none;   text-align: left;">
-      <hr>
+<div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 70px;">
       <h5>Participation Location</h5>
       Where will you be attending the October sprint week? 
       <br>
@@ -156,7 +157,7 @@ function closeInPersonForm() {
       </div>
 </div>
 
-<div class="form-popup" id="remoteForm", style="display: none;   text-align: left;">
+<div class="form-popup" id="remoteForm", style="display: none;   text-align: left; padding: 70px;">
       <hr>
       <h5>Attendance Timezone</h5>
       Please select the timezone from which you will be attending the Sprint Week. 
@@ -270,7 +271,6 @@ function closeInPersonForm() {
           </label>
         </div>
       </div> 
-     <hr>
 
       <hr>
 <div class="outer">
@@ -416,6 +416,7 @@ function closeInPersonForm() {
       </ul>
 
       <hr>
+      <h5>Session Facilitators</h5>
       <div class="form-group">
       <label for="tutorial_requests">Are there any tutorials you'd like to see during the Sprint Week?</label>
       <input type="text" class="form-control" name="tutorial_requests" id="tutorial_requests" placeholder="e.g. blending-related sessions, use of DESC catalogs" maxlength="200">
