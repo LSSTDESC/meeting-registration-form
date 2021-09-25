@@ -53,6 +53,7 @@ class Participant(db.Model):
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
 
+    judo = db.column(db.String(20))
     mentor = db.Column(db.String(20))
     mentee = db.Column(db.String(20))
 
