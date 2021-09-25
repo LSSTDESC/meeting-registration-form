@@ -140,6 +140,7 @@ function closeInPersonForm() {
 
 <body>
 
+<form action="" method="POST" id="location_form">
 <div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 20px;">
       <span class="close" id="closeInPerson" onclick="closeInPersonForm()">&times;</span>
       <h5>Participation Location</h5>
@@ -174,6 +175,7 @@ function closeInPersonForm() {
 		 <button type="submit" class="btn"  onclick="closeInPersonForm()">Submit</button>
       </div>
 </div>
+</form>
 
 <div class="form-popup" id="remoteForm", style="display: none;   text-align: left; padding: 20px;">
       <span class="close" id="closeRemote" onclick="closeRemoteForm()">&times;</span>
@@ -736,8 +738,27 @@ function closeInPersonForm() {
 
     };
 
+    var checkoutCallbackSecondary = function() {
+      // Manually submit form data using Ajax and display confirmation modal
+      $.ajax({
+        type: 'POST',
+        data: $("#location_form").serialize(),
+        url: $("#location_form").attr('action'),
+        success: function(data) {
+          $("#confirmation-content").html(data);
+          $("#confirmationModal").modal({
+            show: true,
+            backdrop: 'static',
+            keyboard: false
+          });
+        }
+      });
+
+    };
+
     document.getElementById("register").onclick = function(e) {
       checkoutCallback()
+      checkoutCallbackSecondary()
 
       e.preventDefault();
       return false;
