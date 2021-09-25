@@ -41,6 +41,21 @@ function closeInPersonForm() {
   z-index: 9;
 }
 
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
@@ -126,6 +141,7 @@ function closeInPersonForm() {
 <body>
 
 <div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 20px;">
+      <span class="close">&times;</span>
       <h5>Participation Location</h5>
       Where will you be attending the October sprint week? 
       <br>
@@ -168,217 +184,217 @@ function closeInPersonForm() {
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>MIT	Midway Islands Time	GMT-11:00</b>
+            <b>MIT/Midway Islands Time/GMT-11:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>HST	Hawaii Standard Time GMT-10:00</b>
+            <b>HST/Hawaii Standard Time/GMT-10:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>AST	Alaska Standard Time GMT-9:00</b>
+            <b>AST/Alaska Standard Time/GMT-9:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>PST	Pacific Standard Time	GMT-8:00</b>
+            <b>PST/Pacific Standard Time/GMT-8:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>PNT	Phoenix Standard Time	GMT-7:00</b>
+            <b>PNT/Phoenix Standard Time/GMT-7:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>MST	Mountain Standard Time	GMT-7:00</b>
+            <b>MST/Mountain Standard Time/GMT-7:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>CST	Central Standard Time	GMT-6:00</b>
+            <b>CST/Central Standard Time/GMT-6:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>EST	Eastern Standard Time	GMT-5:00</b>
+            <b>EST/Eastern Standard Time/GMT-5:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>IET	Indiana Eastern Standard Time	GMT-5:00</b>
+            <b>IET/Indiana Eastern Standard Time/GMT-5:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>PRT	Puerto Rico and US Virgin Islands Time	GMT-4:00</b>
+            <b>PRT/Puerto Rico and US Virgin Islands Time/GMT-4:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>CNT	Canada Newfoundland Time	GMT-3:30</b>
+            <b>CNT/Canada Newfoundland Time/GMT-3:30</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>AGT	Argentina Standard Time	GMT-3:00</b>
+            <b>AGT/Argentina Standard Time/GMT-3:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>BET	Brazil Eastern Time	GMT-3:00</b>
+            <b>BET/Brazil Eastern Time/GMT-3:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>CAT	Central African Time	GMT-1:00</b>
+            <b>CAT/Central African Time/GMT-1:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>UTC	Universal Coordinated Time	GMT</b>
+            <b>UTC/Universal Coordinated Time/GMT</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>ECT	European Central Time	GMT+1:00</b>
+            <b>ECT/European Central Time/GMT+1:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>EET	Eastern European Time	GMT+2:00</b>
+            <b>EET/Eastern European Time/GMT+2:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>ART	(Arabic) Egypt Standard Time	GMT+2:00</b>
+            <b>ART/(Arabic) Egypt Standard Time/GMT+2:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>EAT	Eastern African Time	GMT+3:00</b>
+            <b>EAT/Eastern African Time/GMT+3:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>MET	Middle East Time	GMT+3:30</b>
+            <b>MET/Middle East Time/GMT+3:30</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>NET	Near East Time	GMT+4:00</b>
+            <b>NET/Near East Time/GMT+4:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>PLT	Pakistan Lahore Time	GMT+5:00</b>
+            <b>PLT/Pakistan Lahore Time/GMT+5:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>IST	India Standard Time	GMT+5:30</b>
+            <b>IST/India Standard Time/GMT+5:30</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>BST	Bangladesh Standard Time	GMT+6:00</b>
+            <b>BST/Bangladesh Standard Time/GMT+6:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>VST	Vietnam Standard Time	GMT+7:00</b>
+            <b>VST/Vietnam Standard Time/GMT+7:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>CTT	China Taiwan Time	GMT+8:00</b>
+            <b>CTT/China Taiwan Time/GMT+8:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>JST	Japan Standard Time	GMT+9:00</b>
+            <b>JST/Japan Standard Time/GMT+9:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>ACT	Australia Central Time	GMT+9:30</b>
+            <b>ACT/Australia Central Time/GMT+9:30</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>AET	Australia Eastern Time	GMT+10:00</b>
+            <b>AET/Australia Eastern Time/GMT+10:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>SST	Solomon Standard Time	GMT+11:00</b>
+            <b>SST/Solomon Standard Time/GMT+11:00</b>
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="radio" id="timezone" name="timezone">
           <label class="form-check-label" for="timezone">
-            <b>NST	New Zealand Standard Time	GMT+12:00</b>
+            <b>NST/New Zealand Standard Time/GMT+12:00</b>
           </label>
         </div>
 
@@ -807,6 +823,35 @@ function closeInPersonForm() {
       if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
     });
   </script>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 </body>
 
