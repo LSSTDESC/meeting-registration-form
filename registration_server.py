@@ -24,7 +24,8 @@ class Participant(db.Model):
     remote = db.Column(db.String(5))
     inperson = db.Column(db.String(5))
 
-    chosenhub = db.Column(db.String(5))
+    chosenhub = db.Column(db.String(50))
+    timezone = db.Column(db.String(50))
 
     UIUC = db.Column(db.String(5))
     Princeton = db.Column(db.String(5))
