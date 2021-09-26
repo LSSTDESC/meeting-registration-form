@@ -42,6 +42,7 @@ class Participant(db.Model):
     TJP = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
+    recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
 
     mentor = db.Column(db.String(20))
