@@ -22,7 +22,7 @@ class Participant(db.Model):
     affiliation = db.Column(db.String(200))
 
     remote = db.Column(db.String(5))
-	inperson = db.Column(db.String(5))
+    inperson = db.Column(db.String(5))
 
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
