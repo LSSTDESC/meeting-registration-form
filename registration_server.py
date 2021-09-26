@@ -44,10 +44,6 @@ class Participant(db.Model):
 
     code_of_conduct = db.Column(db.String(5))
 
-    in2p3 = db.Column(db.String(5))
-    nersc = db.Column(db.String(5))
-    rubinSciencePlatform = db.Column(db.String(5))
-
     mentor = db.Column(db.String(20))
     mentee = db.Column(db.String(20))
 
