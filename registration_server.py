@@ -23,10 +23,6 @@ class Participant(db.Model):
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
-    rubinSciencePlatform = db.Column(db.String(5))
-    nersc = db.Column(db.String(5))
-    in2p3 = db.Column(db.String(5))
-
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
     SL = db.Column(db.String(5))
@@ -46,13 +42,17 @@ class Participant(db.Model):
     TJP = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
-    recording = db.Column(db.String(5))
-    code_of_conduct = db.Column(db.String(5))
+    rubinSciencePlatform = db.Column(db.String(5))
+    nersc = db.Column(db.String(5))
+    in2p3 = db.Column(db.String(5))
 
     judo = db.column(db.String(20))
     mentor = db.Column(db.String(20))
     mentee = db.Column(db.String(20))
 
+    tutorial_requests = db.Column(db.String(200))
+
+    code_of_conduct = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
