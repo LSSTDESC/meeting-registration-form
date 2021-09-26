@@ -184,13 +184,13 @@ function closeInPersonForm() {
       Will you be attending the October Sprint Week in-person or remotely over Zoom?
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="inperson" name="inperson">
+          <input class="form-check-input" type="radio" id="inperson" name="inperson", onclick="openInPersonForm()">
           <label class="form-check-label" for="inperson">
             <b>In person</b>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="remote" name="inperson">
+          <input class="form-check-input" type="radio" id="remote" name="inperson", onclick="openRemoteForm()">
           <label class="form-check-label" for="remote">
             <b>Remotely</b>
           </label>
