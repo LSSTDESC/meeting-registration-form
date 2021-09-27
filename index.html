@@ -56,8 +56,8 @@ function closeRemoteForm() {
           checked = true;
           var dcc = document.getElementById('remoteForm');
           var child = dcc.getElementsByClassName("placeholder")[0];
-          dcc.removeChild(child);
           document.getElementById("remoteForm").style.display = "none";
+          dcc.removeChild(child);
       }
     }
     if (!checked) {
