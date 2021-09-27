@@ -54,9 +54,9 @@ function closeRemoteForm() {
     {
       if (radio.checked) {
           checked = true;
+          document.getElementById("remoteForm").style.display = "none";
           var dcc = document.getElementById('remoteForm');
           var child = dcc.getElementsByClassName("placeholder")[0];
-          document.getElementById("remoteForm").style.display = "none";
           dcc.removeChild(child);
       }
     }
