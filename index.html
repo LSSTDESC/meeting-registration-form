@@ -13,12 +13,26 @@ function openRemoteForm() {
 }
 
 function closeRemoteForm() {
+  #make form red
   document.getElementById("remoteForm").style.display = "none";
 }
 
 function closeInPersonForm() {
-  document.getElementById("inPersonForm").style.display = "none";
+    var radios = document.getElementsByName('timezone');
+    var checked = false;
+    for (var radio of radios)
+    {
+    if (radio.checked) {
+          checked = true;
+          document.getElementById("inPersonForm").style.display = "none";
+    }
+    }
+    if (!checked) {
+       alert("Please select a timezone.")  
+    }
+
 }
+
 </script>
 
 <head>
@@ -832,13 +846,6 @@ function closeInPersonForm() {
       if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
     });
 
-$('#remote').change(function () {
-    if(this.checked) {
-        $('#timezone').prop('required', true);
-    } else {
-        $('#timezone').prop('required', false);
-    }
-});
   </script>
 
 </body>
