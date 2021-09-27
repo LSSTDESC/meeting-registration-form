@@ -21,9 +21,8 @@ function closeInPersonForm() {
           checked = true;
   		  document.getElementById("inPersonForm").style.display = "none";
           var dcc = document.getElementById('inPersonForm');
-              while(dcc.getElementsByClassName("placeholder").firstChild) {
-                div.removeChild(dcc.getElementsByClassName("placeholder").firstChild);
-              }
+          var child = dcc.getElementsByClassName("placeholder")[0];
+          dcc.removeChild(child);
       }
     }
 
@@ -70,9 +69,8 @@ function closeRemoteForm() {
       if (radio.checked) {
           checked = true;
           var dcc = document.getElementById('remoteForm');
-              while(dcc.getElementsByClassName("placeholder").firstChild) {
-                div.removeChild(dcc.getElementsByClassName("placeholder").firstChild);
-              }
+          var child = dcc.getElementsByClassName("placeholder")[0];
+          dcc.removeChild(child);
           document.getElementById("remoteForm").style.display = "none";
       }
     }
