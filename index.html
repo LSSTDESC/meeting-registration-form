@@ -21,9 +21,8 @@ function closeInPersonForm() {
           checked = true;
   		  document.getElementById("inPersonForm").style.display = "none";
           var dcc = document.getElementById('inPersonForm');
-          if (dcc.getElementsByClassName("placeholder").length > 0) {
+          if (dcc.getElementsByClassName("placeholder").length > 0)
               dcc.getElementsByClassName("placeholder").innerHTML = "";
-          }
       }
     }
 
@@ -57,9 +56,8 @@ function closeRemoteForm() {
           checked = true;
           document.getElementById("remoteForm").style.display = "none";
           var dcc = document.getElementById('remoteForm');
-          if (dcc.getElementsByClassName("placeholder").length > 0) {
+          if (dcc.getElementsByClassName("placeholder").length > 0)
               dcc.getElementsByClassName("placeholder").innerHTML = "";
-          }
       }
     }
     if (!checked) {
