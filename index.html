@@ -23,9 +23,16 @@ function closeInPersonForm() {
     }
     }
     if (!checked) {
-       /*alert("Error: Please select a sprint hub.")*/
-      var div = document.getElementById('inPersonForm');
-      div.innerHTML += "Here is some more data appended";
+       /*alert("Error: Please select a sprint hub.")
+  dc = document.createElement("div");
+  dc.className = "placeholder";
+  dc.style.color="red";
+  var textnode = document.createTextNode("Error: Please select a sprint week hub.");
+  var dcc = document.getElementById('inPersonForm');
+  if (dcc.getElementsByClassName("placeholder").length == 0) {
+      dc.appendChild(textnode);
+      document.getElementById("inPersonForm").appendChild(dc);
+  }
     }
 
 }
