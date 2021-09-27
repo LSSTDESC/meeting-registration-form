@@ -12,23 +12,36 @@ function openRemoteForm() {
   document.getElementById("inPersonForm").style.display = "none";
 }
 
-function closeRemoteForm() {
+function closeInPersonForm() {
   #make form red
-  document.getElementById("remoteForm").style.display = "none";
+    var radios = document.getElementsByName('chosenhub');
+    var checked = false;
+    for (var radio of radios)
+    {
+    if (radio.checked) {
+          checked = true;
+  		  document.getElementById("inPersonForm").style.display = "none";
+    }
+    }
+    if (!checked) {
+       alert("Error: Please select a sprint hub.")
+    }
+
 }
 
-function closeInPersonForm() {
+
+function closeRemoteForm() {
     var radios = document.getElementsByName('timezone');
     var checked = false;
     for (var radio of radios)
     {
     if (radio.checked) {
           checked = true;
-          document.getElementById("inPersonForm").style.display = "none";
+          document.getElementById("remoteForm").style.display = "none";
     }
     }
     if (!checked) {
-       alert("Please select a timezone.")  
+       alert("Error: please select a timezone.")  
     }
 
 }
