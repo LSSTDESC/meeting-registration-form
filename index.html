@@ -22,7 +22,9 @@ function closeInPersonForm() {
   		  document.getElementById("inPersonForm").style.display = "none";
           var dcc = document.getElementById('inPersonForm');
           var child = dcc.getElementsByClassName("placeholder")[0];
-          dcc.removeChild(child);
+          while (child){
+            dcc.removeChild(child);
+          }
       }
     }
 
@@ -57,7 +59,9 @@ function closeRemoteForm() {
           document.getElementById("remoteForm").style.display = "none";
           var dcc = document.getElementById('remoteForm');
           var child = dcc.getElementsByClassName("placeholder")[0];
-          dcc.removeChild(child);
+          while(child){
+            dcc.removeChild(child); 
+          }
       }
     }
     if (!checked) {
