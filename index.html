@@ -17,13 +17,17 @@ function closeInPersonForm() {
     var checked = false;
     for (var radio of radios)
     {
-    if (radio.checked) {
+      if (radio.checked) {
           checked = true;
   		  document.getElementById("inPersonForm").style.display = "none";
+          var dcc = document.getElementById('inPersonForm');
+          if (dcc.getElementsByClassName("placeholder").length > 0) {
+              dcc.getElementsByClassName("placeholder").innerHTML = "";
+          }
+      }
     }
-    }
+
     if (!checked) {
-       /*alert("Error: Please select a sprint hub.")*/
       dc = document.createElement("div");
       dc.className = "placeholder";
       dc.style.color="red";
@@ -49,15 +53,25 @@ function closeRemoteForm() {
     var checked = false;
     for (var radio of radios)
     {
-    if (radio.checked) {
+      if (radio.checked) {
           checked = true;
           document.getElementById("remoteForm").style.display = "none";
-    }
+          var dcc = document.getElementById('remoteForm');
+          if (dcc.getElementsByClassName("placeholder").length > 0) {
+              dcc.getElementsByClassName("placeholder").innerHTML = "";
+          }
+      }
     }
     if (!checked) {
-       /*alert("Error: please select a timezone.")*/
-       var div = document.getElementById('remoteForm');
-       div.innerHTML += "Here is some more data appended";
+      dc = document.createElement("div");
+      dc.className = "placeholder";
+      dc.style.color="red";
+      var textnode = document.createTextNode("Error: Please select your time zone.");
+      var dcc = document.getElementById('remoteForm');
+      if (dcc.getElementsByClassName("placeholder").length == 0) {
+        dc.appendChild(textnode);
+        document.getElementById("remoteForm").appendChild(dc);
+
     }
 
 }
