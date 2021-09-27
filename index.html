@@ -22,7 +22,9 @@ function closeInPersonForm() {
   		  document.getElementById("inPersonForm").style.display = "none";
           var dcc = document.getElementById('inPersonForm');
           if (dcc.getElementsByClassName("placeholder").length > 0){
-              dcc.getElementsByClassName("placeholder").innerHTML = ""; 
+              while(dcc.getElementsByClassName("placeholder").firstChild) {
+                div.removeChild(dcc.getElementsByClassName("placeholder").firstChild);
+              }
           }
       }
     }
@@ -40,6 +42,20 @@ function closeInPersonForm() {
    }
 }
 
+function removeRemoteError() {
+          var dcc = document.getElementById('inPersonForm');
+          if (dcc.getElementsByClassName("placeholder").length > 0){
+              dcc.getElementsByClassName("placeholder").innerHTML = "";
+          }
+}
+
+function removeInPersonError() {
+          var dcc = document.getElementById('remoteForm');
+          if (dcc.getElementsByClassName("placeholder").length > 0){
+              dcc.getElementsByClassName("placeholder").innerHTML = "";
+          }
+}
+
 function closeInPersonForm_noValidation() {
     var ele = document.getElementsByName("inperson");
     for(var i=0;i<ele.length;i++){
@@ -55,11 +71,13 @@ function closeRemoteForm() {
     {
       if (radio.checked) {
           checked = true;
-          document.getElementById("remoteForm").style.display = "none";
           var dcc = document.getElementById('remoteForm');
           if (dcc.getElementsByClassName("placeholder").length > 0){
-              dcc.getElementsByClassName("placeholder").innerHTML = ""; 
+              while(dcc.getElementsByClassName("placeholder").firstChild) {
+                div.removeChild(dcc.getElementsByClassName("placeholder").firstChild);
+              }
           }
+          document.getElementById("remoteForm").style.display = "none";
       }
     }
     if (!checked) {
