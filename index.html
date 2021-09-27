@@ -82,15 +82,14 @@ function closeRemoteForm_noValidation(){
 }
 
 function removeRemoteError() {
-          var dcc = document.getElementById('inPersonForm');
-          var child = dcc.getElementsByClassName("placeholder");
+          var dcc = document.getElementById('remoteForm');
+          var child = dcc.getElementsByClassName("placeholder")[0];
           dcc.removeChild(child);
-
 }
 
 function removeInPersonError() {
-          var dcc = document.getElementById('remoteForm');
-          var child = dcc.getElementsByClassName("placeholder");
+          var dcc = document.getElementById('inPersonForm');
+          var child = dcc.getElementsByClassName("placeholder")[0];
           dcc.removeChild(child);
 }
 
