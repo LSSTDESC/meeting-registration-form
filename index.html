@@ -24,9 +24,8 @@ function closeInPersonForm() {
     }
     if (!checked) {
        /*alert("Error: Please select a sprint hub.")*/
-       var html = "Error: Please select a sprint hub.";
-       $("#inPersonForm").append( $(html) );
-
+      var div = document.getElementById('inPersonForm');
+      div.innerHTML += "Here is some more data appended";
     }
 
 }
@@ -50,8 +49,8 @@ function closeRemoteForm() {
     }
     if (!checked) {
        /*alert("Error: please select a timezone.")*/
-       var html = "Error: please select a time zone.";
-       $("#remoteForm").append( $(html) );
+       var div = document.getElementById('remoteForm');
+       div.innerHTML += "Here is some more data appended";
     }
 
 }
