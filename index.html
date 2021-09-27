@@ -28,6 +28,13 @@ function closeInPersonForm() {
 
 }
 
+function closeInPersonForm_noValidation() {
+    var ele = document.getElementsByName("inperson");
+    for(var i=0;i<ele.length;i++)
+      ele[i].checked = false;
+    document.getElementById("inPersonForm").style.display = "none";
+}
+
 function closeRemoteForm() {
     var radios = document.getElementsByName('timezone');
     var checked = false;
@@ -43,6 +50,14 @@ function closeRemoteForm() {
     }
 
 }
+
+function closeRemoteForm_noValidation(){
+    var ele = document.getElementsByName("inperson");
+    for(var i=0;i<ele.length;i++)
+      ele[i].checked = false;
+    document.getElementById("remoteForm").style.display = "none";
+}
+
 
 </script>
 
@@ -209,7 +224,7 @@ function closeRemoteForm() {
       Do you intend on participating in the October Sprint Week in-person or remotely over Zoom? Please select an option and complete the questions in the pop-up window.
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="inperson" name="inperson", onclick="openInPersonForm()">
+          <input class="form-check-input" type="radio" id="inperson" name="inperson", onclick="openInPersonForm()" required>
           <label class="form-check-label" for="inperson">
             <b>In person</b>
           </label>
@@ -223,7 +238,7 @@ function closeRemoteForm() {
       </div>
       
                   <div class="form-popup" id="inPersonForm", style="display: none;   text-align: left; padding: 20px;">
-                        <span class="close" id="closeInPerson" onclick="closeInPersonForm()">&times;</span>
+                        <span class="close" id="closeInPerson" onclick="closeInPersonForm_noValidation()">&times;</span>
                         <h5>COVID-19 Reporting Requirements</h5>
                         <li> <b> UIUC: </b>
                         UIUC participants must provide proof of their 
@@ -265,7 +280,7 @@ function closeRemoteForm() {
                   </div>
 
                   <div class="form-popup" id="remoteForm", style="display: none;   text-align: left; padding: 20px;">
-                        <span class="close" id="closeRemote" onclick="closeRemoteForm()">&times;</span>
+                        <span class="close" id="closeRemote" onclick="closeRemoteForm_noValidation()">&times;</span>
                         <h5>Attendance Timezone</h5>
                         Please select the timezone from which you will be attending the Sprint Week.
 
