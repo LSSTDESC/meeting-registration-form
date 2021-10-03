@@ -24,7 +24,7 @@ class Participant(db.Model):
     remote = db.Column(db.String(5))
     inperson = db.Column(db.String(5))
    
-    confirmed = db.Column(db.Boolean)
+    confirmed = db.Column(db.Boolean, default=False)
 
     chosenhub = db.Column(db.String(50))
     timezone = db.Column(db.String(50))
