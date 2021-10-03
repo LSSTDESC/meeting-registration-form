@@ -53,9 +53,9 @@ class Participant(db.Model):
     TJP = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
-    rubinSciencePlatform = db.Column(db.String(5))
-    nersc = db.Column(db.String(5))
-    in2p3 = db.Column(db.String(5))
+    rubinSciencePlatform = db.Column(db.String(20))
+    nersc = db.Column(db.String(20))
+    in2p3 = db.Column(db.String(20))
 
     judo = db.Column(db.String(20))
     mentor = db.Column(db.String(20))
