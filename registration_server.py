@@ -107,7 +107,7 @@ def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.confirmed).all()
+    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.confirmed, Participant.chosenhub).all()
     return render_template('participants.html', data=participants)
 
 if __name__ == '__main__':
