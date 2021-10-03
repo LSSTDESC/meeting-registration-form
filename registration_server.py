@@ -26,6 +26,8 @@ class Participant(db.Model):
    
     confirmed = db.Column(db.Boolean, default=False)
 
+    descmember = db.Column(db.String(20))
+
     chosenhub = db.Column(db.String(50))
     timezone = db.Column(db.String(50))
 
