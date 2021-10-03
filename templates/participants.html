@@ -47,7 +47,7 @@ function checkConfirmed(data){
   var sumPrinceton = 0;
   var sumRemote = 0;
   for (let i=0; i<data.length;i++){
-	if (data[i].confirmed == True){
+	if (data[i].confirmed == 'True'){
         if (data[i].chosenhub == 'UIUC'){
 	    sumUIUC = sumUIUC + 1;
         }else if (data[i].chosenhub == 'APC'){
