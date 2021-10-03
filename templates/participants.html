@@ -8,7 +8,7 @@
 
 </head>
 
-<body onload="checkConfirmed({{data}})">
+<body>
   <div class="container">
     <!-- <h2>LSST DESC Meeting participants</h2> -->
     <!-- <br> -->
@@ -18,7 +18,7 @@
     <div id="Princeton_confirmed>Confirmed Princeton participants: 0</div>
     <div id="Remote_confirmed>Confirmed remote participants: 0</div>
     <br>
-    <table class="table table-hover">
+    <table class="table table-hover" onload="checkConfirmed({{data}})">
       <thead class="thead-light">
         <tr>
           <th scope="col">First Name</th>
