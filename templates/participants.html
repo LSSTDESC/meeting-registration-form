@@ -47,6 +47,7 @@ function checkConfirmed(data){
   var sumPrinceton = 0;
   var sumRemote = 0;
   for (let i=0; i<data.length;i++){
+    window.alert(data[i].confirmed);
 	if (data[i].confirmed == 'True'){
         window.alert("Confirmed participant!");
         if (data[i].chosenhub == 'UIUC'){
