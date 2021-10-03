@@ -13,20 +13,6 @@
     <!-- <h2>LSST DESC Meeting participants</h2> -->
     <!-- <br> -->
     Number of total interested participants: {{data|length}}
-    <div id="confirmed></div>
-
-    <script type="text/javascript">
-
-    let hp_current = parseFloat(0.0);
-    let str = 'Number of confirmed participants: ';
-
-    for(let i = 1; i<=data.length(); i++)
-    {
-        hp_current = hp_current + data[i].confirmed;  
-    }
-    str = str + `<p>${hp_current}</p>`;
-    document.getElementById("confirmed").innerHTML = str;
-    </script>
     <br>
     <table class="table table-hover">
       <thead class="thead-light">
