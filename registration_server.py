@@ -21,7 +21,6 @@ class Participant(db.Model):
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
 
-    remote = db.Column(db.String(5))
     inperson = db.Column(db.String(5))
    
     confirmed = db.Column(db.String(20), default='False')
@@ -107,7 +106,7 @@ def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.confirmed, Participant.chosenhub, Participant.remote).all()
+    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.confirmed, Participant.chosenhub, Participant.inperson).all()
     return render_template('participants.html', data=participants)
 
 if __name__ == '__main__':

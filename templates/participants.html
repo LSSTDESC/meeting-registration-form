@@ -31,8 +31,8 @@ function checkConfirmedItem(confirmed, hub){
    }
 }
 
-function checkRemote(last_name, remote){
-  if (remote == 'True){
+function checkRemote(last_name, inperson){
+  if (inperson == 'False'){
      var ID = "confirmation_" + last_name;
      document.getElementById(ID).innerHTML = "Remote";
   }
@@ -89,7 +89,7 @@ function checkRemote(last_name, remote){
           <td id="confirmation_{{item.last_name}}">{{item.confirmed}}</td>
         </tr>
         <script>
-           checkRemote('{{item.last_name}}', '{{item.remote}}');
+           checkRemote('{{item.last_name}}', '{{item.inperson}}');
         </script>
         {% endfor %}
       </tbody>
