@@ -10,14 +10,12 @@
 
 <script>
 function checkConfirmed(data){
-  alert("We're actually using the function!");
-  alert(data.length);
   var sumAPC = 0;
   var sumUIUC = 0;
   var sumPrinceton = 0;
   var sumRemote = 0;
   for (let i=0; i<data.length;i++){
-    alert(data[i].confirmed);
+    alert(data[i]);
     if (data[i].confirmed == 'True'){
         alert("Confirmed participant!");
         if (data[i].chosenhub == 'UIUC'){
