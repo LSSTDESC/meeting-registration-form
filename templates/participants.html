@@ -31,9 +31,9 @@ function checkConfirmedItem(confirmed, hub){
    }
 }
 
-function checkRemote(last_name, inperson){
+function checkRemote(first_name, last_name, inperson){
   if (inperson == 'False'){
-     var ID = "confirmation_" + last_name;
+     var ID = "confirmation_" + first_name + last_name;
      document.getElementById(ID).innerHTML = "Remote";
   }
 }
@@ -86,10 +86,10 @@ function checkRemote(last_name, inperson){
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
-          <td id="confirmation_{{item.last_name}}">{{item.confirmed}}</td>
+          <td id="confirmation_{{item.first_name}}{{item.last_name}}">{{item.confirmed}}</td>
         </tr>
         <script>
-           checkRemote('{{item.last_name}}', '{{item.inperson}}');
+           checkRemote('{{item.first_name}}','{{item.last_name}}', '{{item.inperson}}');
         </script>
         {% endfor %}
       </tbody>
