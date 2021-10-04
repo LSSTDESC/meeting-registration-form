@@ -35,7 +35,21 @@ function checkConfirmed(data){
    }
 </script>
 
-<body onload="checkConfirmed({{data}});">
+<script>
+function checkConfirmedItem(confirmed, hub){
+   if (confirmed == 'True'){
+    if (hub == 'UIUC'){
+        alert("UIUC participant!");
+           document.getElementById("UIUC_confirmed").innerHTML = document.getElementById("UIUC_confirmed").innerHTML + "1";
+        }else if (hub == 'APC'){
+           document.getElementById("APC_confirmed").innerHTML = document.getElementById("APC_confirmed").innerHTML + "1";
+        }else if (hub == 'Princeton'){
+           document.getElementById("Princeton_confirmed").innerHTML = document.getElementById("Princeton_confirmed").innerHTML + "1";
+        }
+   }
+</script>
+
+<body>
   <div class="container">
     <!-- <h2>LSST DESC Meeting participants</h2> -->
     <!-- <br> -->
@@ -56,7 +70,7 @@ function checkConfirmed(data){
       </thead>
       <tbody>
         {% for item in data %}
-        <tr>
+        <tr onload="checkConfirmedItem({{item.confirmed, item.chosenhub}});">
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
