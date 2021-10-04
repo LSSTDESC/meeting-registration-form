@@ -287,14 +287,14 @@ function removeInPersonError() {
       Do you intend on participating in the October Sprint Week in-person or remotely over Zoom? Please select an option and complete the questions in the pop-up window.
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="inperson" name="inperson", onclick="openInPersonForm()" required>
+          <input class="form-check-input" type="radio" id="inperson" name="inperson", value="True" onclick="openInPersonForm()" required>
           <label class="form-check-label" for="inperson">
             <b>In person</b>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="remote" name="inperson", onclick="openRemoteForm()">
-          <label class="form-check-label" for="remote">
+          <input class="form-check-input" type="radio" id="remote" name="inperson", value="True" onclick="openRemoteForm()">
+          <label class="form-check-label" for="remote" for="confirmed">
             <b>Remotely</b>
           </label>
         </div>
