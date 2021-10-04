@@ -24,7 +24,7 @@ class Participant(db.Model):
     remote = db.Column(db.String(5))
     inperson = db.Column(db.String(5))
    
-    confirmed = db.Column(db.String(20), default='True')
+    confirmed = db.Column(db.String(20), default='False')
 
     descmember = db.Column(db.String(20))
 
