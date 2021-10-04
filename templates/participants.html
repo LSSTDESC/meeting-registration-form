@@ -38,11 +38,14 @@ function checkConfirmedItem(confirmed, hub){
    var r = /\d+/;
    if (confirmed == 'True'){
         if (hub == 'UIUC'){
-           document.getElementById("UIUC_confirmed").innerHTML = "Confirmed UIUC participants: " + parseInt(document.getElementById("UIUC_confirmed").innerHTML.match(r)) + 1;
+           var newSum = parseInt(document.getElementById("UIUC_confirmed").innerHTML.match(r)) + 1;
+           document.getElementById("UIUC_confirmed").innerHTML = "Confirmed UIUC participants: " + newSum;
         }else if (hub == 'APC'){
-           document.getElementById("APC_confirmed").innerHTML = "Confirmed APC participants: " + parseInt(document.getElementById("APC_confirmed").innerHTML.match(r)) + 1;
+           var newSum = parseInt(document.getElementById("APC_confirmed").innerHTML.match(r)) + 1;
+           document.getElementById("APC_confirmed").innerHTML = "Confirmed APC participants: " + newSum;
         }else if (hub == 'Princeton'){
-           document.getElementById("Princeton_confirmed").innerHTML = "Confirmed Princeton participants: " + parseInt(document.getElementById("Princeton_confirmed").innerHTML.match(r)) + 1;;
+           var newSum =  parseInt(document.getElementById("Princeton_confirmed").innerHTML.match(r)) + 1;
+           document.getElementById("Princeton_confirmed").innerHTML = "Confirmed Princeton participants: " + newSum;
         }
    }
 }
