@@ -9,43 +9,24 @@
 </head>
 
 <script>
-function checkConfirmed(data){
-  var sumAPC = 0;
-  var sumUIUC = 0;
-  var sumPrinceton = 0;
-  var sumRemote = 0;
-  for (let i=0; i<data.length;i++){
-    alert(data[i]);
-    if (data[i].confirmed == 'True'){
-        alert("Confirmed participant!");
-        if (data[i].chosenhub == 'UIUC'){
-        sumUIUC = sumUIUC + 1;
-        }else if (data[i].chosenhub == 'APC'){
-        sumAPC = sumAPC + 1;
-        }else if (data[i].chosenhub == 'Princeton'){
-        sumPrinceton = sumPrinceton + 1;
-        }
-   }
-  }
-   document.getElementById("APC_confirmed").innerHTML = "Confirmed APC participants: " + sumAPC;
-   document.getElementById("UIUC_confirmed").innerHTML = "Confirmed UIUC participants: " + sumUIUC;
-   document.getElementById("Princeton_confirmed").innerHTML = "Confirmed Princeton participants: " + sumPrinceton;
-   }
-</script>
-
-<script>
 function checkConfirmedItem(confirmed, hub){
    var r = /\d+/;
    if (confirmed == 'True'){
         if (hub == 'UIUC'){
            var newSum = parseInt(document.getElementById("UIUC_confirmed").innerHTML.match(r)) + 1;
-           document.getElementById("UIUC_confirmed").innerHTML = "Confirmed UIUC participants: " + newSum;
+           document.getElementById("UIUC_confirmed").innerHTML = newSum + " confirmed";
+           var remain = 50 - newSum;
+           document.getElementById("UIUC_remain").innerHTML = remain + " spots remaining";
         }else if (hub == 'APC'){
            var newSum = parseInt(document.getElementById("APC_confirmed").innerHTML.match(r)) + 1;
-           document.getElementById("APC_confirmed").innerHTML = "Confirmed APC participants: " + newSum;
+           document.getElementById("APC_confirmed").innerHTML = newSum + " confirmed";
+           var remain = 25 - newSum;
+           document.getElementById("APC_remain").innerHTML = remain + " spots remaining";
         }else if (hub == 'Princeton'){
            var newSum =  parseInt(document.getElementById("Princeton_confirmed").innerHTML.match(r)) + 1;
-           document.getElementById("Princeton_confirmed").innerHTML = "Confirmed Princeton participants: " + newSum;
+           document.getElementById("Princeton_confirmed").innerHTML = newSum + " confirmed";
+           var remain = 30 - newSum;
+           document.getElementById("Princeton_remain").innerHTML = remain + " spots remaining";
         }
    }
 }
@@ -55,9 +36,30 @@ function checkConfirmedItem(confirmed, hub){
   <div class="container">
     <!-- <h2>LSST DESC Meeting participants</h2> -->
     <!-- <br> -->
-    <div id="APC_confirmed">Confirmed APC participants: 0</div>
-    <div id="UIUC_confirmed">Confirmed UIUC participants: 0</div>
-    <div id="Princeton_confirmed">Confirmed Princeton participants: 0</div>
+
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">UIUC</th>
+          <th scope="col">APC</th>
+          <th scope="col">Princeton</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="UIUC_confirmed>0 confirmed</td>
+          <td id="APC_confirmed>0 confirmed</td>
+          <td id="Princeton_confirmed>0 confirmed</td>
+        </tr>
+        <tr>
+          <td id="UIUC_remain>50 spots remain</td>
+          <td id="APC_remain>25 spots remain</td>
+          <td id="Princeton_remain>30 spots remain</td>
+        </tr>
+      </tbody>
+    </table>
+
+
     <br>
     <table class="table table-hover">
       <thead class="thead-light">
