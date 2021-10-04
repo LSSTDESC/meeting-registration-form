@@ -30,6 +30,13 @@ function checkConfirmedItem(confirmed, hub){
         }
    }
 }
+
+function checkRemote(last_name, remote){
+  if (remote == 'True){
+     var ID = "confirmation_" + last_name;
+     document.getElementById(ID).innerHTML = "Remote";
+  }
+}
 </script>
 
 <body>
@@ -67,7 +74,7 @@ function checkConfirmedItem(confirmed, hub){
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
           <th scope="col">Affiliation</th>
-          <th scope="col">Attendance Confirmed?</th>
+          <th scope="col">In-Person Attendance Confirmation</th>
         </tr>
       </thead>
       <tbody>
@@ -79,8 +86,11 @@ function checkConfirmedItem(confirmed, hub){
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
-          <td>{{item.confirmed}}</td>
+          <td id="confirmation_{{item.last_name}}">{{item.confirmed}}</td>
         </tr>
+        <script>
+           checkRemote('{{item.last_name}}', '{{item.remote}}');
+        </script>
         {% endfor %}
       </tbody>
     </table>
