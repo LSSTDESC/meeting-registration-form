@@ -34,14 +34,16 @@ function checkConfirmedItem(confirmed, hub){
 function checkRemote(first_name, last_name, inperson){
   if (inperson == 'False'){
      var ID = "confirmation_" + first_name + last_name;
-     document.getElementById(ID).innerHTML = "Remote";
+     var ID2 = "chosenhub_" + first_name + last_name;
+     document.getElementById(ID).innerHTML = "N/A";
+     document.getElementById(ID2).innerHTML = "Remote";
   }
 }
 </script>
 
 <body>
   <div class="container">
-    <!-- <h2>LSST DESC Meeting participants</h2> -->
+    <!-- <h2>LSST DESC October 2021 Sprint Sites</h2> -->
     <!-- <br> -->
 
     <table class="table table-hover">
@@ -65,8 +67,12 @@ function checkRemote(first_name, last_name, inperson){
         </tr>
       </tbody>
     </table>
-
-
+    <!-- <h2>Meeting participants</h2> -->
+    <!-- <br> -->
+    Note: For the "In-Person Attendance Confirmation" column in the table below:
+    <li> <b>True</b> designates an in-person participant whose registration has been confirmed by their chosen sprint hub. </li>
+    <li> <b>False</b> designates an in-person participant whose registration has not yet been confirmed (these will be updated during registration based on site availability).</li>
+    <li> <b>N/A</b> designates remote participants (there is no limit to the number of remote participants that can attend). </li>
     <br>
     <table class="table table-hover">
       <thead class="thead-light">
@@ -74,6 +80,7 @@ function checkRemote(first_name, last_name, inperson){
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
           <th scope="col">Affiliation</th>
+          <th scope="col">Sprint Site</th>
           <th scope="col">In-Person Attendance Confirmation</th>
         </tr>
       </thead>
@@ -86,6 +93,7 @@ function checkRemote(first_name, last_name, inperson){
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
+          <td id="chosenhub_{{item.first_name}}{{item.last_name}}">{{item.chosenhub}}</td>
           <td id="confirmation_{{item.first_name}}{{item.last_name}}">{{item.confirmed}}</td>
         </tr>
         <script>
