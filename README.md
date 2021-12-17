@@ -4,6 +4,9 @@ Can be **deployed in under 5 minutes** and embedded on Confluence or anywhere el
 
 Checkout a preview of the registration form
  [here](https://lsstdesc.github.io/meeting-registration-form/index.html).
+ 
+To obtain write access to this repo, please request to join the 
+[meeting-registration-form-dev](https://github.com/orgs/LSSTDESC/teams/meeting-registration-form-dev/members) team.
 
 ## Deploy
 
