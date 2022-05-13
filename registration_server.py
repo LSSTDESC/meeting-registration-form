@@ -25,12 +25,11 @@ class Participant(db.Model):
 
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
-    SL = db.Column(db.String(5))
-    SN = db.Column(db.String(5))
+    TD = db.Column(db.String(5))
     WL = db.Column(db.String(5))
     BL = db.Column(db.String(5))
     CO = db.Column(db.String(5))
-    COM = db.Column(db.String(5))
+    SRV = db.Column(db.String(5))
     CSS = db.Column(db.String(5))
     DKM = db.Column(db.String(5))
     ES = db.Column(db.String(5))
@@ -39,7 +38,7 @@ class Participant(db.Model):
     PSF = db.Column(db.String(5))
     PZ = db.Column(db.String(5))
     SA = db.Column(db.String(5))
-    TJP = db.Column(db.String(5))
+    MCP = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
     recording = db.Column(db.String(5))
@@ -47,6 +46,7 @@ class Participant(db.Model):
 
     mentor = db.Column(db.String(20))
     mentee = db.Column(db.String(20))
+    speedchat = db.Column(db.String(5))
 
 
     def __repr__(self):

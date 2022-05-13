@@ -4,6 +4,9 @@ Can be **deployed in under 5 minutes** and embedded on Confluence or anywhere el
 
 Checkout a preview of the registration form
  [here](https://lsstdesc.github.io/meeting-registration-form/index.html).
+ 
+To obtain write access to this repo, please request to join the 
+[meeting-registration-form-dev](https://github.com/orgs/LSSTDESC/teams/meeting-registration-form-dev/members) team.
 
 ## Deploy
 
@@ -16,7 +19,7 @@ Checkout a preview of the registration form
 - Step 3: Choose a name for your registration server:
  ![alt text](.static/im1.png)
 
-  In this example, the `SERVER_URL` will be `https://desc-july2021-meeting.herokuapp.com/`
+  In this example, the `SERVER_URL` will be `https://desc-summer-meeting.herokuapp.com/`
 
 - Step 4: Click the *Deploy* button and let the magic happen.
 
