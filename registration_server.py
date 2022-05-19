@@ -20,6 +20,7 @@ class Participant(db.Model):
     last_name  = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
+    in_person = db.Column(db.String(5))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
