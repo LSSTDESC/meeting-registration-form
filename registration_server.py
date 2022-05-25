@@ -86,9 +86,13 @@ def register():
     # Remove secret field
     del kwargs['secret'];
     participant = Participant(**kwargs)
-    db.session.add(participant)
-    db.session.commit()
-    r = make_response(render_template('success.html', data=participant))
+    try:
+        db.session.add(participant)
+        db.session.commit()
+        r = make_response(render_template('success.html', data=participant))
+    except (Exception) as e:
+        r = make_response(render_template('failure.html', data=participant,
+                                          msg=str(e)))
     r.headers.set('Access-Control-Allow-Origin',"*")
     return r
 
