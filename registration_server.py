@@ -26,6 +26,7 @@ class Participant(db.Model):
     deschool = db.Column(db.String(5))
     sprint = db.Column(db.String(5))
     dinner = db.Column(db.String(5))
+    dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
@@ -50,8 +51,6 @@ class Participant(db.Model):
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
 
-    ###mentor = db.Column(db.String(20))
-    ###mentee = db.Column(db.String(20))
     speedchat = db.Column(db.String(5))
 
 
