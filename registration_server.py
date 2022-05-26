@@ -1,5 +1,6 @@
 import os
 import argparse
+import requests
 from flask import Flask, render_template, request, redirect, url_for, Response, make_response
 from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
@@ -85,15 +86,25 @@ def register():
     # Remove secret field
     del kwargs['secret'];
     participant = Participant(**kwargs)
-    ###    try:
     db.session.add(participant)
     db.session.commit()
-    r = make_response(render_template('success.html', data=participant))
-    ###except (Exception) as e:
-    ###    r = make_response(render_template('failure.html', data=participant,
-    ###                                      msg=str(e)))
-    r.headers.set('Access-Control-Allow-Origin',"*")
-    return r
+
+    # If successfull, we retrieve the payment URL from the Chicago server
+    x = requests.post('https://epayment-gateway.uchicago.edu/epayment.php', 
+            data = {'pmt_type': '201', 
+                    'amount_paid': '5.00', 
+                    'consumer_firstname': participant.first_name, 
+                    'consumer_lastname': participant.last_name,
+                    'account': 'desc',
+                    'finish_url': 'https://desc-meeting-aug2022-dev.herokuapp.com'
+                    })
+
+    # r = make_response(render_template('success.html', data=participant))
+    # ###except (Exception) as e:
+    # ###    r = make_response(render_template('failure.html', data=participant,
+    # ###                                      msg=str(e)))
+    # r.headers.set('Access-Control-Allow-Origin',"*")
+    return x.content
 
 @app.route('/', methods=['GET'])
 def registered():
