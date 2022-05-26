@@ -10,7 +10,7 @@ name = "pypi"
 
 
 [packages]
-
+requests = "*"
 flask = ">=0.12.3"
 flask-sqlalchemy = "*"
 "psycopg2" = "*"
