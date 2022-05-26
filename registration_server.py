@@ -18,8 +18,15 @@ class Participant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(200))
     last_name  = db.Column(db.String(200))
-    email = db.Column(db.String(200))
+    email = db.Column(db.String(200), index=True, unique=True)
     affiliation = db.Column(db.String(200))
+    in_person = db.Column(db.String(5))
+    badge_name = db.Column(db.String(200))
+    badge_pronouns = db.Column(db.String(200))
+    deschool = db.Column(db.String(5))
+    sprint = db.Column(db.String(5))
+    dinner = db.Column(db.String(5))
+    dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
@@ -44,8 +51,6 @@ class Participant(db.Model):
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
 
-    mentor = db.Column(db.String(20))
-    mentee = db.Column(db.String(20))
     speedchat = db.Column(db.String(5))
 
 
@@ -80,9 +85,13 @@ def register():
     # Remove secret field
     del kwargs['secret'];
     participant = Participant(**kwargs)
+    ###    try:
     db.session.add(participant)
     db.session.commit()
     r = make_response(render_template('success.html', data=participant))
+    ###except (Exception) as e:
+    ###    r = make_response(render_template('failure.html', data=participant,
+                                          msg=str(e)))
     r.headers.set('Access-Control-Allow-Origin',"*")
     return r
 
