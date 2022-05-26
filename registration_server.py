@@ -91,7 +91,7 @@ def register():
     r = make_response(render_template('success.html', data=participant))
     ###except (Exception) as e:
     ###    r = make_response(render_template('failure.html', data=participant,
-                                          msg=str(e)))
+    ###                                      msg=str(e)))
     r.headers.set('Access-Control-Allow-Origin',"*")
     return r
 
