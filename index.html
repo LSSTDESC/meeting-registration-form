@@ -42,6 +42,84 @@
 #registrationModal .modal-footer {
   justify-content: space-between;
 } */
+
+/* Hides the badge and in-person info until people
+   sign up for in-person attendance.
+ */
+#in_person_info{
+	display: none;
+}
+
+#volunteer_section{
+  display: none;
+}
+
+#badge span {
+  font-family: "Raleway";
+}
+
+#badge {
+  position: relative;
+  margin: 0 auto;
+  width: 4in;
+  height: 3in;
+  border: 1px solid black;
+}
+
+#badge div {
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  line-height: 0.8;
+}
+#lname-d,
+#sname-d {
+  font-weight: bold;
+}
+#lname-d {
+  font-size: 68pt;
+  bottom: 2.05in;
+}
+#sname-d {
+  font-size: 26pt;
+  font-weight: bold;
+  bottom: 1.55in;
+}
+#affili-d,
+#pronoun-d {
+  font-size: 22pt;
+  bottom: 1.08in;
+}
+#pronoun-d {
+  font-style: italic;
+  bottom: 0.64in;
+}
+#event-d,
+#location-d {
+  font-size: 7pt;
+  bottom: 0.29in;
+  left: 0.025in;
+}
+#location-d {
+  bottom: 0.15in;
+}
+
+#logo1 {
+  width: 92px !important;
+  height: 61px;
+  background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/desc-logo.png");
+  bottom: 0.02in;
+  left: 0.1in;
+}
+
+#logo2 {
+  width: 64px !important;
+  height: 22px;
+  background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/lsstc-logo.png");
+  bottom: 0.15in;
+  right: 0.2in;
+}
   </style>
 
 </head>
@@ -85,6 +163,8 @@
         <div class="invalid-feedback">Please provide your affiliation.</div>
       </div>
 
+      <hr>
+
       <h5>In-person or Remote?</h5>
       <div class="form-group">
 	<div class="form-check">
@@ -96,68 +176,93 @@
 	</div>
       </div>
 
-      <hr>
-	
-<div class="outer">
-    <div class="inner">
-      <div class="form-group">
-	<label for="in_person_info">If you signed up to attend in person, please
-	fill out the additional fields in this indented block.</label>
+      <!-- This entire block is hidden until people click the in-person attendance button -->
       <div id="in_person_info">
 
-      <div class="form-group">
-        <label  for="badge_name">Badge name (defaults to name above)</label>
-        <input class="form-control" type="text" name="badge_name"
-	       placeholder="Badge name" id="badge_name" maxlength="200" >
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lname">Large-font name</label>
+            <input type="text" class="form-control" name="lname" id="lname" placeholder="optional, defaults to first name" maxlength="100">
+          </div>
+          <div class="form-group">
+            <label for="sname">Small-font name</label>
+            <input type="text" class="form-control" name="sname" id="sname" placeholder="optional, defaults to last name" maxlength="100">
+          </div>
+          <div class="form-group">
+            <label for="pronoun">Third-person pronoun</label>
+            <input type="text" class="form-control" name="pronoun" id="pronoun" placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
+            <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to refer to you, such as: they/she/he/ze, or simply just your names.
+              You can also say "no preference" or just enter a space. <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask for pronouns ?</a></small>
+          <div class="invalid-feedback">Please provide your choice of pronoun.</div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div id="badge">
+            <div id="lname-d">
+              <span id="lname-s"></span>
+            </div>
+            <div id="sname-d">
+              <span id="sname-s"></span>
+            </div>
+            <div id="affili-d">
+              <span id="affili-s"></span>
+            </div>
+            <div id="pronoun-d">
+              <span id="pronoun-s"></span>
+            </div>
+            <div id="event-d">
+              <span id="event-s">Collaboration Meeting, Aug 1-5 2022</span>
+            </div>
+            <div id="location-d">
+              <span id="location-s">University of Chicago</span>
+            </div>
+            <div id="logo1" class="logo"></div>
+            <div id="logo2" class="logo"></div>
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
-          <label  for="badge_pronouns">Preferred pronoun(s)
-	  for badge</label>
-        <input class="form-control" type="text" name="badge_pronouns"
-	       id="badge_pronouns" placeholder="Badge pronouns" maxlength="100" >
-	  <div class="invalid-feedback">Please provide your preferred pronoun(s)</div>
-	</div>
+      
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="deschool"
+           name="deschool">
+          <label class="form-check-label" for="deschool">
+            Please check if you plan to attend the DESChool in person on
+            Monday, August 1.
+          </label>
+        </div>
+      
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="sprint"
+           name="sprint">
+          <label class="form-check-label" for="sprint">
+            Please check if you plan to attend the Sprint day in person on
+            Friday, August 5.
+            </label>
+        </div>
+      
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="dinner"
+           name="dinner">
+          <label class="form-check-label" for="dinner">
+            Please check if you plan to attend the collaboration dinner on
+            Wednesday, August 3. Dinner costs will be included in the
+            registration.	  </label>
+        </div>
+      
+        <div class="form-group">
+          <label  for="dietary">
+            Please describe any dietary restrictions.</label>
+          <input class="form-control" type="text" id="dietary"
+           name="dietary" maxlength="200"
+           placeholder="Dietary restrictions" >
+        </div>
+        
+            </div>      <!-- form group -->
 
-	<div class="form-check">
-	  <input class="form-check-input" type="checkbox" id="deschool"
-		 name="deschool">
-	  <label class="form-check-label" for="deschool">
-	    Please check if you plan to attend the DESChool in person on
-	    Monday, August 1.
-	  </label>
-	</div>
-
-	<div class="form-check">
-	  <input class="form-check-input" type="checkbox" id="sprint"
-		 name="sprint">
-	  <label class="form-check-label" for="sprint">
-	    Please check if you plan to attend the Sprint day in person on
-	    Friday, August 5.
-	    </label>
-	</div>
-
-	<div class="form-check">
-	  <input class="form-check-input" type="checkbox" id="dinner"
-		 name="dinner">
-	  <label class="form-check-label" for="dinner">
-	    Please check if you plan to attend the collaboration dinner on
-	    Wednesday, August 3. Dinner costs will be included in the
-	    registration.	  </label>
-	</div>
-
-	<div class="form-group">
-	  <label  for="dietary">
-	    Please describe any dietary restrictions.</label>
-	  <input class="form-control" type="text" id="dietary"
-		 name="dietary" maxlength="200"
-		 placeholder="Dietary restrictions" >
-	</div>
-	
-      </div>       <!--  end in-person info div -->
-      </div>      <!-- form group -->
-      </div>  <!-- inner -->
-    </div>  <!-- outer -->
+      </div>
       
       <hr>
       <h5>DESC Meeting Contact Persons</h5>
@@ -189,19 +294,10 @@
           </label>
         </div>
       </div>
-<!--
-      <div class="form-group">
-      <label for="volunteer_responsibilities">Also, if you have preferred facilitator responsibilities or sessions you'd like to join, please mention them briefly here.</label>
-      <input type="text" class="form-control" name="volunteer_responsibilities" id="volunteer_responsibilities" placeholder="e.g. blending-related sessions, plenaries" maxlength="200">
-      </div>
--->
 
-      <hr>
-
-<div class="outer">
-    <div class="inner">
+      <div class="container" id="volunteer_section">
       <div class="form-group">
-      <label for="wg_sessions">If you signed up to be a Session Facilitator, please indicate potential session topics for which you would be interested in facilitating a session. We will try our best to match your preference when possible.</label>
+      <label for="wg_sessions">Please indicate potential session topics for which you would be interested in facilitating a session. We will try our best to match your preference when possible.</label>
       <div id="wg_sessions">
 
       <div class="form-check form-check-inline">
@@ -290,47 +386,11 @@
       </div>
 
       </div>
-    </div>
+
     </div>
   </div>
 
       <hr>
-      <!-- <h5>Mentor/Mentee Sign-Up</h5> -->
-      <!-- <p>We all know how challenging it can be to navigate a new space, -->
-      <!--   with a lot of things happening during DESC meeting and in the large DESC collaboration in general. -->
-      <!--   The situation can be exacerbated with a virtual event. To address this, the -->
-      <!--   LOC will set up mentor/mentee pairs with the overarching goal of the effort -->
-      <!--   to have a point of contact for attendees who might not know where to start. -->
-      <!--   Typically, the role of a mentor will simply be to be available and open to -->
-      <!--   fielding questions and directing mentees to the right resources (people and/or documentation). -->
-      <!--   Junior members who have experience of DESC meetings are encouraged to consider this opportunity of being a mentor!<br> -->
-      <!--   So: -->
-      <!-- </p> -->
-      <!-- <ul> -->
-      <!--   <li> If you are new to DESC meetings and/or would like some guidance on how -->
-      <!--     to make the most out of this meeting, <b> would you like to be a mentee </b> and have a friendly mentor for the DESC 2022 August meeting? -->
-      <!--     <div class="form-group"> -->
-      <!--       <div> -->
-      <!--         <div class="form-check form-check-inline" id="inputMentee"> -->
-      <!--           <input class="form-check-input" type="checkbox" name="mentee" id="mentee_yes" value="yes"> -->
-      <!--           <label class="form-check-label" for="mentee_yes">Sign me up!</label> -->
-      <!--         </div> -->
-      <!--       </div> -->
-      <!--     </div> -->
-      <!--   </li> -->
-
-      <!--   <li> If you know your way around DESC and/or have attended DESC (virtual) meetings, -->
-      <!--     <b> would you like to be a friendly mentor</b> for the DESC 2022 August meeting? -->
-      <!--     <div class="form-group"> -->
-      <!--       <div> -->
-      <!--         <div class="form-check form-check-inline" id="inputMentor"> -->
-      <!--           <input class="form-check-input" type="checkbox" name="mentor" id="mentor_yes" value="yes"> -->
-      <!--           <label class="form-check-label" for="mentor_yes">Sign me up!</label> -->
-      <!--         </div> -->
-      <!--       </div> -->
-      <!--     </div> -->
-      <!--   </li> -->
-      <!-- </ul> -->
 
       <h5>Speed Chat</h5>
       <p>This is a new networking opportunity for JuDO members to "speed chat"
@@ -550,6 +610,18 @@
       var badge = $("#badge");
       var scale = badge.width() / target.width();
       if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
+    });
+
+    $(document).ready(function(){
+      $('#in_person').click(function(){
+          $('#in_person_info').toggle(500);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#volunteer').click(function(){
+          $('#volunteer_section').toggle(500);
+      });
     });
   </script>
 
