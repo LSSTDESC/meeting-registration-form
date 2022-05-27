@@ -98,9 +98,9 @@ def register():
 
     if participant.in_person == 'on':
         # Computes registration fee
-        fee = "150"
+        fee = "15"
         if participant.dinner_plus_one == 'on':
-            fee = "180"
+            fee = "18"
         r = make_response(render_template(
             'payment.html', data=participant, fee=fee))
     else:
