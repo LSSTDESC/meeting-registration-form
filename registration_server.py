@@ -9,16 +9,19 @@ from sqlalchemy import and_
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db').replace("s://", "sql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL', 'sqlite:////tmp/flask_app.db').replace("s://", "sql://", 1)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 db = SQLAlchemy(app)
 
 # Defines the registration entry
+
+
 class Participant(db.Model):
     __tablename__ = 'participants'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100))
-    last_name  = db.Column(db.String(100))
+    last_name = db.Column(db.String(100))
     email = db.Column(db.String(100), index=True, unique=True)
     affiliation = db.Column(db.String(100))
     in_person = db.Column(db.String(5))
@@ -28,6 +31,7 @@ class Participant(db.Model):
     deschool = db.Column(db.String(5))
     sprint = db.Column(db.String(5))
     dinner = db.Column(db.String(5))
+    dinner_plus_one = db.Column(db.String(5))
     dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
@@ -55,9 +59,9 @@ class Participant(db.Model):
 
     speedchat = db.Column(db.String(5))
 
-
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
+
 
 def requires_auth(f):
     @wraps(f)
@@ -69,38 +73,53 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
+
 @app.route('/check_email', methods=['POST'])
 @requires_auth
 def check_email():
     email = request.form['email']
     # Check for already registered email
     if Participant.query.filter(Participant.email == email).count() == 0:
-        return ("Ok", {'Access-Control-Allow-Origin':'*'})
+        return ("Ok", {'Access-Control-Allow-Origin': '*'})
     else:
-        return ("Email already registered", {'Access-Control-Allow-Origin':'*'})
+        return ("Email already registered", {'Access-Control-Allow-Origin': '*'})
+
 
 @app.route('/register', methods=['POST'])
 @requires_auth
 def register():
     # Extract fields from form data and create participant
-    kwargs = {k:request.form[k] for k in request.form}
+    kwargs = {k: request.form[k] for k in request.form}
     # Remove secret field
-    del kwargs['secret'];
+    del kwargs['secret']
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
 
-    r = make_response(render_template('payment.html', data=participant))
-    r.headers.set('Access-Control-Allow-Origin',"*")
+    if participant.in_person is 'on':
+        # Computes registration fee
+        fee = "150"
+        if participant.dinner_plus_one == 'on':
+            fee = "180"
+        r = make_response(render_template(
+            'payment.html', data=participant, fee=fee))
+    else:
+        r = make_response(render_template(
+            'success.html', data=participant))
+
+    r.headers.set('Access-Control-Allow-Origin', "*")
     return r
+
 
 @app.route('/', methods=['GET'])
 def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation).all()
+    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(
+        Participant.first_name, Participant.last_name, Participant.affiliation).all()
     return render_template('participants.html', data=participants)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

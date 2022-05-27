@@ -242,40 +242,57 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="container">
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="deschool" name="deschool">
-            <label class="form-check-label" for="deschool">
-              Please check if you plan to attend the DESChool in person on
-              Monday, August 1.
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
-            <label class="form-check-label" for="sprint">
-              Please check if you plan to attend the Sprint day in person on
-              Friday, August 5.
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="dinner" name="dinner">
-            <label class="form-check-label" for="dinner">
-              Please check if you plan to attend the collaboration dinner on
-              Wednesday, August 3. Dinner costs will be included in the
-              registration. </label>
-          </div>
-
+          <h5>Attendance</h5>
           <div class="form-group">
-            <label for="dietary">
-              Please describe any dietary restrictions.</label>
-            <input class="form-control" type="text" id="dietary" name="dietary" maxlength="200"
-              placeholder="Dietary restrictions">
-          </div>
 
-        </div> <!-- form group -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="deschool" name="deschool">
+              <label class="form-check-label" for="deschool">
+                Please check if you plan to attend the DESChool in person on
+                Monday, August 1.
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
+              <label class="form-check-label" for="sprint">
+                Please check if you plan to attend the Sprint day in person on
+                Friday, August 5.
+              </label>
+            </div>
+
+          </div> <!-- form group -->
+
+          <h5>Collaboration dinner</h5>
+
+          <p>The Collaboration dinner will be held on Wednesday, August 3rd. The cost of the dinner is
+            covered by the registration fee.</p>
+
+          <div class="form-group" id="dinner_form">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="dinner" name="dinner">
+              <label class="form-check-label" for="dinner">
+                Please check if you plan to attend the dinner. </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="dinner_plus_one" name="dinner_plus_one">
+              <label class="form-check-label" for="dinner_plus_one">
+                Please check if you would like to purchase an extra dinner ticket (+ $30)</label>
+            </div>
+
+
+            <div class="form-group">
+              <label for="dietary">
+                Please describe any dietary restrictions.</label>
+              <input class="form-control" type="text" id="dietary" name="dietary" maxlength="200"
+                placeholder="Dietary restrictions">
+            </div>
+
+          </div> <!-- form group -->
+        </div>
 
       </div>
 

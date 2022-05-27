@@ -3,27 +3,87 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Proceeding to Payment</title>
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+  <title>Checkout</title>
+  <link rel='stylesheet prefetch'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
 
 </head>
 
 <body>
-
   <div class="container">
-    Your registration request has been received, now proceeding to payment. 
+    <p>
+      Dear {{data.first_name}} {{data.last_name}}, please <b>proceed with payment to complete your registration</b>.
+    </p>
 
-    <!-- Payment form from Chicago  -->
+    <p> Registration fees are $150 which includes the Collaboration dinner. An extra $30 will be charged if you have
+      opted to purchase an additional dinner ticket.
+      <br>
+      <br>
+      Early Career Scientisits (students and postdocs) qualify for a $100 discount on the registration free, please
+      check the discount box below if you qualify.
+    </p>
+    <br>
+
     <form id="payment_form" method="post" action='https://epayment-gateway.uchicago.edu/epayment.php' target="_blank">
+
       <input type="hidden" name="pmt_type" maxlength="3" value="201" />
-      <input type="hidden" name="amount_paid" maxlength="5" value="5.00" />
       <input type="hidden" name="account" maxlength="15" value="desc-form" />
       <input type="hidden" name="finish_url" maxlength="60" value="https://desc-meeting-aug2022-dev.herokuapp.com" />
       <input type="hidden" name="cancel_url" maxlength="60" value="" />
       <input type="hidden" name="consumer_firstname" maxlength="20" value="{{data.first_name}}" />
       <input type="hidden" name="consumer_lastname" maxlength="50" value="{{data.last_name}}" />
+
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label for="inlineFormInputGroup" class="col-sm-2 col-form-label">Total: </label>
+        </div>
+        <div class="col-auto">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount" value="{{ fee }}" id="inlineFormInputGroup"
+              name="amount_paid" readonly>
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="discount" onclick="myFunction()">
+            <label class="form-check-label" for="autoSizingCheck">
+              Apply Early Career Scientist discount (-$100)
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-2">Pay and Complete Registration</button>
+        </div>
+      </div>
     </form>
+
+    <input type="hidden" id="cost" maxlength="6" value="{{fee}}" disabled />
   </div>
 </body>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script>
+  $(document).ready(function () {
+    $('#in_person').click(function () {
+      $('#in_person_info').toggle(500);
+    });
+  });
+
+  function myFunction() {
+    var checkbox = document.getElementById('discount');
+    if (checkbox.checked == true) {
+      document.getElementById("inlineFormInputGroup").value = document.getElementById("cost").value - 100.00;
+    } else {
+      document.getElementById("inlineFormInputGroup").value = document.getElementById("cost").value;
+    }
+  };
+</script>
 
 </html>
