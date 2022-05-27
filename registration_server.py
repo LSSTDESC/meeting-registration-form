@@ -91,17 +91,17 @@ def register():
     db.session.commit()
 
     # If successfull, we retrieve the payment URL from the Chicago server
-    x = requests.post('https://epayment-gateway.uchicago.edu/epayment.php', 
-            data = {'pmt_type': '201', 
-                    'amount_paid': '5.00', 
-                    'consumer_firstname': participant.first_name, 
-                    'consumer_lastname': participant.last_name,
-                    'account': 'desc',
-                    'finish_url': 'https://desc-meeting-aug2022-dev.herokuapp.com'
-                    })
+    # x = requests.post('https://epayment-gateway.uchicago.edu/epayment.php', 
+    #         data = {'pmt_type': '201', 
+    #                 'amount_paid': '5.00', 
+    #                 'consumer_firstname': participant.first_name, 
+    #                 'consumer_lastname': participant.last_name,
+    #                 'account': 'desc',
+    #                 'finish_url': 'https://desc-meeting-aug2022-dev.herokuapp.com'
+    #                 })
 
-    # r = make_response(render_template('success.html', data=participant))
-    r = make_response(x.content)
+    r = make_response(render_template('payment.html', data=participant))
+    # r = make_response(x.content)
     # ###except (Exception) as e:
     # ###    r = make_response(render_template('failure.html', data=participant,
     # ###                                      msg=str(e)))
