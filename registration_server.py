@@ -101,11 +101,12 @@ def register():
                     })
 
     # r = make_response(render_template('success.html', data=participant))
+    r = make_response(x.content)
     # ###except (Exception) as e:
     # ###    r = make_response(render_template('failure.html', data=participant,
     # ###                                      msg=str(e)))
-    # r.headers.set('Access-Control-Allow-Origin',"*")
-    return x.content
+    r.headers.set('Access-Control-Allow-Origin',"*")
+    return r
 
 @app.route('/', methods=['GET'])
 def registered():
