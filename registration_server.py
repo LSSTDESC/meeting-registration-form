@@ -96,7 +96,7 @@ def register():
     db.session.add(participant)
     db.session.commit()
 
-    if participant.in_person is 'on':
+    if participant.in_person == 'on':
         # Computes registration fee
         fee = "150"
         if participant.dinner_plus_one == 'on':
