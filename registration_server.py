@@ -125,7 +125,7 @@ def registered():
 
 
 @app.route('/ok', methods=['GET'])
-def registered():
+def confirmation():
     """Returns payment success message
     """
     return render_template('payment_success.html')
