@@ -242,7 +242,27 @@
           </div>
         </div>
 
+
+
         <div class="container">
+
+          <h5>Covid-19 regulations</h5>
+
+          <p>To ensure the safety of the meeting, in-person participants are asked to
+            verify that they have received a full course of vaccination and that they will
+            comply with the local regulations for Covid-19 safety, which include in particular
+            wearing a mask during in-door sessions.</p>
+
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="covid" id="covid" required>
+              <label class="form-check-label" for="covid">
+                I have received the recommended full course of Covid-19 vaccination and I agree to abide by
+                the venue's statemnent on Covid-19 related conduct at the meeting.
+              </label>
+              <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
+            </div>
+          </div>
 
           <h5>Attendance</h5>
           <div class="form-group">
@@ -283,7 +303,7 @@
                 Please check if you would like to purchase an extra dinner ticket (+ $30)</label>
             </div>
 
-
+            <br>
             <div class="form-group">
               <label for="dietary">
                 Please describe any dietary restrictions.</label>
@@ -292,6 +312,28 @@
             </div>
 
           </div> <!-- form group -->
+
+          <h5>Swag</h5>
+
+          <p>To help you remember your visit to Chicago, the LOC is planning some
+            surprises. If you are willing to share your t-shirt size we'll make sure the
+            surprise fits you perfectly.
+          </p>
+
+          <div class="form-group">
+            <label for="size">Your t-shirt size (size chart): </label>
+            <select class="form-control" id="tsize" name="tsize">
+              <option></option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>XXL</option>
+            </select>
+          </div>
+
+
         </div>
 
       </div>

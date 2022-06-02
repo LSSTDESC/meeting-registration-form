@@ -36,6 +36,9 @@ class Participant(db.Model):
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
+    tsize = db.Column(db.String(5))
+    covid = db.Column(db.String(5))
+
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
     TD = db.Column(db.String(5))
