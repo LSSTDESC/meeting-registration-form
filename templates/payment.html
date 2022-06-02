@@ -24,11 +24,11 @@
     </p>
     <br>
 
-    <form id="payment_form" method="post" action='https://epayment-gateway.uchicago.edu/epayment.php' target="_blank">
+    <form id="payment_form" method="post" action='https://epayment-gateway.uchicago.edu/epayment.php'>
 
       <input type="hidden" name="pmt_type" maxlength="3" value="201" />
       <input type="hidden" name="account" maxlength="15" value="desc-form" />
-      <input type="hidden" name="finish_url" maxlength="60" value="https://desc-meeting-august22-dev.herokuapp.com" />
+      <input type="hidden" name="finish_url" maxlength="60" value="https://kicp-workshops.uchicago.edu/2022-DESC/" />
       <input type="hidden" name="cancel_url" maxlength="60" value="" />
       <input type="hidden" name="consumer_firstname" maxlength="20" value="{{data.first_name}}" />
       <input type="hidden" name="consumer_lastname" maxlength="50" value="{{data.last_name}}" />
