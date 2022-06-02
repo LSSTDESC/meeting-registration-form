@@ -125,7 +125,7 @@ def registered():
     return render_template('participants.html', data=participants)
 
 
-@app.route('/ok', methods=['GET'])
+@app.route('/ok', methods=['POST', 'GET'])
 def confirmation():
     """Returns payment success message
     """
