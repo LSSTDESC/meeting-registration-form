@@ -248,20 +248,32 @@
 
           <h5>Covid-19 regulations</h5>
 
-          <p>To ensure the safety of the meeting, in-person participants are asked to
-            verify that they have received a full course of vaccination and that they will
-            comply with the local regulations for Covid-19 safety, which include in particular
-            wearing a mask during in-door sessions.</p>
+          <p>To ensure the safety of the meeting, in-person participants are asked
+            to verify that they have received a full course of vaccination and that
+            they will comply with the regulations for Covid-19 safety at the event,
+            which includes wearing a mask during in-door sessions.</p>
 
           <div class="form-group">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="covid" id="covid" required>
-              <label class="form-check-label" for="covid">
-                I have received the recommended full course of Covid-19 vaccination and I agree to abide by
-                the venue's statemnent on Covid-19 related conduct at the meeting.
+              <input class="form-check-input" type="checkbox" name="covid_vaccine" id="covid_vaccine" required>
+              <label class="form-check-label" for="covid_vaccine">
+                I have received the recommended full course of Covid-19 vaccination or can provide a negative test at
+                the start of the meeting.
               </label>
               <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
             </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="covid_rules" id="covid_rules" required>
+              <label class="form-check-label" for="covid_rules">
+                I agree to abide by the Covid-19 related rules at the venue at the time of the meeting.
+              </label>
+              <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
+            </div>
+            <small class="form-text text-muted">
+              For the current Covid-19-related information at UChicago, see: <a href="https://goforward.uchicago.edu"
+                target="_blank" rel="noopener noreferrer">https://goforward.uchicago.edu</a>.
+            </small>
+
           </div>
 
           <h5>Attendance</h5>
@@ -317,19 +329,22 @@
 
           <p>To help you remember your visit to Chicago, the LOC is planning some
             surprises. If you are willing to share your t-shirt size we'll make sure the
-            surprise fits you perfectly.
+            surprise fits you perfectly. Readiy available sizes are S, M, L, and XL but we will
+            try our best to accomodate requests for additional sizes.
           </p>
 
           <div class="form-group">
-            <label for="size">Your t-shirt size (size chart): </label>
+            <label for="size">Your t-shirt size (<a href="https://www.dropbox.com/s/p6irpbljhhfz1ip/size_chart.png?dl=0"
+                target="_blank" rel="noopener noreferrer">size chart</a>): </label>
             <select class="form-control" id="tsize" name="tsize">
               <option></option>
               <option>XS</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
+              <option style="font-weight: bold;">S</option>
+              <option style="font-weight: bold;">M</option>
+              <option style="font-weight: bold;">L</option>
+              <option style="font-weight: bold;">XL</option>
               <option>XXL</option>
+              <option>XXXL</option>
             </select>
           </div>
 
