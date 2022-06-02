@@ -37,7 +37,8 @@ class Participant(db.Model):
     volunteer = db.Column(db.String(5))
 
     tsize = db.Column(db.String(5))
-    covid = db.Column(db.String(5))
+    covid_vaccine = db.Column(db.String(5))
+    covid_rules = db.Column(db.String(5))
 
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
