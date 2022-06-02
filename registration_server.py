@@ -124,6 +124,13 @@ def registered():
     return render_template('participants.html', data=participants)
 
 
+@app.route('/ok', methods=['GET'])
+def registered():
+    """Returns payment success message
+    """
+    return render_template('payment_success.html')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
