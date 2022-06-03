@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-2" onclick="disableForm()">Pay and Complete
+          <button type="submit" class="btn btn-primary mb-2">Pay and Complete
             Registration</button>
         </div>
       </div>
@@ -77,12 +77,6 @@
     } else {
       document.getElementById("inlineFormInputGroup").value = document.getElementById("cost").value;
     }
-  };
-
-  function disableForm(e) {
-    $("#payment_form").submit();
-    // To prevent double payment
-    $("#payment_form :input").prop('disabled', true);
   };
 </script>
 
