@@ -143,7 +143,7 @@
       target="_blank">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the
     meeting.
     <br>
-    You can find the the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/agvUEw"
+    You can find the the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/ooXDF"
       target="_blank">confluence page</a>.
     <br>
     <br>
@@ -207,7 +207,7 @@
             <div class="form-group">
               <label for="pronoun">Third-person pronoun</label>
               <input type="text" class="form-control" name="pronoun" id="pronoun"
-                placeholder="e.g. she/her, he/him, they/them" required maxlength="100">
+                placeholder="e.g. she/her, he/him, they/them" maxlength="100">
               <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to
                 refer to you, such as: they/she/he/ze, or simply just your names.
                 You can also say "no preference" or just enter a space. <a
@@ -251,11 +251,11 @@
           <p>To ensure the safety of the meeting, in-person participants are asked
             to verify that they have received a full course of vaccination and that
             they will comply with the regulations for Covid-19 safety at the event,
-            which includes wearing a mask during in-door sessions.</p>
+            which includes wearing a mask during indoor sessions.</p>
 
           <div class="form-group">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="covid_vaccine" id="covid_vaccine" required>
+              <input class="form-check-input" type="checkbox" name="covid_vaccine" id="covid_vaccine">
               <label class="form-check-label" for="covid_vaccine">
                 I have received the recommended full course of Covid-19 vaccination or can provide a negative test at
                 the start of the meeting.
@@ -263,7 +263,7 @@
               <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="covid_rules" id="covid_rules" required>
+              <input class="form-check-input" type="checkbox" name="covid_rules" id="covid_rules">
               <label class="form-check-label" for="covid_rules">
                 I agree to abide by the Covid-19 related rules at the venue at the time of the meeting.
               </label>
@@ -719,6 +719,17 @@
     $(document).ready(function () {
       $('#in_person').click(function () {
         $('#in_person_info').toggle(500);
+
+        if ($('#in_person').clicked == True) {
+          $('#pronoun').required = true;
+          $('#covid_vaccine').required = true;
+          $('#covid_rules').required = true;
+        } else {
+          $('#pronoun').required = false;
+          $('#covid_vaccine').required = false;
+          $('#covid_rules').required = false;
+        };
+
       });
     });
 
