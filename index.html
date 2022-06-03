@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <title>DESC registration form</title>
 
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'>
+  <link rel='stylesheet prefetch'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'>
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:400,400i,700'>
   <style>
     body {
@@ -42,31 +43,122 @@
 #registrationModal .modal-footer {
   justify-content: space-between;
 } */
+
+    /* Hides the badge and in-person info until people
+   sign up for in-person attendance.
+ */
+    #in_person_info {
+      display: none;
+    }
+
+    #volunteer_section {
+      display: none;
+    }
+
+    #badge span {
+      font-family: "Raleway";
+    }
+
+    #badge {
+      position: relative;
+      margin: 0 auto;
+      width: 4in;
+      height: 3in;
+      border: 1px solid black;
+    }
+
+    #badge div {
+      white-space: nowrap;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      line-height: 0.8;
+    }
+
+    #lname-d,
+    #sname-d {
+      font-weight: bold;
+    }
+
+    #lname-d {
+      font-size: 68pt;
+      bottom: 2.05in;
+    }
+
+    #sname-d {
+      font-size: 26pt;
+      font-weight: bold;
+      bottom: 1.55in;
+    }
+
+    #affili-d,
+    #pronoun-d {
+      font-size: 22pt;
+      bottom: 1.08in;
+    }
+
+    #pronoun-d {
+      font-style: italic;
+      bottom: 0.64in;
+    }
+
+    #event-d,
+    #location-d {
+      font-size: 7pt;
+      bottom: 0.29in;
+      left: 0.025in;
+    }
+
+    #location-d {
+      bottom: 0.15in;
+    }
+
+    #logo1 {
+      width: 92px !important;
+      height: 61px;
+      background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/desc-logo.png");
+      bottom: 0.02in;
+      left: 0.1in;
+    }
+
+    #logo2 {
+      width: 64px !important;
+      height: 22px;
+      background-image: url("https://raw.githubusercontent.com/LSSTDESC/name-tag-guru/master/web-static/lsstc-logo.png");
+      bottom: 0.15in;
+      right: 0.2in;
+    }
   </style>
 
 </head>
 
 <body>
   <div class="container">
-    <h2>Registration for the February 2022 virtual DESC Meeting</h2>
-    <h4>Monday - Friday, 21-25, 2022</h4>
-    There is no registration fee for this meeting.
+    <h2>Registration for the August 2022 DESC Meeting in Chicago</h2>
+    <h4>Monday - Friday, August 1-5, 2022</h4>
+    There is an in-person registration fee for this meeting. Remote
+    participation is free.
     <br>
-    Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80" target="_blank">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the meeting.
+    Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
+      target="_blank">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the
+    meeting.
     <br>
-    You can find the the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/agvUEw" target="_blank">confluence page</a>.
+    You can find the the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/ooXDF"
+      target="_blank">confluence page</a>.
     <br>
     <br>
     <form action="" method="POST" id="main_form">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="first_name">First Name</label>
-          <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" maxlength="100" required>
+          <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name"
+            maxlength="100" required>
           <div class="invalid-feedback">Please provide your first name.</div>
         </div>
         <div class="form-group col-md-6">
           <label for="last_name">Last Name</label>
-          <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" maxlength="100" required>
+          <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name"
+            maxlength="100" required>
           <div class="invalid-feedback">Please provide your last name.</div>
         </div>
       </div>
@@ -80,16 +172,197 @@
       </div>
       <div class="form-group">
         <label for="affili">Affiliation</label>
-        <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" maxlength="100" required>
+        <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" maxlength="100"
+          required>
         <div class="invalid-feedback">Please provide your affiliation.</div>
+      </div>
+
+      <hr>
+
+      <h5>In-person or Remote?</h5>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="in_person" name="in_person">
+          <label class="form-check-label" for="in_person">
+            <b>Check if you plan to attend in person</b>
+          </label>
+        </div>
+      </div>
+
+      <!-- This entire block is hidden until people click the in-person attendance button -->
+      <div id="in_person_info">
+
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="lname">Large-font name</label>
+              <input type="text" class="form-control" name="lname" id="lname"
+                placeholder="optional, defaults to first name" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="sname">Small-font name</label>
+              <input type="text" class="form-control" name="sname" id="sname"
+                placeholder="optional, defaults to last name" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="pronoun">Third-person pronoun</label>
+              <input type="text" class="form-control" name="pronoun" id="pronoun"
+                placeholder="e.g. she/her, he/him, they/them" maxlength="100">
+              <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to
+                refer to you, such as: they/she/he/ze, or simply just your names.
+                You can also say "no preference" or just enter a space. <a
+                  href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns" target="_blank">Why ask
+                  for pronouns ?</a></small>
+              <div class="invalid-feedback">Please provide your choice of pronoun.</div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div id="badge">
+              <div id="lname-d">
+                <span id="lname-s"></span>
+              </div>
+              <div id="sname-d">
+                <span id="sname-s"></span>
+              </div>
+              <div id="affili-d">
+                <span id="affili-s"></span>
+              </div>
+              <div id="pronoun-d">
+                <span id="pronoun-s"></span>
+              </div>
+              <div id="event-d">
+                <span id="event-s">Collaboration Meeting, Aug 1-5 2022</span>
+              </div>
+              <div id="location-d">
+                <span id="location-s">University of Chicago</span>
+              </div>
+              <div id="logo1" class="logo"></div>
+              <div id="logo2" class="logo"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="container">
+
+          <h5>Covid-19 regulations</h5>
+
+          <p>To ensure the safety of the meeting, in-person participants are asked
+            to verify that they have received a full course of vaccination and that
+            they will comply with the regulations for Covid-19 safety at the event,
+            which includes wearing a mask during indoor sessions.</p>
+
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="covid_vaccine" id="covid_vaccine">
+              <label class="form-check-label" for="covid_vaccine">
+                I have received the recommended full course of Covid-19 vaccination or can provide a negative test at
+                the start of the meeting.
+              </label>
+              <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="covid_rules" id="covid_rules">
+              <label class="form-check-label" for="covid_rules">
+                I agree to abide by the Covid-19 related rules at the venue at the time of the meeting.
+              </label>
+              <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
+            </div>
+            <small class="form-text text-muted">
+              For the current Covid-19-related information at UChicago, see: <a href="https://goforward.uchicago.edu"
+                target="_blank" rel="noopener noreferrer">https://goforward.uchicago.edu</a>.
+            </small>
+
+          </div>
+
+          <h5>Attendance</h5>
+          <div class="form-group">
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="deschool" name="deschool">
+              <label class="form-check-label" for="deschool">
+                Please check if you plan to attend the DESChool in person on
+                Monday, August 1.
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
+              <label class="form-check-label" for="sprint">
+                Please check if you plan to attend the Sprint day in person on
+                Friday, August 5.
+              </label>
+            </div>
+
+          </div> <!-- form group -->
+
+          <h5>Collaboration dinner</h5>
+
+          <p>The Collaboration dinner will be held on Wednesday, August 3rd. The cost of the dinner is
+            covered by the registration fee.</p>
+
+          <div class="form-group" id="dinner_form">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="dinner" name="dinner">
+              <label class="form-check-label" for="dinner">
+                Please check if you plan to attend the dinner. </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="dinner_plus_one" name="dinner_plus_one">
+              <label class="form-check-label" for="dinner_plus_one">
+                Please check if you would like to purchase an extra dinner ticket (+ $30)</label>
+            </div>
+
+            <br>
+            <div class="form-group">
+              <label for="dietary">
+                Please describe any dietary restrictions.</label>
+              <input class="form-control" type="text" id="dietary" name="dietary" maxlength="200"
+                placeholder="Dietary restrictions">
+            </div>
+
+          </div> <!-- form group -->
+
+          <h5>Swag</h5>
+
+          <p>To help you remember your visit to Chicago, the LOC is planning some
+            surprises. If you are willing to share your t-shirt size we'll make sure the
+            surprise fits you perfectly. Readily available sizes are S, M, L, and XL but we will
+            try our best to accomodate requests for additional sizes.
+          </p>
+
+          <div class="form-group">
+            <label for="size">Your t-shirt size (<a href="https://www.dropbox.com/s/p6irpbljhhfz1ip/size_chart.png?dl=0"
+                target="_blank" rel="noopener noreferrer">size chart</a>): </label>
+            <select class="form-control" id="tsize" name="tsize">
+              <option></option>
+              <option>XS</option>
+              <option style="font-weight: bold;">S</option>
+              <option style="font-weight: bold;">M</option>
+              <option style="font-weight: bold;">L</option>
+              <option style="font-weight: bold;">XL</option>
+              <option>XXL</option>
+              <option>XXXL</option>
+            </select>
+          </div>
+
+
+        </div>
+
       </div>
 
       <hr>
       <h5>DESC Meeting Contact Persons</h5>
 
-      As described in the <a href="https://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=6" target="_blank">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by Zoom and Slack) to
-      meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful situations.
-      MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
+      As described in the <a href="https://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=6"
+        target="_blank">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by
+      Zoom and Slack) to
+      meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful
+      situations.
+      MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management
+      Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
 
       <div class="form-group">
         <div class="form-check">
@@ -102,10 +375,15 @@
 
       <hr>
       <h5>Session Facilitators</h5>
-      Special opportunity! The virtual February 2022 meeting will be a purely virtual event.
-      You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator for one or two sessions; this would involve, e.g. monitoring the chat window or raised hands in the participant list on Zoom, and generally helping where needed. For a quick look at what's involved, see the
-      <a href='https://docs.google.com/document/d/1HRU_1hApNuvmBxBLkygH54-EvGmfl2emlYinQrvppzs/edit?usp=sharing'>Session Facilitator's Cheat Sheet</a>.
-        New/junior members are especially encouraged to take advantage of this opportunity as it will help gain familiarity within the DESC community.
+      Special opportunity! This will be an in-person meeting for those who can travel to Chicago, but those who cannot
+      are encouraged to participate remotely via Zoom.
+      You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator
+      for one or two sessions; this would involve, e.g. monitoring the chat window or raised hands in the participant
+      list on Zoom, and generally helping where needed. For a quick look at what's involved, see the
+      <a href='https://docs.google.com/document/d/1HRU_1hApNuvmBxBLkygH54-EvGmfl2emlYinQrvppzs/edit?usp=sharing'>Session
+        Facilitator's Cheat Sheet</a>.
+      New/junior members are especially encouraged to take advantage of this opportunity as it will help gain
+      familiarity within the DESC community.
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="volunteer" name="volunteer">
@@ -114,152 +392,109 @@
           </label>
         </div>
       </div>
-<!--
-      <div class="form-group">
-      <label for="volunteer_responsibilities">Also, if you have preferred facilitator responsibilities or sessions you'd like to join, please mention them briefly here.</label>
-      <input type="text" class="form-control" name="volunteer_responsibilities" id="volunteer_responsibilities" placeholder="e.g. blending-related sessions, plenaries" maxlength="200">
-      </div>
--->
 
-      <hr>
+      <div class="container" id="volunteer_section">
+        <div class="form-group">
+          <label for="wg_sessions">Please indicate potential session topics for which you would be interested in
+            facilitating a session. We will try our best to match your preference when possible.</label>
+          <div id="wg_sessions">
 
-<div class="outer">
-    <div class="inner">
-      <div class="form-group">
-      <label for="wg_sessions">If you signed up to be a Session Facilitator, please indicate potential session topics for which you would be interested in facilitating a session. We will try our best to match your preference when possible.</label>
-      <div id="wg_sessions">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="WL" id="WL">
+              <label class="form-check-label" for="WL">WL: Weak Lensing</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="WL" id="WL">
-        <label class="form-check-label" for="WL">WL: Weak Lensing</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="LSS" id="LSS">
+              <label class="form-check-label" for="LSS">LSS: Large Scale Structure</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="LSS" id="LSS">
-        <label class="form-check-label" for="LSS">LSS: Large Scale Structure</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="TD" id="TD">
+              <label class="form-check-label" for="TD">TD: Time Domain</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox"  name="TD" id="TD">
-        <label class="form-check-label" for="TD">TD: Time Domain</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="CL" id="CL">
+              <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="CL" id="CL">
-        <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="MCP" id="MCP">
+              <label class="form-check-label" for="MCP">MCP: Modeling &amp; Combined Probes</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="MCP" id="MCP">
-        <label class="form-check-label" for="MCP">MCP: Modeling & Combined Probes</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="PZ" id="PZ">
+              <label class="form-check-label" for="PZ">PZ: Photometric Redshifts</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="PZ" id="PZ">
-        <label class="form-check-label" for="PZ">PZ: Photometric Redshifts</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="OS" id="OS">
+              <label class="form-check-label" for="OS">OS: Observing Strategy</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="OS" id="OS">
-        <label class="form-check-label" for="OS">OS: Observing Strategy</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="DKM" id="DKM">
+              <label class="form-check-label" for="DKM">DKM: Dark Matter</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="DKM" id="DKM">
-        <label class="form-check-label" for="DKM">DKM: Dark Matter</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="ES" id="ES">
+              <label class="form-check-label" for="ES">ES: External Synergies</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="ES" id="ES">
-        <label class="form-check-label" for="ES">ES: External Synergies</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="CSS" id="CSS">
+              <label class="form-check-label" for="CSS">CSS: Cosmological and Survey Simulations</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="CSS" id="CSS">
-        <label class="form-check-label" for="CSS">CSS: Cosmological and Survey Simulations</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="CO" id="CO">
+              <label class="form-check-label" for="CO">CO: Computing</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="CO" id="CO">
-        <label class="form-check-label" for="CO">CO: Computing</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="SRV" id="SRV">
+              <label class="form-check-label" for="SRV">SRV: Science Release &amp; Validation</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="SRV" id="SRV">
-        <label class="form-check-label" for="SRV">SRV: Science Release & Validation</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="SA" id="SA">
+              <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="SA" id="SA">
-        <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="PC" id="PC">
+              <label class="form-check-label" for="PC">PC: Photometric Corrections</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="PC" id="PC">
-        <label class="form-check-label" for="PC">PC: Photometric Corrections</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="BL" id="BL">
+              <label class="form-check-label" for="BL">BL: Blending</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="BL" id="BL">
-        <label class="form-check-label" for="BL">BL: Blending</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="PSF" id="PSF">
+              <label class="form-check-label" for="PSF">PSF: Point Spread Function</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="PSF" id="PSF">
-        <label class="form-check-label" for="PSF">PSF: Point Spread Function</label>
-      </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Social" id="Social">
+              <label class="form-check-label" for="Social">Social Events</label>
+            </div>
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="Social" id="Social">
-        <label class="form-check-label" for="Social">Social Events</label>
-      </div>
+          </div>
+
         </div>
-    </div>
-    </div>
-  </div>
+      </div>
 
       <hr>
-      <h5>Mentor/Mentee Sign-Up</h5>
-      <p>We all know how challenging it can be to navigate a new space,
-        with a lot of things happening during DESC meeting and in the large DESC collaboration in general.
-        The situation can be exacerbated with a virtual event. To address this, the
-        LOC will set up mentor/mentee pairs with the overarching goal of the effort
-        to have a point of contact for attendees who might not know where to start.
-        Typically, the role of a mentor will simply be to be available and open to
-        fielding questions and directing mentees to the right resources (people and/or documentation).
-        Junior members who have experience of DESC meetings are encouraged to consider this opportunity of being a mentor!<br>
-        So:
-      </p>
-      <ul>
-        <li> If you are new to DESC meetings and/or would like some guidance on how
-          to make the most out of this meeting, <b> would you like to be a mentee </b> and have a friendly mentor for the DESC 2022 February virtual meeting?
-          <div class="form-group">
-            <div>
-              <div class="form-check form-check-inline" id="inputMentee">
-                <input class="form-check-input" type="checkbox" name="mentee" id="mentee_yes" value="yes">
-                <label class="form-check-label" for="mentee_yes">Sign me up!</label>
-              </div>
-            </div>
-          </div>
-        </li>
 
-        <li> If you know your way around DESC and/or have attended DESC (virtual) meetings,
-          <b> would you like to be a friendly mentor</b> for the DESC 2022 February virtual meeting?
-          <div class="form-group">
-            <div>
-              <div class="form-check form-check-inline" id="inputMentor">
-                <input class="form-check-input" type="checkbox" name="mentor" id="mentor_yes" value="yes">
-                <label class="form-check-label" for="mentor_yes">Sign me up!</label>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <hr>
       <h5>Speed Chat</h5>
       <p>This is a new networking opportunity for JuDO members to "speed chat"
         with working group (WG) conveners, Pipeline Scientists (PS), and
-        Computing Infrastructure (CI) team members.  Each chat is 5 minutes
+        Computing Infrastructure (CI) team members. Each chat is 5 minutes
         (one-on-one) with a randomly assigned WG, PS, or CI. There will be
         several rounds of chats within a dedicated parallel session.
       </p>
@@ -278,38 +513,46 @@
         </li>
       </ul>
       <hr>
-      <h5>Accommodations</h5>
-    <p>If you require any additional accommodations (e.g., closed captions,
-    alt-text for screen readers, etc), please fill out
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhsBnE11nohSWUVqUZAPbmEhWpZALu1nzQrKrmqp35PXlZw/viewform">this anonymous form</a>.
-    </p>
+      <h5>A/V Accommodations</h5>
+      <p>If you require any additional accommodations (e.g., closed captions,
+        alt-text for screen readers, etc), please fill out
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhsBnE11nohSWUVqUZAPbmEhWpZALu1nzQrKrmqp35PXlZw/viewform">this
+          anonymous form</a>.
+      </p>
 
-    <hr>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
-        <label class="form-check-label" for="recording">
-        All the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded. (All participants will be informed in Zoom when they are joining a session that is being recorded. Organizers of parallel sessions will be asked to consider the preferences of the speakers. If you prefer your image not to appear, you are welcome to keep your video turned off.)
-      </label>
+      <hr>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
+          <label class="form-check-label" for="recording">
+            All the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter
+            or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded.
+            (All participants will be informed in Zoom when they are joining a session that is being recorded.
+            Organizers of parallel sessions will be asked to consider the preferences of the speakers. If you prefer
+            your image not to appear, you are welcome to keep your video turned off.)
+          </label>
           <div class="invalid-feedback">Please acknowledge that you may be recorded.</div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="code_of_conduct" id="code_of_conduct" required>
-        <label class="form-check-label" for="code_of_conduct">
-        I have read, and will abide by, the <a href="https://lsstdesc.org/assets/pdf/policies/LSST_DESC_Professional_Conduct.pdf" target="_blank">DESC Meeting Code of Conduct</a>.
-      </label>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="code_of_conduct" id="code_of_conduct" required>
+          <label class="form-check-label" for="code_of_conduct">
+            I have read, and will abide by, the <a
+              href="https://lsstdesc.org/assets/pdf/policies/LSST_DESC_Professional_Conduct.pdf" target="_blank">DESC
+              Meeting Code of Conduct</a>.
+          </label>
           <div class="invalid-feedback">You must agree to the code of conduct before registering.</div>
+        </div>
       </div>
-    </div>
-    <div class="form-group" id="register_button">
-      <button id="register" class="btn btn-primary" type="button">Register</button>
-      <small class="form-text text-muted">Please disable ad or pop-up blockers if you encounter any difficulties with completing the registration.</small>
+      <div class="form-group" id="register_button">
+        <button id="register" class="btn btn-primary" type="button">Register</button>
+        <small class="form-text text-muted">Please disable ad or pop-up blockers if you encounter any difficulties with
+          completing the registration.</small>
+      </div>
+      <input type="hidden" name="secret" id="secret" value="">
+    </form>
   </div>
-    <input type="hidden" name="secret" id="secret" value=""/>
-  </form>
-</div>
 
   <!-- Modal Warning-->
   <div class="modal fade" id="backendModal" role="dialog">
@@ -337,7 +580,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Registration successful</h5>
+          <h5 class="modal-title">Your Registration Information Has Been Received</h5>
         </div>
         <div class="modal-body" id="confirmation-content">
         </div>
@@ -345,13 +588,18 @@
     </div>
   </div>
 
+
   <footer class="footer">
     <div class="container">
       <dl class="row">
         <span class="text-muted">
           <p class="lead">Privacy notice</p>
-          <p>Your <mark>first name, last name, and affiliation will appear on a public <a href="https://desc-feb2022-meeting.herokuapp.com" target="_blank"> webpage </a> </mark> linked in the meeting's confluence participants page. Your email will be used to contact you when necessary. All data collected here may be shared with LSST DESC
-            members who are on the Logistics Organizing Committee (LOC), the Scientific Organizing Committee (SOC), the Meetings Committee, the Collaboration Council, and the Management Team.
+          <p>Your <mark>first name, last name, and affiliation will appear on a public <a
+                href="https://desc-aug2022-meeting.herokuapp.com" target="_blank"> webpage </a> </mark> linked in the
+            meeting's confluence participants page. Your email will be used to contact you when necessary. All data
+            collected here may be shared with LSST DESC
+            members who are on the Logistics Organizing Committee (LOC), the Scientific Organizing Committee (SOC), the
+            Meetings Committee, the Collaboration Council, and the Management Team.
           </p>
       </dl>
     </div>
@@ -360,13 +608,15 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
   <script>
     // Callback to validate registration
-    var checkoutCallback = function() {
+    var checkoutCallback = function () {
       // Manually submit form data using Ajax and display confirmation modal
       $.ajax({
         type: 'POST',
         data: $("#main_form").serialize(),
         url: $("#main_form").attr('action'),
-        success: function(data) {
+        success: function (data) {
+
+          // Registration successful so far, so let's proceed to payment
           $("#confirmation-content").html(data);
           $("#confirmationModal").modal({
             show: true,
@@ -378,7 +628,7 @@
 
     };
 
-    document.getElementById("register").onclick = function(e) {
+    document.getElementById("register").onclick = function (e) {
       checkoutCallback()
 
       e.preventDefault();
@@ -386,8 +636,8 @@
     }
 
     // Validate the form before authorising checkout
-    $(function() {
-      document.getElementById("register_button").addEventListener("click", function(event) {
+    $(function () {
+      document.getElementById("register_button").addEventListener("click", function (event) {
         var form = document.getElementById("main_form");
 
         // If form is not validated, don't trigger the registration
@@ -418,7 +668,7 @@
     var backend = getUrlParameter('backend');
     var secret = getUrlParameter('secret');
 
-    $(function() {
+    $(function () {
       // Disable the form if the required info about backend server is missing
       if ((backend === undefined) || (secret === undefined)) {
         $("#main_form :input").prop('disabled', true);
@@ -432,12 +682,12 @@
       $("#secret").attr('value', secret);
     });
 
-    $("#email").change(function() {
+    $("#email").change(function () {
       $.post(backend + "/check_email", {
           email: $(this).val(),
           secret: secret
         },
-        function(data, status) {
+        function (data, status) {
           var d = document.getElementById("email");
           if (status === "success") {
             if (data === "Ok") {
@@ -457,13 +707,36 @@
         });
     });
 
-    $("input").keyup(function() {
+    $("input").keyup(function () {
       var target = $("#" + $(this).attr("id") + "-s");
       target.text($(this).val());
       target.css("font-size", "100%");
       var badge = $("#badge");
       var scale = badge.width() / target.width();
       if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
+    });
+
+    $(document).ready(function () {
+      $('#in_person').click(function () {
+        $('#in_person_info').toggle(500);
+
+        if ($('#in_person').clicked == True) {
+          $('#pronoun').required = true;
+          $('#covid_vaccine').required = true;
+          $('#covid_rules').required = true;
+        } else {
+          $('#pronoun').required = false;
+          $('#covid_vaccine').required = false;
+          $('#covid_rules').required = false;
+        };
+
+      });
+    });
+
+    $(document).ready(function () {
+      $('#volunteer').click(function () {
+        $('#volunteer_section').toggle(500);
+      });
     });
   </script>
 
