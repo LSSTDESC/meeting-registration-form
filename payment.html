@@ -15,7 +15,7 @@
         <h2>Registration for the August 2022 DESC Meeting in Chicago</h2>
         <p>Please submit the email address you used to register below to proceed to the payment page:</p>
         <br>
-        <form action="https://desc-aug22-meeting.herokuapp.com/pay" method="POST" id="payment_form">
+        <form action="" method="POST" id="main_form">
             <div class="form-row">
 
                 <div class="form-group">
@@ -83,6 +83,16 @@
 
         var backend = getUrlParameter('backend');
         var secret = getUrlParameter('secret');
+
+
+        $(function () {
+            // Disable the form if the required info about backend server is missing
+            if ((backend === undefined) || (secret === undefined)) {
+                $("#main_form :input").prop('disabled', true);
+            }
+            $("#main_form").attr('action', backend + '/pay');
+            $("#secret").attr('value', secret);
+        });
     </script>
 
 
