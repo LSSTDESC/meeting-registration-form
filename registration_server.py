@@ -115,6 +115,28 @@ def register():
     return r
 
 
+@app.route('/pay', methods=['POST'])
+@requires_auth
+def manual_pay():
+    email = request.form['email']
+    # Check for already registered email
+    participant = Participant.query.filter(Participant.email == email).first()
+
+    if participant.in_person == 'on':
+        # Computes registration fee
+        fee = "150"
+        if participant.dinner_plus_one == 'on':
+            fee = "180"
+        r = make_response(render_template(
+            'payment.html', data=participant, fee=fee))
+    else:
+        r = make_response(render_template(
+            'success.html', data=participant))
+
+    r.headers.set('Access-Control-Allow-Origin', "*")
+    return r
+
+
 @app.route('/', methods=['GET'])
 def registered():
     """Returns the list of registered participants
