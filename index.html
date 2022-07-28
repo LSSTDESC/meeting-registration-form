@@ -576,6 +576,26 @@
     </div>
   </div>
 
+  <div class="modal fade" id="registrationClosedModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Registration is closed</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>The registration for this event is now closed.
+            Please contact the LOC if you have any further inquiries.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Confirmation Modal -->
   <div class="modal fade" id="confirmationModal" role="dialog">
     <div class="modal-dialog">
@@ -678,7 +698,16 @@
           backdrop: 'static',
           keyboard: false
         });
+      }else{
+      // To close registration
+        $("#main_form :input").prop('disabled', true);
+        $('#registrationClosedModal').modal({
+          show: true,
+          backdrop: 'static',
+          keyboard: false
+        });
       }
+
       $("#main_form").attr('action', backend + '/register');
       $("#secret").attr('value', secret);
     });
