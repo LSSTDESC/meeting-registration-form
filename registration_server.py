@@ -28,40 +28,25 @@ class Participant(db.Model):
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
-    deschool = db.Column(db.String(5))
-    sprint = db.Column(db.String(5))
-    dinner = db.Column(db.String(5))
-    dinner_plus_one = db.Column(db.String(5))
+    descmember = db.Column(db.String(5))
+
+    monday = db.Column(db.String(5))
+    tuesday = db.Column(db.String(5))
+    wednesday = db.Column(db.String(5))
+    thursday = db.Column(db.String(5))
+    friday = db.Column(db.String(5))
     dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
-    volunteer = db.Column(db.String(5))
 
-    tsize = db.Column(db.String(5))
     covid_vaccine = db.Column(db.String(5))
     covid_rules = db.Column(db.String(5))
 
-    CL = db.Column(db.String(5))
-    LSS = db.Column(db.String(5))
-    TD = db.Column(db.String(5))
-    WL = db.Column(db.String(5))
-    BL = db.Column(db.String(5))
-    CO = db.Column(db.String(5))
-    SRV = db.Column(db.String(5))
-    CSS = db.Column(db.String(5))
-    DKM = db.Column(db.String(5))
-    ES = db.Column(db.String(5))
-    OS = db.Column(db.String(5))
-    PC = db.Column(db.String(5))
-    PSF = db.Column(db.String(5))
-    PZ = db.Column(db.String(5))
-    SA = db.Column(db.String(5))
-    MCP = db.Column(db.String(5))
-    Social = db.Column(db.String(5))
+    judo = db.Column(db.String(5))
+    mentee_yes = db.Column(db.String(5))
+    mentor_yes = db.Column(db.String(5))
 
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
-
-    speedchat = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
@@ -100,38 +85,8 @@ def register():
     db.session.add(participant)
     db.session.commit()
 
-    if participant.in_person == 'on':
-        # Computes registration fee
-        fee = "200"
-        if participant.dinner_plus_one == 'on':
-            fee = "230"
-        r = make_response(render_template(
-            'payment.html', data=participant, fee=fee))
-    else:
-        r = make_response(render_template(
-            'success.html', data=participant))
-
-    r.headers.set('Access-Control-Allow-Origin', "*")
-    return r
-
-
-@app.route('/pay', methods=['POST'])
-@requires_auth
-def manual_pay():
-    email = request.form['email']
-    # Check for already registered email
-    participant = Participant.query.filter(Participant.email == email).first()
-
-    if participant.in_person == 'on':
-        # Computes registration fee
-        fee = "150"
-        if participant.dinner_plus_one == 'on':
-            fee = "180"
-        r = make_response(render_template(
-            'payment.html', data=participant, fee=fee))
-    else:
-        r = make_response(render_template(
-            'success.html', data=participant))
+    r = make_response(render_template(
+        'success.html', data=participant))
 
     r.headers.set('Access-Control-Allow-Origin', "*")
     return r
@@ -145,13 +100,6 @@ def registered():
     participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(
         Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person).all()
     return render_template('participants.html', data=participants)
-
-
-@app.route('/ok', methods=['POST', 'GET'])
-def confirmation():
-    """Returns payment success message
-    """
-    return render_template('payment_success.html')
 
 
 if __name__ == '__main__':
