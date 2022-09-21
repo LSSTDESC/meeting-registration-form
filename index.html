@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>DESC registration form</title>
+  <title>DESC Sprint Week registration form</title>
 
   <link rel='stylesheet prefetch'
     href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'>
@@ -134,17 +134,14 @@
 
 <body>
   <div class="container">
-    <h2>Registration for the August 2022 DESC Meeting in Chicago</h2>
-    <h4>Monday - Friday, August 1-5, 2022</h4>
-    There is an in-person registration fee of $50 for junior participants and $150 for senior participants, which includes venue costs, morning and afternoon coffee breaks, lunch, a reception Monday evening, 
-    other miscellaneous costs, and conference dinner Wednesday evening. Late registration, after July 15th, will include a $50 surcharge.
-    <br>Remote participation is free. 
+    <h2>Registration for the 2022 DESC Sprint Week at U. Michigan</h2>
+    <h4>Monday - Friday, October 17-21, 2022</h4>
+    Registration for the Sprint Week is free, but mandatory.
     <br>
-    Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
-      target="_blank">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the
-    meeting.
     <br>
-    You can find the the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/ooXDF"
+    Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/messages/C2M8FG5A6" target="_blank">#desc-hack-sprint</a> to keep updated on chats, discussions, and announcements during the meeting!
+    <br>
+    You can find the the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/LCRaFQ"
       target="_blank">confluence page</a>.
     <br>
     <br>
@@ -176,6 +173,24 @@
         <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" maxlength="100"
           required>
         <div class="invalid-feedback">Please provide your affiliation.</div>
+      </div>
+
+      <hr>
+      <h5>LSST/DESC Membership</h5>
+      Are you currently a member of the Dark Energy Science Collaboration? This info will allow us to better make accommodations for non-DESC attendees.
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="member" name="descmember" value="yes" required>
+          <label class="form-check-label" for="descmember">
+            <b>Yes</b>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="nonmember" value="no" name="descmember">
+          <label class="form-check-label" for="descmember">
+            <b>No</b>
+          </label>
+        </div>
       </div>
 
       <hr>
@@ -232,10 +247,10 @@
                 <span id="pronoun-s"></span>
               </div>
               <div id="event-d">
-                <span id="event-s">Collaboration Meeting, Aug 1-5 2022</span>
+                <span id="event-s">DESC Sprint Week, Oct. 17-21 2022</span>
               </div>
               <div id="location-d">
-                <span id="location-s">University of Chicago</span>
+                <span id="location-s">University of Michigan</span>
               </div>
               <div id="logo1" class="logo"></div>
               <div id="logo2" class="logo"></div>
@@ -270,53 +285,54 @@
               </label>
               <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
             </div>
-            <small class="form-text text-muted">
+            <!-- <small class="form-text text-muted">
               For the current Covid-19-related information at UChicago, see: <a href="https://goforward.uchicago.edu"
                 target="_blank" rel="noopener noreferrer">https://goforward.uchicago.edu</a>.
-            </small>
+            </small> -->
 
           </div>
 
-          <h5>Attendance</h5>
-          <div class="form-group">
 
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="deschool" name="deschool">
-              <label class="form-check-label" for="deschool">
-                Please check if you plan to attend the DESChool in person on
-                Monday, August 1.
-              </label>
-            </div>
+        <hr>
+      
+        <h5>Attendance</h5>
+        Please check which days you plan on attending. Lunch will be provided on those days.
+        <div class="form-group">
+  
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="monday" name="monday">
+            <label class="form-check-label" for="monday">
+              Monday, October 17.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="tuesday" name="tuesday">
+            <label class="form-check-label" for="tuesday">
+              Tuesday, October 18.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="wednesday" name="wednesday">
+            <label class="form-check-label" for="wednesday">
+              Wednesday, October 19.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="thursday" name="thursday">
+            <label class="form-check-label" for="thursday">
+              Thursday, October 20.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="friday" name="friday">
+            <label class="form-check-label" for="friday">
+              Friday, October 21.
+            </label>
+          </div>
+        </div> <!-- form group -->
+  
 
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
-              <label class="form-check-label" for="sprint">
-                Please check if you plan to attend the Sprint day in person on
-                Friday, August 5.
-              </label>
-            </div>
-
-          </div> <!-- form group -->
-
-          <h5>Collaboration dinner</h5>
-
-          <p>The Collaboration dinner will be held on Wednesday, August 3rd. The cost of the dinner is
-            covered by the registration fee.</p>
-
-          <div class="form-group" id="dinner_form">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="dinner" name="dinner">
-              <label class="form-check-label" for="dinner">
-                Please check if you plan to attend the dinner. </label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="dinner_plus_one" name="dinner_plus_one">
-              <label class="form-check-label" for="dinner_plus_one">
-                Please check if you would like to purchase an extra dinner ticket (+ $30)</label>
-            </div>
-
-            <br>
+          <h5>Dietary restrictions</h5>
             <div class="form-group">
               <label for="dietary">
                 Please describe any dietary restrictions.</label>
@@ -324,35 +340,9 @@
                 placeholder="Dietary restrictions">
             </div>
 
-          </div> <!-- form group -->
-
-          <h5>Swag</h5>
-
-          <p>To help you remember your visit to Chicago, the LOC is planning some
-            surprises. If you are willing to share your t-shirt size we'll make sure the
-            surprise fits you perfectly. Readily available sizes are S, M, L, and XL but we will
-            try our best to accomodate requests for additional sizes.
-          </p>
-
-          <div class="form-group">
-            <label for="size">Your t-shirt size (<a href="https://www.dropbox.com/s/dtxv2hqohkutg3h/size_chart_units.png?dl=0"
-                target="_blank" rel="noopener noreferrer">size chart</a>): </label>
-            <select class="form-control" id="tsize" name="tsize">
-              <option></option>
-              <option>XS</option>
-              <option style="font-weight: bold;">S</option>
-              <option style="font-weight: bold;">M</option>
-              <option style="font-weight: bold;">L</option>
-              <option style="font-weight: bold;">XL</option>
-              <option>XXL</option>
-              <option>XXXL</option>
-            </select>
-          </div>
-
-
-        </div>
-
       </div>
+      </div>
+      
 
       <hr>
       <h5>DESC Meeting Contact Persons</h5>
@@ -375,144 +365,49 @@
       </div>
 
       <hr>
-      <h5>Session Facilitators</h5>
-      Special opportunity! This will be an in-person meeting for those who can travel to Chicago, but those who cannot
-      are encouraged to participate remotely via Zoom.
-      You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator
-      for one or two sessions; this would involve, e.g. monitoring the chat window or raised hands in the participant
-      list on Zoom, and generally helping where needed. For a quick look at what's involved, see the
-      <a href='https://docs.google.com/document/d/1HRU_1hApNuvmBxBLkygH54-EvGmfl2emlYinQrvppzs/edit?usp=sharing'>Session
-        Facilitator's Cheat Sheet</a>.
-      New/junior members are especially encouraged to take advantage of this opportunity as it will help gain
-      familiarity within the DESC community.
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="volunteer" name="volunteer">
-          <label class="form-check-label" for="volunteer">
-            <b>Yes, I definitely want to help out!</b>
-          </label>
-        </div>
-      </div>
-
-      <div class="container" id="volunteer_section">
-        <div class="form-group">
-          <label for="wg_sessions">Please indicate potential session topics for which you would be interested in
-            facilitating a session. We will try our best to match your preference when possible.</label>
-          <div id="wg_sessions">
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="WL" id="WL">
-              <label class="form-check-label" for="WL">WL: Weak Lensing</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="LSS" id="LSS">
-              <label class="form-check-label" for="LSS">LSS: Large Scale Structure</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="TD" id="TD">
-              <label class="form-check-label" for="TD">TD: Time Domain</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="CL" id="CL">
-              <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="MCP" id="MCP">
-              <label class="form-check-label" for="MCP">MCP: Modeling &amp; Combined Probes</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="PZ" id="PZ">
-              <label class="form-check-label" for="PZ">PZ: Photometric Redshifts</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="OS" id="OS">
-              <label class="form-check-label" for="OS">OS: Observing Strategy</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="DKM" id="DKM">
-              <label class="form-check-label" for="DKM">DKM: Dark Matter</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="ES" id="ES">
-              <label class="form-check-label" for="ES">ES: External Synergies</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="CSS" id="CSS">
-              <label class="form-check-label" for="CSS">CSS: Cosmological and Survey Simulations</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="CO" id="CO">
-              <label class="form-check-label" for="CO">CO: Computing</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="SRV" id="SRV">
-              <label class="form-check-label" for="SRV">SRV: Science Release &amp; Validation</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="SA" id="SA">
-              <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="PC" id="PC">
-              <label class="form-check-label" for="PC">PC: Photometric Corrections</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="BL" id="BL">
-              <label class="form-check-label" for="BL">BL: Blending</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="PSF" id="PSF">
-              <label class="form-check-label" for="PSF">PSF: Point Spread Function</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="Social" id="Social">
-              <label class="form-check-label" for="Social">Social Events</label>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-      <hr>
-
-      <h5>Speed Chat</h5>
-      <p>This is a new networking opportunity for JuDO members to "speed chat"
-        with working group (WG) conveners, Pipeline Scientists (PS), and
-        Computing Infrastructure (CI) team members. Each chat is 5 minutes
-        (one-on-one) with a randomly assigned WG, PS, or CI. There will be
-        several rounds of chats within a dedicated parallel session.
+      <h5>Junior Membership and Mentor/Mentee Sign-Up</h5>
+      <p>We all know how challenging it can be to navigate a new space,
+        with a lot of things happening during DESC meetings and in the large DESC collaboration in general.
+        To address this, the LOC will set up mentor/mentee pairs with the overarching goal of having
+        a point of contact for attendees who might not know where to start.
+        Typically, the role of a mentor will simply be to be available and open to
+        fielding questions and directing mentees to the right resources (people and/or documentation).
+        Junior members who have experience with DESC meetings are encouraged to consider serving as a mentor!
+      <br> <br>
+       Please indicate your experience with the DESC collaboration and your
+       interest in the mentorship program below.
       </p>
       <ul>
-        <li>If you are a JuDO member, <b> would you like to sign up </b> for a
-          "speed chat" with Pipeline Scientists/Computing Infrastructure
-          team members/WG Conveners?
+
           <div class="form-group">
             <div>
-              <div class="form-check form-check-inline" id="inputSpeedchat">
-                <input class="form-check-input" type="checkbox" name="speedchat" id="speedchat_yes" value="yes">
-                <label class="form-check-label" for="speedchat_yes">Yes, please!</label>
+              <div class="form-check form-check-inline" id="inputJudo">
+                <input class="form-check-input" type="checkbox" name="judo" id="judo" value="yes">
+                <label class="form-check-label" for="judo">I'm an early-career scientist or am new to the DESC collaboration.</label>
               </div>
             </div>
           </div>
-        </li>
+
+          <div class="form-group">
+            <div>
+              <div class="form-check form-check-inline" id="inputMentee">
+                <input class="form-check-input" type="checkbox" name="mentee" id="mentee_yes" value="yes">
+                <label class="form-check-label" for="mentee_yes">I'd like to be paired with a mentor for the DESC 2022 Sprint Week!</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div>
+              <div class="form-check form-check-inline" id="inputMentor">
+                <input class="form-check-input" type="checkbox" name="mentor" id="mentor_yes" value="yes">
+                <label class="form-check-label" for="mentor_yes">I'd like to be a mentor for the DESC 2022 Sprint Week!</label>
+              </div>
+            </div>
+          </div>
+
       </ul>
+
       <hr>
       <h5>A/V Accommodations</h5>
       <p>If you require any additional accommodations (e.g., closed captions,
@@ -526,7 +421,7 @@
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
           <label class="form-check-label" for="recording">
-            All the plenary sessions will be recorded and recordings will be posted to DESC Confluence. As a presenter
+            Some sessions (e.g. tutorials) will be recorded and recordings will be posted to DESC Confluence. As a presenter
             or participant of the meeting, I understand that what I say, with my microphone turned on, may be recorded.
             (All participants will be informed in Zoom when they are joining a session that is being recorded.
             Organizers of parallel sessions will be asked to consider the preferences of the speakers. If you prefer
@@ -698,15 +593,16 @@
           backdrop: 'static',
           keyboard: false
         });
-      }else{
-      // To close registration
-        $("#main_form :input").prop('disabled', true);
-        $('#registrationClosedModal').modal({
-          show: true,
-          backdrop: 'static',
-          keyboard: false
-        });
-      }
+      };
+      // }else{
+      // // To close registration
+      //   $("#main_form :input").prop('disabled', true);
+      //   $('#registrationClosedModal').modal({
+      //     show: true,
+      //     backdrop: 'static',
+      //     keyboard: false
+      //   });
+      // }
 
       $("#main_form").attr('action', backend + '/register');
       $("#secret").attr('value', secret);
