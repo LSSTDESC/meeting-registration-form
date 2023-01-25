@@ -22,6 +22,7 @@ class Participant(db.Model):
     affiliation = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
+    shipping_address = db.Column(db.String(1000))
 
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
