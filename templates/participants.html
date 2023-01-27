@@ -21,7 +21,7 @@
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
           <th scope="col">Affiliation</th>
-          <th scope="col">Attendance</th>
+          <!-- <th scope="col">Attendance</th> -->
         </tr>
       </thead>
       <tbody>
@@ -30,7 +30,7 @@
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
-          <td>{% if item.in_person == "on"%}In Person{% else %}Remote{% endif %}</td>
+          <!-- <td>{% if item.in_person == "on"%}In Person{% else %}Remote{% endif %}</td> -->
         </tr>
         {% endfor %}
       </tbody>
