@@ -79,7 +79,8 @@ Your repo now has a new remote named heroku.
 
 6. To redeploy at any time, just do
 `$ git push heroku master`
-(or push main if that is the production branch of the repo. This only works with branches named main or master)
+(or push main if that is the production branch of the repo.) You can only push _to_ master or (main), but the source can be a different branch. For example, if you want to push a development branch, say my-dev-branch, for testing, do
+`$ git push heroku my-dev-branch:master`
 
 Note that redeploying will not change SERVER_URL, SECRET_KEY, or DATABASE_URL. It also will not touch the database. If the database structure has changed either
 * do not redeploy; instead delete the app and start over. This is fine if you’re not yet in production.
