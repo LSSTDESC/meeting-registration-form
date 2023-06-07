@@ -20,14 +20,19 @@ class Participant(db.Model):
     last_name  = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
+    in_person = db.Column(db.String(5))
+    lname = db.Column(db.String(100))
+    sname = db.Column(db.String(100))
+    pronoun = db.Column(db.String(100))
+    deschool = db.Column(db.String(5))
+    sprint = db.Column(db.String(5))
+    dinner = db.Column(db.String(5))
+    dinner_plus_one = db.Column(db.String(5))
+    dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
-    street_address = db.Column(db.String(100))
-    apartment = db.Column(db.String(100))
-    city = db.Column(db.String(100))
-    state_province = db.Column(db.String(50))
-    postal_code = db.Column(db.String(30))
-    country = db.Column(db.String(100))
+
+    covid_rules = db.Column(db.String(5))
 
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
@@ -50,8 +55,6 @@ class Participant(db.Model):
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
 
-    mentor = db.Column(db.String(20))
-    mentee = db.Column(db.String(20))
     speedchat = db.Column(db.String(5))
 
 
