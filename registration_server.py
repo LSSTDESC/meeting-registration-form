@@ -26,6 +26,7 @@ class Participant(db.Model):
     pronoun = db.Column(db.String(100))
     deschool = db.Column(db.String(5))
     sprint = db.Column(db.String(5))
+    poster = db.Column(db.String(5))
     dinner = db.Column(db.String(5))
     dinner_plus_one = db.Column(db.String(5))
     dietary = db.Column(db.String(200))
