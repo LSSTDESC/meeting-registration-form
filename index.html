@@ -681,14 +681,14 @@
           backdrop: 'static',
           keyboard: false
         });
-      }else{
-      // To close registration
-//        $("#main_form :input").prop('disabled', true);
-//        $('#registrationClosedModal').modal({
-//          show: true,
-//          backdrop: 'static',
-//          keyboard: false
-//        });
+      }else if false{
+      // Enable this to close registration
+        $("#main_form :input").prop('disabled', true);
+        $('#registrationClosedModal').modal({
+          show: true,
+          backdrop: 'static',
+          keyboard: false
+        });
       }
 
       $("#main_form").attr('action', backend + '/register');
