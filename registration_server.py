@@ -20,6 +20,7 @@ class Participant(db.Model):
     last_name  = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
+    early_career = db.Column(db.String(5))
     in_person = db.Column(db.String(5))
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
@@ -95,10 +96,21 @@ def register():
     db.session.add(participant)
     db.session.commit()
     if participant.in_person == 'on':
-        # Set the registration fee. (Early career discount will be applied in templates/payment.html
-        fee = "225"
-        r = make_response(render_template('payment.html', data=participant,
-                                          fee="xxx"))
+        # Set the registration fee.
+        if participant.early_career == 'on':
+            reg_fee = "100"
+        else:
+            reg_fee = "225"
+        # Collaboration dinner tickets
+        if participant.dinner == 'on':
+            if participant.dinner_plus_one == 'on':
+                dinner_cost = "100"
+            else:
+                dinner_cost = "50"
+        else:
+            dinner_cost = "0"
+        r = make_response(render_template('payment_stripe.html', data=participant,
+                                          reg_fee=reg_fee, dinner_cost=dinner_cost))
     else:
         r = make_response(render_template('success.html', data=participant))
     r.headers.set('Access-Control-Allow-Origin',"*")
