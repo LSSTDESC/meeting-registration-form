@@ -92,7 +92,11 @@ def register():
     participant = Participant(**kwargs)
     db.session.add(participant)
     db.session.commit()
-    r = make_response(render_template('success.html', data=participant))
+    if participant.in_person == 'on':
+        r = make_response(render_template('payment.html', data=participant,
+                                          fee="xxx"))
+    else:
+        r = make_response(render_template('success.html', data=participant))
     r.headers.set('Access-Control-Allow-Origin',"*")
     return r
 
