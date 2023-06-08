@@ -389,6 +389,11 @@
           <div id="wg_sessions">
 
             <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="DESChool" id="DESChool">
+              <label class="form-check-label" for="DESChool">DESChool (Monday)</label>
+            </div>
+
+            <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="WL" id="WL">
               <label class="form-check-label" for="WL">WL: Weak Lensing</label>
             </div>
@@ -466,6 +471,11 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="PSF" id="PSF">
               <label class="form-check-label" for="PSF">PSF: Point Spread Function</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="COM" id="COM">
+              <label class="form-check-label" for="COM">Commissioning</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -686,14 +696,14 @@
           backdrop: 'static',
           keyboard: false
         });
-      }else{
+      }else if false{
       // Enable this to close registration
-//        $("#main_form :input").prop('disabled', true);
-//        $('#registrationClosedModal').modal({
-//          show: true,
-//          backdrop: 'static',
-//          keyboard: false
-//        });
+        $("#main_form :input").prop('disabled', true);
+        $('#registrationClosedModal').modal({
+          show: true,
+          backdrop: 'static',
+          keyboard: false
+        });
       }
 
       $("#main_form").attr('action', backend + '/register');

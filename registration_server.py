@@ -51,6 +51,8 @@ class Participant(db.Model):
     PZ = db.Column(db.String(5))
     SA = db.Column(db.String(5))
     MCP = db.Column(db.String(5))
+    COM = db.Column(db.String(5))
+    DESChool = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
     recording = db.Column(db.String(5))
@@ -93,6 +95,8 @@ def register():
     db.session.add(participant)
     db.session.commit()
     if participant.in_person == 'on':
+        # Set the registration fee. (Early career discount will be applied in templates/payment.html
+        fee = "225"
         r = make_response(render_template('payment.html', data=participant,
                                           fee="xxx"))
     else:
