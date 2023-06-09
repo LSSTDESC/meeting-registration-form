@@ -107,10 +107,11 @@ def register():
                 dinner_cost = "100"
             else:
                 dinner_cost = "50"
+            r = make_response(render_template('payment_stripe.html', data=participant,
+                                              reg_fee=reg_fee, dinner_cost=dinner_cost))
         else:
-            dinner_cost = "0"
-        r = make_response(render_template('payment_stripe.html', data=participant,
-                                          reg_fee=reg_fee, dinner_cost=dinner_cost))
+            r = make_response(render_template('payment_stripe_no_dinner.html', data=participant,
+                                              reg_fee=reg_fee))
     else:
         r = make_response(render_template('success.html', data=participant))
     r.headers.set('Access-Control-Allow-Origin',"*")

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel='stylesheet prefetch'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+
+</head>
+
+<body>
+  <div class="container">
+    <p>
+      Dear {{data.first_name}} {{data.last_name}},
+      <br><br>
+      Thank you for registering for the July 2023 DESC Meeting at SLAC!
+      <br><br>
+      Your registration fee is ${{reg_fee}}.
+      <br><br>
+      Please click the button below to proceed with payment and complete your registration.
+    </p>
+    <script id="checkout_reg"
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_aNyi3wCdQGnbBdChUBqQxCSy"
+      data-amount="{{reg_fee}}00"
+      data-name="LSST DESC SLAC Meeting"
+      data-description="registration"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+      data-label="Pay for registration"
+      data-allow-remember-me="false"
+      data-email=""
+      data-locale="auto">
+    </script>
+    <br>
+    <br>
+
+    <button onclick="window.location.reload()">Exit</button>
+  </div>
+</body>
+
+</html>
