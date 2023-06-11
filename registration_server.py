@@ -99,19 +99,25 @@ def register():
         # Set the registration fee.
         if participant.early_career == 'on':
             reg_fee = "100"
+            reg_fee_link = "https://buy.stripe.com/3csdU0fXv8qRa5i28d"
         else:
             reg_fee = "225"
+            reg_fee_link = "https://buy.stripe.com/4gw03a4eNcH75P25ko"
         # Collaboration dinner tickets
         if participant.dinner == 'on':
-            if participant.dinner_plus_one == 'on':
+            if participant.dinner_plus_one == 'on':  # Use the same link for now
                 dinner_cost = "100"
+                dinner_payment_link = "https://buy.stripe.com/dR6dT6dZG3ZYf60dQZ"
             else:
                 dinner_cost = "50"
+                dinner_payment_link = "https://buy.stripe.com/dR6dT6dZG3ZYf60dQZ"
             r = make_response(render_template('payment_stripe.html', data=participant,
-                                              reg_fee=reg_fee, dinner_cost=dinner_cost))
+                                              reg_fee=reg_fee, reg_fee_link=reg_fee_link,
+                                              dinner_cost=dinner_cost,
+                                              dinner_payment_link=dinner_paymen_link))
         else:
             r = make_response(render_template('payment_stripe_no_dinner.html', data=participant,
-                                              reg_fee=reg_fee))
+                                              reg_fee=reg_fee, reg_fee_link=reg_fee_link))
     else:
         r = make_response(render_template('success.html', data=participant))
     r.headers.set('Access-Control-Allow-Origin',"*")

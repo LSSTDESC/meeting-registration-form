@@ -18,20 +18,9 @@
       <br><br>
       Your registration fee is ${{reg_fee}}.
       <br><br>
-      Please click the button below to proceed with payment and complete your registration.
+      Please click the link below to proceed with payment and complete your registration.
     </p>
-    <script id="checkout_reg"
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_aNyi3wCdQGnbBdChUBqQxCSy"
-      data-amount="{{reg_fee}}00"
-      data-name="LSST DESC SLAC Meeting"
-      data-description="registration"
-      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-      data-label="Pay for registration"
-      data-allow-remember-me="false"
-      data-email=""
-      data-locale="auto">
-    </script>
+    <a href="{{reg_fee_link}}" target="_blank" rel="noreferrer noopener">Pay registration fee</a>
     <br>
     <br>
 
