@@ -114,7 +114,7 @@ def register():
             r = make_response(render_template('payment_stripe.html', data=participant,
                                               reg_fee=reg_fee, reg_fee_link=reg_fee_link,
                                               dinner_cost=dinner_cost,
-                                              dinner_payment_link=dinner_paymen_link))
+                                              dinner_payment_link=dinner_payment_link))
         else:
             r = make_response(render_template('payment_stripe_no_dinner.html', data=participant,
                                               reg_fee=reg_fee, reg_fee_link=reg_fee_link))
