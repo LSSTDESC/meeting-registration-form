@@ -15,17 +15,15 @@
       Dear {{data.first_name}} {{data.last_name}}, please <b>proceed with payment to complete your registration</b>.
     </p>
 
-    <p> Late registration fees are $200 which includes the Collaboration dinner. An extra $30 will be charged if you have
-      opted to purchase an additional dinner ticket.
+    <p> Registration fees are $225, and dinner tickets are $50 each.
       <br>
       <br>
-      Early Career Scientists (students and postdocs) qualify for a $100 discount on the registration fee, please
+      Early Career Scientists (students and postdocs) qualify for a $125 discount on the registration fee, please
       check the discount box below if you qualify.
     </p>
     <br>
 
     <form id="payment_form" method="post" action='https://epayment-gateway.uchicago.edu/epayment.php'>
-
       <input type="hidden" name="pmt_type" maxlength="3" value="201" />
       <input type="hidden" name="account" maxlength="15" value="desc-form" />
       <input type="hidden" name="finish_url" maxlength="60"
@@ -54,7 +52,7 @@
           <div class="form-check mb-2">
             <input class="form-check-input" type="checkbox" id="discount" onclick="myFunction()">
             <label class="form-check-label" for="autoSizingCheck">
-              Apply Early Career Scientist discount (-$100)
+              Apply Early Career Scientist discount (-$125)
             </label>
           </div>
         </div>
@@ -73,7 +71,7 @@
   function myFunction() {
     var checkbox = document.getElementById('discount');
     if (checkbox.checked == true) {
-      document.getElementById("inlineFormInputGroup").value = document.getElementById("cost").value - 100.00;
+      document.getElementById("inlineFormInputGroup").value = document.getElementById("cost").value - 125.00;
     } else {
       document.getElementById("inlineFormInputGroup").value = document.getElementById("cost").value;
     }
