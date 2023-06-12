@@ -105,7 +105,7 @@ def register():
             reg_fee_link = "https://buy.stripe.com/bIY7vCeTr7mNcdq28f"
         # Collaboration dinner tickets
         if participant.dinner == 'on':
-            if participant.dinner_plus_one == 'on':  # Use the same link for now
+            if participant.dinner_plus_one == 'on':
                 dinner_cost = "100"
                 dinner_payment_link = "https://buy.stripe.com/7sI3es5ta9ki1fa8wJ"
             else:
