@@ -110,8 +110,9 @@ if __name__ == '__main__':
 
     if args.create:
         print("Creating database table if doesn't exist")
-        db.create_all()
-
+        with app.app_context():
+            db.create_all()
+            
     if args.dump:
         print("Printing content of database.")
         for p in Participant.query.all():
