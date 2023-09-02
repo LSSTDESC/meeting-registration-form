@@ -38,7 +38,6 @@ class Participant(db.Model):
     dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
 
-    covid_vaccine = db.Column(db.String(5))
     covid_rules = db.Column(db.String(5))
 
     judo = db.Column(db.String(5))
