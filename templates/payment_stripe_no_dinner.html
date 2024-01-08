@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel='stylesheet prefetch'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+
+</head>
+
+<body>
+  <div class="container">
+    <p>
+      Dear {{data.first_name}} {{data.last_name}},
+      <br><br>
+      Thank you for registering for the July 2023 DESC Meeting at SLAC!
+      <br><br>
+      Your registration fee is ${{reg_fee}}.
+      <br><br>
+      Please click the link below to proceed with payment and complete your registration.
+    </p>
+    <a href="{{reg_fee_link}}" target="_blank" rel="noreferrer noopener">Pay registration fee</a>
+    <br>
+    <br>
+
+    <button onclick="self.close()">Close tab and exit</button>
+  </div>
+</body>
+
+</html>

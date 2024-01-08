@@ -18,17 +18,23 @@ class Participant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(200))
     last_name  = db.Column(db.String(200))
-    email = db.Column(db.String(200), index=True, unique=True)
+    email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
+    early_career = db.Column(db.String(5))
     in_person = db.Column(db.String(5))
-    badge_name = db.Column(db.String(200))
-    badge_pronouns = db.Column(db.String(200))
+    lname = db.Column(db.String(100))
+    sname = db.Column(db.String(100))
+    pronoun = db.Column(db.String(100))
     deschool = db.Column(db.String(5))
     sprint = db.Column(db.String(5))
+    poster = db.Column(db.String(5))
     dinner = db.Column(db.String(5))
+    dinner_plus_one = db.Column(db.String(5))
     dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
+
+    covid_rules = db.Column(db.String(5))
 
     CL = db.Column(db.String(5))
     LSS = db.Column(db.String(5))
@@ -46,6 +52,8 @@ class Participant(db.Model):
     PZ = db.Column(db.String(5))
     SA = db.Column(db.String(5))
     MCP = db.Column(db.String(5))
+    COM = db.Column(db.String(5))
+    DESChool = db.Column(db.String(5))
     Social = db.Column(db.String(5))
 
     recording = db.Column(db.String(5))
@@ -85,13 +93,33 @@ def register():
     # Remove secret field
     del kwargs['secret'];
     participant = Participant(**kwargs)
-    ###    try:
     db.session.add(participant)
     db.session.commit()
-    r = make_response(render_template('success.html', data=participant))
-    ###except (Exception) as e:
-    ###    r = make_response(render_template('failure.html', data=participant,
-                                          msg=str(e)))
+    if participant.in_person == 'on':
+        # Set the registration fee.
+        if participant.early_career == 'on':
+            reg_fee = "100"
+            reg_fee_link = "https://buy.stripe.com/aEUg28aDb5eFfpCcMS"
+        else:
+            reg_fee = "225"
+            reg_fee_link = "https://buy.stripe.com/bIY7vCeTr7mNcdq28f"
+        # Collaboration dinner tickets
+        if participant.dinner == 'on':
+            if participant.dinner_plus_one == 'on':
+                dinner_cost = "100"
+                dinner_payment_link = "https://buy.stripe.com/7sI3es5ta9ki1fa8wJ"
+            else:
+                dinner_cost = "50"
+                dinner_payment_link = "https://buy.stripe.com/dR63es7Bi8geaPKaES"
+            r = make_response(render_template('payment_stripe.html', data=participant,
+                                              reg_fee=reg_fee, reg_fee_link=reg_fee_link,
+                                              dinner_cost=dinner_cost,
+                                              dinner_payment_link=dinner_payment_link))
+        else:
+            r = make_response(render_template('payment_stripe_no_dinner.html', data=participant,
+                                              reg_fee=reg_fee, reg_fee_link=reg_fee_link))
+    else:
+        r = make_response(render_template('success.html', data=participant))
     r.headers.set('Access-Control-Allow-Origin',"*")
     return r
 
@@ -100,7 +128,7 @@ def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation).all()
+    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person).all()
     return render_template('participants.html', data=participants)
 
 if __name__ == '__main__':
@@ -112,7 +140,8 @@ if __name__ == '__main__':
 
     if args.create:
         print("Creating database table if doesn't exist")
-        db.create_all()
+        with app.app_context():
+            db.create_all()
 
     if args.dump:
         print("Printing content of database.")
