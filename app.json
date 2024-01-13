@@ -5,7 +5,7 @@
     "flask",
     "python"
   ],
-  "repository": "https://github.com/LSSTDESC/meeting-registration-form",
+  "repository": "https://github.com/JoanneBogart/meeting-registration-form",
   "addons": [
     {
       "plan": "heroku-postgresql",
