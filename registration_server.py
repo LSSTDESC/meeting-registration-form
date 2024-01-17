@@ -37,7 +37,6 @@ class Participant(db.Model):
     TD = db.Column(db.String(5))
     WLSS = db.Column(db.String(5))
     Social = db.Column(db.String(5))
-    social_fact = db.Column(db.String(500))
 
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
