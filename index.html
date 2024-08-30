@@ -47,11 +47,7 @@
     /* Hides the badge and in-person info until people
    sign up for in-person attendance.
  */
-    /* #in_person_info {
-      display: none;
-    } */
-
-    #volunteer_section {
+    #in_person_info {
       display: none;
     }
 
@@ -121,13 +117,15 @@
       left: 0.1in;
     }
 
-    #logo2 {
+    <!-- does not exist yet
+      #logo2 {
       width: 64px !important;
       height: 22px;
       background-image: url("https://raw.githubusercontent.com/LSSTDESC/meeting-registration-form/master/assets/logo-kipac_0_0.png");
       bottom: 0.15in;
       right: 0.2in;
     }
+    -->
   </style>
 
 </head>
@@ -136,10 +134,10 @@
   <div class="container">
     <h2>Registration for the 2024 DESC Sprint Week at SLAC</h2>
     <h4>Monday October 28 - Friday, November 1, 2024</h4>
-    
+
     <mark><b>Registration for the Sprint Week is free</b>, the organizers thank the <a href="https://kipac.stanford.edu/" target="_blank"> Kavli Institute for Particle Astrophysics and Cosmology</a> for funding the event, covering all event costs.</mark>
-    
-  
+
+
     <br>
     <br>
     Please join the LSSTC Slack channel <a href="https://lsstc.slack.com/messages/C2M8FG5A6" target="_blank">#desc-hack-sprint</a> to keep updated on chats, discussions, and announcements during the meeting!
@@ -180,10 +178,11 @@
 
       <hr>
       <h5>LSST/DESC Membership</h5>
-      Are you currently a member of the Dark Energy Science Collaboration? This info will allow us to better make accommodations for non-DESC attendees.
-      <div class="form-group">
+    <p>Are you currently a member of the Dark Energy Science Collaboration? This info will allow us to better make accommodations for non-DESC attendees.</p>
+    <div class="form-group">
+
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="member" name="descmember" value="yes" required>
+          <input class="form-check-input" type="radio" id="member" name="descmember" value="yes" required >
           <label class="form-check-label" for="descmember">
             <b>Yes</b>
           </label>
@@ -194,7 +193,7 @@
             <b>No</b>
           </label>
         </div>
-      </div>
+      </div>   <!-- end membership form-group -->
 
       <hr>
 
@@ -206,7 +205,7 @@
             <b>Check if you plan to attend in person</b>
           </label>
         </div>
-      </div>
+      </div>     <!-- End in-person form-group -->
 
       <!-- This entire block is hidden until people click the in-person attendance button -->
       <div id="in_person_info">
@@ -234,7 +233,7 @@
                   for pronouns ?</a></small>
               <div class="invalid-feedback">Please provide your choice of pronoun.</div>
             </div>
-          </div>
+          </div>  <!-- end class col-sm -->
           <div class="col-sm">
             <div id="badge">
               <div id="lname-d">
@@ -256,10 +255,10 @@
                 <span id="location-s">SLAC</span>
               </div>
               <div id="logo1" class="logo"></div>
-              <div id="logo2" class="logo"></div>
-            </div>
-          </div>
-        </div>
+              <!--  <div id="logo2" class="logo"></div> -->
+           </div>  <!-- end div id badge -->
+          </div>     <!-- end 2nd class col-sm -->
+        </div>      <!-- end class row -->
 
 
 
@@ -267,7 +266,7 @@
 
           <h5>Covid-19 guidelines</h5>
 
-          <p>To ensure the safety of the meeting, in-person participants are asked to follow the following guidelines for this event: 
+          <p>To ensure the safety of the meeting, in-person participants are asked to follow the following guidelines for this event:
             <ul>
               <li><b>If you have tested positive for Covid-19</b>: Please follow <a href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/isolation.html" target="_blank">CDC guidelines</a> on isolation and masking. </li>
               <li><b>Facial Coverings</b>: Facial coverings both indoors and outdoors are optional. </li>
@@ -275,7 +274,7 @@
             </p>
 
           <div class="form-group">
-            
+
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="covid_rules" id="covid_rules">
               <label class="form-check-label" for="covid_rules">
@@ -283,22 +282,22 @@
               </label>
               <div class="invalid-feedback">You must agree to follow the Covid-19 rules.</div>
             </div>
-	    <!--
+            <!--
             <small class="form-text text-muted">
               For the current Covid-19-related information at CMU, see: <a href="https://www.cmu.edu/coronavirus/"
                 target="_blank" rel="noopener noreferrer">https://www.cmu.edu/coronavirus/</a>.
             </small>
-	    -->
+            -->
 
           </div>
 
 
         <hr>
-      
+
         <h5>Attendance</h5>
         Please check which days you plan on attending. Lunch will be provided on those days.
         <div class="form-group">
-  
+
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="monday" name="monday">
             <label class="form-check-label" for="monday">
@@ -330,7 +329,7 @@
             </label>
           </div>
         </div> <!-- form group -->
-  
+
 
           <h5>Dietary restrictions</h5>
             <div class="form-group">
@@ -338,11 +337,37 @@
                 Please describe any dietary restrictions.</label>
               <input class="form-control" type="text" id="dietary" name="dietary" maxlength="200"
                 placeholder="Dietary restrictions">
-            </div>
+              </div>
+<hr>
+ <h5>Site access</h5>
+ <p>If you do not have a valid SLAC badge, you must fill out and submit a
+ <a href="https://erp-hprdext.erp.slac.stanford.edu/psc/hprdext/EMPLOYEE/HRMS/c/SL_DOE_FACT.SL_DOE_FACTS_USER.GBL?source=Visitor"
+    target="_blank"> SLAC Visitor form</a>. No documents need to be uploaded.
+Of course, please do bring ID to show when you arrive at the
+meeting. For detailed instructions on how to fill out the form
+please see the <a href="https://confluence.slac.stanford.edu/x/UoHoHQ" target="_blank2">
+ registration page in Confluence</a></p>
+ <p>Please ensure you have checked the correct button below.</p>
+ <div class="form-group">
+   <div class="form-check">
+      <input class="form-check-input" type="radio" name="access"  value="visitor" checked>
+      <label class="form-check-label" for="access">
+        <b>I have submitted a
+<a href="https://erp-hprdext.erp.slac.stanford.edu/psc/hprdext/EMPLOYEE/HRMS/c/SL_DOE_FACT.SL_DOE_FACTS_USER.GBL?source=Visitor" target="_blank">
+        SLAC Visitor form</a></b>
+      </label>
+    </div>
 
-      </div>
-      </div>
-      
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="access" value="badge">
+      <label class="form-check-label" for="access">
+        <b>I have a valid SLAC badge</b>
+      </label>
+    </div>
+  </div>    <!-- End access form-group -->
+
+</div>   <!-- end container -->
+</div>   <!-- end div in-person-info  -->
 
       <hr>
       <h5>DESC Meeting Contact Persons</h5>
@@ -365,48 +390,30 @@
       </div>
 
       <hr>
-      <h5>Junior Membership and Mentor/Mentee Sign-Up</h5>
+      <h5>New Membership</h5>
       <p>We all know how challenging it can be to navigate a new space,
         with a lot of things happening during DESC meetings and in the large DESC collaboration in general.
-        To address this, the LOC will set up mentor/mentee pairs with the overarching goal of having
-        a point of contact for attendees who might not know where to start.
-        Typically, the role of a mentor will simply be to be available and open to
-        fielding questions and directing mentees to the right resources (people and/or documentation).
-        Junior members who have experience with DESC meetings are encouraged to consider serving as a mentor!
+
       <br> <br>
-       Please indicate your experience with the DESC collaboration and your
-       interest in the mentorship program below.
+       Please indicate your experience with the DESC collaboration below.
       </p>
-      <ul>
+      <!-- <ul>   No need for list here -->
 
           <div class="form-group">
-            <div>
-              <div class="form-check form-check-inline" id="inputJudo">
-                <input class="form-check-input" type="checkbox" name="judo" id="judo" value="yes">
-                <label class="form-check-label" for="judo">I'm an early-career scientist or am new to the DESC collaboration.</label>
+              <div class="form-check form-check-inline" id="inputNewbie">
+                <input class="form-check-input" type="checkbox" name="newbie" id="newbie" value="yes">
+                <label class="form-check-label" for="newbie">I'm new to the DESC collaboration.</label>
               </div>
-            </div>
           </div>
-
           <div class="form-group">
-            <div>
-              <div class="form-check form-check-inline" id="inputMentee">
-                <input class="form-check-input" type="checkbox" name="mentee" id="mentee_yes" value="yes">
-                <label class="form-check-label" for="mentee_yes">I'd like to be paired with a mentor for the DESC 2024 Sprint Week!</label>
+              <div class="form-check form-check-inline" id="inputFirstSprint">
+                <input class="form-check-input" type="checkbox" name="first_sprint" id="first_sprint" value="yes">
+                <label class="form-check-label" for="first_sprint">This is my first DESC Sprint Week.</label>
               </div>
-            </div>
           </div>
 
-          <div class="form-group">
-            <div>
-              <div class="form-check form-check-inline" id="inputMentor">
-                <input class="form-check-input" type="checkbox" name="mentor" id="mentor_yes" value="yes">
-                <label class="form-check-label" for="mentor_yes">I'd like to be a mentor for the DESC 2024 Sprint Week!</label>
-              </div>
-            </div>
-          </div>
 
-      </ul>
+      <!--  </ul> -->
 
       <hr>
       <h5>A/V Accommodations</h5>
@@ -470,6 +477,7 @@
       </div>
     </div>
   </div>
+<!--
 
   <div class="modal fade" id="registrationClosedModal" role="dialog">
     <div class="modal-dialog">
@@ -480,18 +488,18 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-<!--
         <div class="modal-body">
           <p>The registration for this event is now closed.
             Please contact the LOC if you have any further inquiries.</p>
         </div>
--->
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+-->
 
   <!-- Confirmation Modal -->
   <div class="modal fade" id="confirmationModal" role="dialog">
@@ -533,14 +541,13 @@
         data: $("#main_form").serialize(),
         url: $("#main_form").attr('action'),
         success: function (data) {
-
-          // Registration successful so far, so let's proceed to payment
           $("#confirmation-content").html(data);
           $("#confirmationModal").modal({
             show: true,
             backdrop: 'static',
             keyboard: false
           });
+
         }
       });
 
@@ -595,7 +602,7 @@
           backdrop: 'static',
           keyboard: false
         });
-      };
+      }
       // }else{
       // // To close registration
       //   $("#main_form :input").prop('disabled', true);
@@ -627,8 +634,8 @@
             }
           } else {
             // Server is unavailable...
-            // make sure we don't block the form at this stage
-            d.setCustomValidity("");
+            // make sure we do not block the form at this stage
+            d.setCustomValidity("could not check email; server unavailable");
             d.classList.remove('is-invalid');
           }
           console.log("Data: " + data + "\nStatus: " + status);
@@ -650,23 +657,15 @@
 
         if (document.getElementById("in_person").checked) {
           document.getElementById("pronoun").required = true;
-          document.getElementById("covid_vaccine").required = true;
           document.getElementById("covid_rules").required = true;
 
 
         } else {
           document.getElementById("pronoun").required = false;
-          document.getElementById("covid_vaccine").required = false;
           document.getElementById("covid_rules").required = false;
 
         };
 
-      });
-    });
-
-    $(document).ready(function () {
-      $('#volunteer').click(function () {
-        $('#volunteer_section').toggle(500);
       });
     });
   </script>
