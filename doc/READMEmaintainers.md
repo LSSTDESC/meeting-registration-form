@@ -26,19 +26,68 @@ In order to be able to test everything thoroughly on your fork, you should set u
 * the drop-down menu under **Source** should say **None**. Choose the branch (either master or main) which will be the source. And you’re done.
 
 ### First deploy
-You can pretty much follow the instructions in README.md, but I suggest first creating your Heroku account, then starting over from the README page to do the actual deploy (I’m not positive but I think when I tried to continue immediately after creating my account the page I saw didn’t match the description in the README. But the next time around, with my account already created, it did.)
+The old instructions in the README are obsolete.  There have been many
+changes to the way Heroku operates since then.  For one, they no longer
+provide free access to their database services. As a result, several operations
+which used to be handled for you by the README must now be done manually.
 
-If the deploy is successful, click **Manage app**, then **Settings**, and finally click **Reveal Config Vars**. There are two: DATABASE_URL and SECRET_KEY. Copy and save the values for both. DATABASE_URL at least should be saved in a protected place (no read access for anyone else). These values don’t change if you need to redeploy the application. They of course do change if you delete the application and start over with the same name.
+The following instructions were last verified to work as of May, 2025.
+
+SLAC has an account managed by Seth Digel.  In order to use it you must
+* create a personal Heroku account
+* have that account added to the group __desc-meeting__.
+
+For everything that follows, you should log into heroku using your account,
+then select __desc-meeting__
+
+Then do the following:
+
+1. __Create your app__
+   It can be called something like desc-july2025-collab or
+   desc_july2025-collab-dev if this is a development deploy associated
+   with your fork.   You do this by clicking the __New__ button.
+
+2. __Connect to GitHub__ by specifying the repo:
+   YourGitHubUser/meeting-registration-form for your fork, or
+   LSSTDESC/meeting-registration-form for production.  You will
+   then be able to deploy or redeploy directly from the repo.
+
+   NOTE: It is also possible to deploy or redeploy using the Heroku CLI (see
+   instructions below) but, under normal circumstances, connecting to
+   GitHub will be simpler.
+
+3. __Discover SERVER_URL__
+   Deploy, then click "view".  You'll get an error,
+   but save the URL in the tab or window that pops up because you will
+   need it later.
+
+4. __Attach a database__
+   Click on "Resources" in the upper menu bar, then on
+   "Add-on Services".   Select Heroku Postgres
+
+5. __Config variables__
+   Go to "Settings" in upper menu bar. Scroll down if
+   necessary an click on "Reveal Config Vars".  Make a note of the value
+   of DATABASE_URL; you'll need it later.  Also create a variable called
+   SECRET_KEY.   The value should be some random string of numbers, letters
+   and other URL-friendly characters like underscore (_). Make a note of
+   what you used.
+
+6. __Create dataabase table__
+   Click on the "More" button and select the "Run console" option.
+   Your run command should be "bash"
+   Then at the prompt type
+       python registration_server.py --create
 
 ### Useful URLs
-Let SERVER_URL be
-`https://APPNAME.herokuapp.com` where APPNAME is the value you typed in the App name field. Then the URL people will use to register*, as stated in README.md, is
+   * The URL used to display registered participants is just SERVER_URL from
+     step 3
+   * The URL used to register for the meeting looks like
+     https://lsstdesc.github.io/meetiing-registration-from/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
 
-`https://lsstdesc.github.io/meeting-registration-form/index.html?backend=SERVER_URL&secret=SECRET_KEY`
-
-where SECRET_KEY is the value of the SECRET_KEY config variable.
-
-To see a summary of registered participants to date, use SERVER_URL
+     SERVER_URL is the value from step 3
+     SECRET_KEY_VALUE is the value you chose for the SECRET_KEY config
+     variable in step 5
 
 **NOTE:** For your fork the registration URL will be a little different. `lsstdesc.github.io` will instead be `your-github-user.github.io`.   If your forked repo is not named meeting-registration-form, that part of the URL will also have to change.
 
@@ -56,7 +105,7 @@ hostname:port:database:username:password
 ```
 Set the permissions of the `.pgpass` file with `chmod 600 ~/.pgpass`, and you can then use client programs such as `pgsql` or `pgcli` to access the tables.
 
-### Redeploy
+### Redeploy Using Heroku CLI
 1. Install the Heroku CLI.   There are various ways to do this.  For my (mac) laptop I downloaded the tarball, unpacked, and set my path to include the bin directory so that the heroku command could be found.
 
 2. Do
@@ -86,8 +135,5 @@ Note that redeploying will not change SERVER_URL, SECRET_KEY, or DATABASE_URL. I
 * do not redeploy; instead delete the app and start over. This is fine if you’re not yet in production.
 * fix the database by hand somehow. There are various Heroku commands starting with the string `heroku pg:` which might be useful. For example you can create backups, restore them, and open a psql session.
 
-#### Redeploying from the Heroku web dashboard
+### Redeploying from the Heroku web dashboard
 One can also redeploy the app from the Heroku dashboard if the app is connected to the meeting-registration-form repository on GitHub.  To make that connection, go to the "Deploy" tab for the app instance and select the "GitHub" deployment method.  Once the app is connected to the GitHub repository, you will see options to enable automatic deployment based on pushes to the GitHub repo or to trigger deployments from specific branches.  Note that with the GitHub connection enabled, the Heroku app will appear as an active "Environment" in the GitHub repository, so you may wish to disconnect that app from the GitHub repository after the meeting is over.
-
-### Updating Dependencies
-If you have to change the version of something, manually change it only in `Pipfile`. It’s possible to deploy an app with just `Pipfile`; Heroku will generate a suitable `Pipfile.lock`, but for predictability this is not normally the way one should operate.  By generating `Pipfile.lock` yourself you guarantee that the same precise versions are used every time, until you want to change them.   `Pipfile.lock` can be generated by the utility `pipenv` (which, I must admit, I couldn’t manage to use. Instead I copied a `Pipfile.lock` generated by someone else who could.)

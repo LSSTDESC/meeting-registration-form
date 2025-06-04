@@ -20,6 +20,25 @@ class Participant(db.Model):
     last_name  = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
+
+    early_career = db.Column(db.String(5)) # used to determine reg. fee
+
+    # All of the following are visible only for in-person
+    # Some should be restricted just to U of I, not satellites
+    in_person = db.Column(db.String(5))
+    site = db.Column(db.String(20))    # One of "U of I", "Paris", ...
+    lname = db.Column(db.String(100))
+    sname = db.Column(db.String(100))
+    pronoun = db.Column(db.String(100))
+    sprint = db.Column(db.String(5))
+    poster = db.Column(db.String(5))
+    de_school = db.Column(db.String(5))               # UI only
+    dinner = db.Column(db.String(5))                 # UI only
+    dinner_plus_one = db.Column(db.String(5))        # UI only
+    Tshirt_size = db.Column(db.String(5))            # UI only
+    dietary = db.Column(db.String(500))
+
+
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
@@ -72,9 +91,18 @@ def check_email():
 def register():
     # Extract fields from form data and create participant
     kwargs = {k:request.form[k] for k in request.form}
+
     # Remove secret field
     del kwargs['secret'];
+
+    # Special for July 2025 Collaboration Meeting
+    if 'in_person' not in kwargs:
+        kwargs['site'] = 'Remote'
+    elif kwargs['in_person'] != 'on':
+        kwargs['site'] = 'Remote'
+
     participant = Participant(**kwargs)
+        
     db.session.add(participant)
     db.session.commit()
     r = make_response(render_template('success.html', data=participant))
@@ -86,7 +114,7 @@ def registered():
     """Returns the list of registered participants
     """
     # Get list of participants
-    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation).all()
+    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person, Participant.site).all()
     return render_template('participants.html', data=participants)
 
 if __name__ == '__main__':
@@ -94,12 +122,17 @@ if __name__ == '__main__':
 
     parser.add_argument("--create", action='store_true')
     parser.add_argument("--dump", action='store_true')
+    parser.add_argument("--drop", action='store_true')
     args = parser.parse_args()
 
     if args.create:
-        print("Creating database table if doesn't exist")
+        print("Creating database table if it doesn't exist")
         with app.app_context():
             db.create_all()
+    elif args.drop:
+        print("Dropping database table if it exists")
+        with app.app_context():
+            db.drop_all()
 
     if args.dump:
         print("Printing content of database.")
