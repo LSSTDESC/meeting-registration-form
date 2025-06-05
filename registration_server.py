@@ -38,7 +38,6 @@ class Participant(db.Model):
     Tshirt_size = db.Column(db.String(5))            # UI only
     dietary = db.Column(db.String(500))
 
-
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
@@ -62,7 +61,6 @@ class Participant(db.Model):
 
     speedchat = db.Column(db.String(5))
 
-
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
 
@@ -82,9 +80,10 @@ def check_email():
     email = request.form['email']
     # Check for already registered email
     if Participant.query.filter(Participant.email == email).count() == 0:
-        return ("Ok", {'Access-Control-Allow-Origin':'*'})
+        return ("Ok", {'Access-Control-Allow-Origin': '*'})
     else:
-        return ("Email already registered", {'Access-Control-Allow-Origin':'*'})
+        return ("Email already registered",
+                {'Access-Control-Allow-Origin': '*'})
 
 @app.route('/register', methods=['POST'])
 @requires_auth
@@ -93,7 +92,7 @@ def register():
     kwargs = {k:request.form[k] for k in request.form}
 
     # Remove secret field
-    del kwargs['secret'];
+    del kwargs['secret']
 
     # Special for July 2025 Collaboration Meeting
     if 'in_person' not in kwargs:
@@ -102,11 +101,21 @@ def register():
         kwargs['site'] = 'Remote'
 
     participant = Participant(**kwargs)
-        
+
     db.session.add(participant)
     db.session.commit()
-    r = make_response(render_template('success.html', data=participant))
-    r.headers.set('Access-Control-Allow-Origin',"*")
+    if participant.in_person == 'on':
+        if participant.site == 'UI':
+            payment_link = 'https://appserv7.admin.uillinois.edu/FormBuilderSurvey/Survey/ncsa/aspo/desc/Survey'
+            r = make_response(render_template('payment_UI.html',
+                                              data=participant,
+                                              payment_link=payment_link))
+        else:
+            r = make_response(render_template('success.html', data=participant))
+    else:
+        r = make_response(render_template('success.html', data=participant))
+
+    r.headers.set('Access-Control-Allow-Origin', "*")
     return r
 
 @app.route('/', methods=['GET'])
