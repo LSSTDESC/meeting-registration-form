@@ -97,7 +97,7 @@ def register():
         kwargs['site'] = 'Remote'
 
     participant = Participant(**kwargs)
-        
+
     db.session.add(participant)
     db.session.commit()
 
