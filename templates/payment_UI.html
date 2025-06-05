@@ -5,7 +5,11 @@
   <meta charset="UTF-8">
   <title>Checkout</title>
   <link rel='stylesheet prefetch'
-    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+
+    <style>
+      span.red { color: #FF0000; }
+    </style>
 
 </head>
 
@@ -19,7 +23,7 @@
       Registration fees and guest dinner tickets are billed separately.
       <!-- Your registration fee is ${{reg_fee}}, and your total dinner ticket charge is ${{dinner_cost}}. -->
       <br><br>
-      <span color="Red"><b>
+      <span class="red"><b>
       Please click the link below to proceed with these payments and complete your registration.</b></span>
     </p>
     <a href="{{payment_link}}" target="_blank" rel="noreferrer noopener">Pay registration fee</a>
