@@ -4,8 +4,8 @@ import requests
 from flask import Flask, render_template, request, redirect, url_for, Response, make_response
 from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql.sqltypes import Boolean
-from sqlalchemy import and_
+# from sqlalchemy.sql.sqltypes import Boolean
+#  from sqlalchemy import and_
 
 app = Flask(__name__)
 
@@ -14,6 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 db = SQLAlchemy(app)
 
+
 # Defines the registration entry
 
 
@@ -21,14 +22,14 @@ class Participant(db.Model):
     __tablename__ = 'participants'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(200))
-    last_name  = db.Column(db.String(200))
+    last_name = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
     descmember = db.Column(db.String(5))
     early_career = db.Column(db.String(5)) # used to determine reg. fee
 
     # All of the following are visible only for in-person
-    # Some should be restricted just to U of I, not satellites
+    # Some should perhaps be restricted just to U of I, not satellites
     in_person = db.Column(db.String(5))
     site = db.Column(db.String(20))    # One of "Princeton", "Cambridge", ...
     lname = db.Column(db.String(100))
@@ -81,11 +82,12 @@ def check_email():
         return ("Email already registered", {'Access-Control-Allow-Origin': '*'})
 
 
+
 @app.route('/register', methods=['POST'])
 @requires_auth
 def register():
     # Extract fields from form data and create participant
-    kwargs = {k:request.form[k] for k in request.form}
+    kwargs = {k: request.form[k] for k in request.form}
 
     # Remove secret field
     del kwargs['secret']
@@ -115,6 +117,7 @@ def registered():
     # Get list of participants
     participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person, Participant.site).all()
     return render_template('participants.html', data=participants)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
