@@ -3,8 +3,8 @@ import argparse
 from flask import Flask, render_template, request, redirect, url_for, Response, make_response
 from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql.sqltypes import Boolean
-from sqlalchemy import and_
+# from sqlalchemy.sql.sqltypes import Boolean
+#  from sqlalchemy import and_
 
 app = Flask(__name__)
 
@@ -12,19 +12,21 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 db = SQLAlchemy(app)
 
+
 # Defines the registration entry
 class Participant(db.Model):
     __tablename__ = 'participants'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(200))
-    last_name  = db.Column(db.String(200))
+    last_name = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
 
-    early_career = db.Column(db.String(5)) # used to determine reg. fee
+    # For statistics.  Also sometimes used to determine reg. fee
+    early_career = db.Column(db.String(5))
 
     # All of the following are visible only for in-person
-    # Some should be restricted just to U of I, not satellites
+    # Some should perhaps be restricted just to U of I, not satellites
     in_person = db.Column(db.String(5))
     site = db.Column(db.String(20))    # One of "U of I", "Paris", ...
     lname = db.Column(db.String(100))
@@ -33,10 +35,10 @@ class Participant(db.Model):
     sprint = db.Column(db.String(5))
     poster = db.Column(db.String(5))
     de_school = db.Column(db.String(5))               # UI only
-    dinner = db.Column(db.String(5))                 # UI only
-    dinner_plus_one = db.Column(db.String(5))        # UI only
-    Tshirt_size = db.Column(db.String(5))            # UI only
-    dietary = db.Column(db.String(500))
+    # dinner = db.Column(db.String(5))                 # UI only
+    # dinner_plus_one = db.Column(db.String(5))        # UI only
+    # Tshirt_size = db.Column(db.String(5))            # UI only
+    # dietary = db.Column(db.String(500))
 
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
@@ -64,6 +66,7 @@ class Participant(db.Model):
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
 
+
 def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -73,6 +76,7 @@ def requires_auth(f):
                             {'WWW-Authenticate': 'Include valid "secret" in form data.'})
         return f(*args, **kwargs)
     return decorated
+
 
 @app.route('/check_email', methods=['POST'])
 @requires_auth
@@ -85,11 +89,12 @@ def check_email():
         return ("Email already registered",
                 {'Access-Control-Allow-Origin': '*'})
 
+
 @app.route('/register', methods=['POST'])
 @requires_auth
 def register():
     # Extract fields from form data and create participant
-    kwargs = {k:request.form[k] for k in request.form}
+    kwargs = {k: request.form[k] for k in request.form}
 
     # Remove secret field
     del kwargs['secret']
@@ -118,6 +123,7 @@ def register():
     r.headers.set('Access-Control-Allow-Origin', "*")
     return r
 
+
 @app.route('/', methods=['GET'])
 def registered():
     """Returns the list of registered participants
@@ -125,6 +131,7 @@ def registered():
     # Get list of participants
     participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person, Participant.site).all()
     return render_template('participants.html', data=participants)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
