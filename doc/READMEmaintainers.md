@@ -91,19 +91,16 @@ Then do the following:
 
 **NOTE:** For your fork the registration URL will be a little different. `lsstdesc.github.io` will instead be `your-github-user.github.io`.   If your forked repo is not named meeting-registration-form, that part of the URL will also have to change.
 
+### Handling payment
+Typically payment is involved for in-person registrants. The Heroku app does not itself process payment, but it must interact to some degree with a system that does.  Since that system is up to the host institution, the form of the interaction varies somewhat.   At the least, when the in-person registrant clicks "register" the pop-up which results should include a link to the payment form.  The link may or may not include arguments (such as participant name, email address, fee,..). That will depend on how the payment form has been implemented.  For examples of how this has been handled, see the file `registration_server.py` and various files in the `templates` folder with "payment" in the filename.  The following commits (among others) have the relevant code enabled:
 
-### Querying the database
-Connect to the database using DATABASE_URL.   It’s in this format:
+- [July 2023 Collaboration Meeting](https://github.com/LSSTDESC/meeting-registration-form/tree/3f1f6d49e9d56bbf03dcd20a4b205279b5489208)
 
-    `postgres://user:password@host:port/dbname`
+- [August 2022 Collaboration Meeting](https://github.com/LSSTDESC/meeting-registration-form/tree/e46a5f4771696a336faf00bc412648f7ad98f438)
 
-If you use sqlalchemy to connect, depending on version you might need to change the initial `postgres` to `postgresql`.   Then make a file, e.g. `database.ini`, consisting just of that string. Change protection on the file so only you can read it. See the Jupyter notebook DatabaseQueries in this repo for an example.
+### Redeploying from the Heroku web dashboard
+One can redeploy the app from the Heroku dashboard if the app is connected to the meeting-registration-form repository on GitHub.  To make that connection, go to the "Deploy" tab for the app instance and select the "GitHub" deployment method.  Once the app is connected to the GitHub repository, you will see options to enable automatic deployment based on pushes to the GitHub repo or to trigger deployments from specific branches.  Note that with the GitHub connection enabled, the Heroku app will appear as an active "Environment" in the GitHub repository, so you may wish to disconnect that app from the GitHub repository after the meeting is over.
 
-Alternatively, you can put the database access credentials in a `.pgpass` file in your home directory with the following format
-```
-hostname:port:database:username:password
-```
-Set the permissions of the `.pgpass` file with `chmod 600 ~/.pgpass`, and you can then use client programs such as `pgsql` or `pgcli` to access the tables.
 
 ### Redeploy Using Heroku CLI
 1. Install the Heroku CLI.   There are various ways to do this.  For my (mac) laptop I downloaded the tarball, unpacked, and set my path to include the bin directory so that the heroku command could be found.
@@ -135,5 +132,17 @@ Note that redeploying will not change SERVER_URL, SECRET_KEY, or DATABASE_URL. I
 * do not redeploy; instead delete the app and start over. This is fine if you’re not yet in production.
 * fix the database by hand somehow. There are various Heroku commands starting with the string `heroku pg:` which might be useful. For example you can create backups, restore them, and open a psql session.
 
-### Redeploying from the Heroku web dashboard
-One can also redeploy the app from the Heroku dashboard if the app is connected to the meeting-registration-form repository on GitHub.  To make that connection, go to the "Deploy" tab for the app instance and select the "GitHub" deployment method.  Once the app is connected to the GitHub repository, you will see options to enable automatic deployment based on pushes to the GitHub repo or to trigger deployments from specific branches.  Note that with the GitHub connection enabled, the Heroku app will appear as an active "Environment" in the GitHub repository, so you may wish to disconnect that app from the GitHub repository after the meeting is over.
+
+## Querying the database
+Connect to the database using DATABASE_URL.   It’s in this format:
+
+    `postgres://user:password@host:port/dbname`
+
+If you use sqlalchemy to connect, depending on version you might need to change the initial `postgres` to `postgresql`.   Then make a file, e.g. `database.ini`, consisting just of that string. Change protection on the file so only you can read it. See the Jupyter notebook DatabaseQueries in this repo for an example.
+
+Alternatively, you can put the database access credentials in a `.pgpass` file in your home directory with the following format
+```
+hostname:port:database:username:password
+```
+Set the permissions of the `.pgpass` file with `chmod 600 ~/.pgpass`, and you can then use client programs such as `pgsql` or `pgcli` to access the tables.
+
