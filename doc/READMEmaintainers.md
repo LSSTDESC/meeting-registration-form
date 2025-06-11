@@ -67,7 +67,7 @@ Then do the following:
 
 5. __Config variables__
    Go to "Settings" in upper menu bar. Scroll down if
-   necessary an click on "Reveal Config Vars".  Make a note of the value
+   necessary and click on "Reveal Config Vars".  Make a note of the value
    of DATABASE_URL; you'll need it later.  Also create a variable called
    SECRET_KEY.   The value should be some random string of numbers, letters
    and other URL-friendly characters like underscore (_). Make a note of
@@ -83,7 +83,7 @@ Then do the following:
    * The URL used to display registered participants is just SERVER_URL from
      step 3
    * The URL used to register for the meeting looks like
-     https://lsstdesc.github.io/meetiing-registration-from/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
+     https://lsstdesc.github.io/meeting-registration-from/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
 
      SERVER_URL is the value from step 3
      SECRET_KEY_VALUE is the value you chose for the SECRET_KEY config
