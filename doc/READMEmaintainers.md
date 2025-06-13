@@ -65,19 +65,19 @@ Then do the following:
    Click on "Resources" in the upper menu bar, then on
    "Add-on Services".   Select Heroku Postgres
 
-5. __Config variables__
+5. __Create database table__
+   Click on the "More" button and select the "Run console" option.
+   Your run command should be "bash"
+   Then at the prompt type
+       python registration_server.py --create
+
+6. __Config variables__
    Go to "Settings" in upper menu bar. Scroll down if
    necessary and click on "Reveal Config Vars".  Make a note of the value
    of DATABASE_URL; you'll need it later.  Also create a variable called
    SECRET_KEY.   The value should be some random string of numbers, letters
    and other URL-friendly characters like underscore (_). Make a note of
    what you used.
-
-6. __Create dataabase table__
-   Click on the "More" button and select the "Run console" option.
-   Your run command should be "bash"
-   Then at the prompt type
-       python registration_server.py --create
 
 ### Useful URLs
    * The URL used to display registered participants is just SERVER_URL from
