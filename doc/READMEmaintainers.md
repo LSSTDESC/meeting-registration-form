@@ -65,7 +65,7 @@ Then do the following:
    Click on "Resources" in the upper menu bar, then on
    "Add-on Services".   Select Heroku Postgres
 
-5. __Create dataabase table__
+5. __Create database table__
    Click on the "More" button and select the "Run console" option.
    Your run command should be "bash"
    Then at the prompt type
