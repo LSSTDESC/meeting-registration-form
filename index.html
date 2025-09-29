@@ -50,8 +50,8 @@
       display: none;
     } */
 
-    /* Only display for in-person and U of I */
-    /* #UI_info {
+    /* Only display for in-person and main site */
+    /* #main_info {
       display: none;
     } */
     
@@ -217,20 +217,20 @@
 	    <div class="form-group">
 	      <div class="col-sm">
 		<div class="form-group" id="site-radio">
-		  <input type="radio" name="site" id="UI" value="UI"
+		  <input type="radio" name="site" id="main" value="Princeton"
 			 required checked/>
-		  <label  for="UI">
-		    U of Illinois, Urbana, USA
+		  <label  for="main">
+		    Princeton University, Princeton, USA
 		  </label>
 		</div>
-		<!--
+		
 		<div class="form-group">
-		  <input type="radio" name="site" id="APC" value="APC" />
-		  <label  for="APC">
-		    APC, Paris, France
+		  <input type="radio" name="site" id="satellite1" value="Cambridge" />
+		  <label  for="satellite1">
+		    Cambridge University, Cambridge, UK
 		  </label>
 		  </div>
-		-->
+		
 		<!--
 		<div class="form-group">
 		  <input type="radio" name="site" id="ICTP-SAIFR"
@@ -336,31 +336,31 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="monday" name="monday">
             <label class="form-check-label" for="monday">
-              Monday, October 28.
+              Monday, November 3.
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="tuesday" name="tuesday">
             <label class="form-check-label" for="tuesday">
-              Tuesday, October 29.
+              Tuesday, November 4.
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="wednesday" name="wednesday">
             <label class="form-check-label" for="wednesday">
-              Wednesday, October 30.
+              Wednesday, November 5.
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="thursday" name="thursday">
             <label class="form-check-label" for="thursday">
-              Thursday, October 31.
+              Thursday, November 6.
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="friday" name="friday">
             <label class="form-check-label" for="friday">
-              Friday, Novermber 1.
+              Friday, November 7.
             </label>
           </div>
         </div> <!-- form group -->
@@ -705,9 +705,9 @@ please see the <a href="https://confluence.slac.stanford.edu/x/UoHoHQ" target="_
           document.getElementById("pronoun").required = true;
 	  // Setting just one radio button to required should be sufficient
 	  // but doesn't hurt to set them all
-	  document.getElementById("UI").required = true
-	  document.getElementById("APC").required = true
-	  document.getElementById("ICTP-SAIFR").required = true
+	  document.getElementById("main").required = true
+	  document.getElementById("satellite1").required = true
+	  document.getElementById("satellite2").required = true
 
 	  // Uncomment if we have covid rules
           // document.getElementById("covid_rules").required = true;
@@ -715,9 +715,9 @@ please see the <a href="https://confluence.slac.stanford.edu/x/UoHoHQ" target="_
         } else {
           document.getElementById("pronoun").required = false;
 	
-	  document.getElementById("UI").required = false;	
-	  document.getElementById("APC").required = false;
-	  document.getElementById("ICTP-SAIFR").required = false;
+	  document.getElementById("main").required = false;	
+	  document.getElementById("satellite1").required = false;
+	  document.getElementById("satellite2").required = false;
           // document.getElementById("covid_rules").required = false;
 
         };
@@ -728,12 +728,12 @@ please see the <a href="https://confluence.slac.stanford.edu/x/UoHoHQ" target="_
     $(document).ready(function () {
       if (document.getElementById("in_person").checked) {    
         $('site-radio').on("click", function () {
-          if (document.getElementById("UI").checked) {
+          if (document.getElementById("main").checked) {
 	    // reveal
-	    $('#UI_info').show();
+	    $('#main_info').show();
 	  } else {
-            $('#UI_info').hide();
-	  };
+            $('#main_info').hide();
+   	  };
 	});
       };
     });
