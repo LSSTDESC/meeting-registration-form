@@ -76,7 +76,7 @@ def requires_auth(f):
 def check_email():
     email = request.form['email']
     # Check for already registered email
-    if Participant.query.filter(Participant.email == email).count() == 0:
+    if Participant.query.filter(Participant.email == email).count() <= 1:
         return ("Ok", {'Access-Control-Allow-Origin': '*'})
     else:
         return ("Email already registered", {'Access-Control-Allow-Origin': '*'})
