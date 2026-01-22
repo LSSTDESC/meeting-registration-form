@@ -156,5 +156,6 @@ if __name__ == '__main__':
 
     if args.dump:
         print("Printing content of database.")
-        for p in Participant.query.all():
-            print(p)
+        with app.app_context():
+            for p in Participant.query.all():
+                print(p)
