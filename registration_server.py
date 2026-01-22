@@ -64,7 +64,7 @@ class Participant(db.Model):
     speedchat = db.Column(db.String(5))
 
     def __repr__(self):
-        return '<Participant: %r %r %r %r %r %r %r %r %r [%r]>' % (self.first_name, self.last_name, self.CL, self.CO, self.CSS, self.DKM, self.MCP, self.PLC, self.email)
+        return '<Participant: %r %r %r %r %r %r %r %r %r [%r]>' % (self.first_name, self.last_name, self.CL, self.CO, self.CSS, self.DKM, self.MCP, self.PLC, self.PO, self.email)
 
 
 def requires_auth(f):
