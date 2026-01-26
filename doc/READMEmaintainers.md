@@ -69,10 +69,10 @@ Then do the following:
    Click on the "More" button and select the "Run console" option.
    Your run command should be "bash"
    Then at the prompt type
-       python registration_server.py --create
-   Note that for a listing of first names, last names, and email addresses of registrants type
-       python registration_server.py --dump
-   To drop/delete the database table type
+       python registration_server.py --create  
+   Note that for a listing of first names, last names, and email addresses of registrants type  
+       python registration_server.py --dump  
+   To drop/delete the database table type  
        python registration_server.py --drop
 
 7. __Config variables__
@@ -149,5 +149,6 @@ Alternatively, you can put the database access credentials in a `.pgpass` file i
 hostname:port:database:username:password
 ```
 Set the permissions of the `.pgpass` file with `chmod 600 ~/.pgpass`, and you can then use client programs such as `pgsql` or `pgcli` to access the tables.
+
 
 
