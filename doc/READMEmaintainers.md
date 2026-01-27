@@ -52,20 +52,24 @@ Then do the following:
    LSSTDESC/meeting-registration-form for production.  You will
    then be able to deploy or redeploy directly from the repo.
 
-   NOTE: It is also possible to deploy or redeploy using the Heroku CLI (see
+   **NOTE:** To deploy to LSSTDESC/meeting-registration-form you will
+   need to be a member of the LSSTDESC/meeting-registration-form-admin
+   github group.  Any current member should be able to add you to that group.
+
+   **NOTE:** It is also possible to deploy or redeploy using the Heroku CLI (see
    instructions below) but, under normal circumstances, connecting to
    GitHub will be simpler.
 
-3. __Discover SERVER_URL__
+4. __Discover SERVER_URL__
    Deploy, then click "view".  You'll get an error,
    but save the URL in the tab or window that pops up because you will
    need it later.
 
-4. __Attach a database__
+5. __Attach a database__
    Click on "Resources" in the upper menu bar, then on
    "Add-on Services".   Select Heroku Postgres
 
-5. __Create database table__
+6. __Create database table__
    Click on the "More" button and select the "Run console" option.
    Your run command should be "bash"
    Then at the prompt type  
@@ -149,6 +153,9 @@ Alternatively, you can put the database access credentials in a `.pgpass` file i
 hostname:port:database:username:password
 ```
 Set the permissions of the `.pgpass` file with `chmod 600 ~/.pgpass`, and you can then use client programs such as `pgsql` or `pgcli` to access the tables.
+
+## Random hints
+1. For the production deployment to work as expected, the desired git branch must be selected.  Start at https://github.com/LSSTDESC/meeting-registration-form, the Settings->Pages->Build and Deployment->Source Select "Deploy from a branch", and just under that, select the desired branch.  (Heroku will require you to manually redeploy if you change this setting in github.)
 
 
 
