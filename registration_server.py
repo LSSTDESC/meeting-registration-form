@@ -44,16 +44,13 @@ class Participant(db.Model):
     volunteer = db.Column(db.String(5))
 
     CL = db.Column(db.String(5))
-    CO = db.Column(db.String(5))
-    CSS = db.Column(db.String(5))
     DKM = db.Column(db.String(5))
     MCP = db.Column(db.String(5))
     PLC = db.Column(db.String(5))
     PO = db.Column(db.String(5))
     PZ = db.Column(db.String(5))
-    SA = db.Column(db.String(5))
+    SCS = db.Column(db.String(5))
     SC = db.Column(db.String(5))
-    SRV = db.Column(db.String(5))
     TD = db.Column(db.String(5))
     WLSS = db.Column(db.String(5))
     Social = db.Column(db.String(5))
@@ -156,5 +153,6 @@ if __name__ == '__main__':
 
     if args.dump:
         print("Printing content of database.")
-        for p in Participant.query.all():
-            print(p)
+        with app.app_context():
+            for p in Participant.query.all():
+                print(p)
