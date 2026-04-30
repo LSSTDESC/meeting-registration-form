@@ -50,15 +50,19 @@
 
 <body>
   <div class="container">
-    <h2>Registration for the February 2026 DESC Virtual Meeting</h2>
-    <h4>Monday - Friday, February 23-27, 2026</h4>
-    There is no registration fee for this meeting.
+    <h2>Registration for the July 2026 DESC Collaboration Meeting: Boston Univ., Paris (APC), and Zoom</h2>
+    <h4>Monday - Friday, July 20-24, 2026</h4>
+    There is an in-person registration fee of $??? for early
+    career participants (students and postdocs) and $??? for senior participants at the main (Boston University) site. There is no registration fee for
+    satellite site (Paris/APC) or remote participation. The fee
+    includes venue and other miscellaneous costs.  Registration for in-person attendance will
+    close on July ????.
     <br>
-    Please join the LSST DA Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
+    Please join the LSST Discovery Alliance Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
       target="_blank" rel="noopener noreferrer">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the
     meeting.
     <br>
-      You can find the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/iV1_Jw" target="_blank" rel="noopener noreferrer">confluence page</a> as they become available.
+      You can find the details of the schedule on this <a href="https://confluence.slac.stanford.edu/x/nod4KQ" target="_blank" rel="noopener noreferrer">confluence page</a> as they become available.
     <br>
     <br>
     <form action="" method="POST" id="main_form">
@@ -93,6 +97,138 @@
       <p>Please consider sharing your pronouns as part of your display name during the Zoom sessions.</p>
       <hr>
 
+      <h5>In-person or Remote?</h5>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="in_person" name="in_person">
+          <label class="form-check-label" for="in_person">
+            <b>Check if you plan to attend in person</b>
+          </label>
+        </div>
+      </div>
+
+      <!-- The entire in_person_info block is hidden until people click the
+	   in-person attendance button -->
+      <div id="in_person_info">
+	<input type="hidden" name="site" id="site" value="UI">
+	    
+        <h5>Badge Text</h5>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="lname">Large-font name</label>
+              <input type="text" class="form-control" name="lname" id="lname"
+                placeholder="optional, defaults to first name" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="sname">Small-font name</label>
+              <input type="text" class="form-control" name="sname" id="sname"
+                placeholder="optional, defaults to last name" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="pronoun">Third-person pronoun</label>
+              <input type="text" class="form-control" name="pronoun" id="pronoun"
+                placeholder="e.g. she/her, he/him, they/them" maxlength="100">
+              <small id="inputPronounHelp" class="form-text text-muted">Third-person pronoun you want people to use to
+                refer to you, such as: they/she/he/ze, or simply just your names.
+                You can also say "no preference" or just enter a space.
+                <a href="https://confluence.slac.stanford.edu/display/LSSTDESC/Personal+Pronouns"
+                   target="_blank" rel="noopener noreferrer">Why ask
+                  for pronouns ?</a></small>
+              <div class="invalid-feedback">Please provide your choice of pronoun.</div>
+            </div>  <!-- end of pronoun group -->
+          </div>  <!-- end of col-sm -->
+	  <!-- Following section renders the badge -->
+          <div class="col-sm">
+            <div id="badge">
+              <div id="lname-d">
+                <span id="lname-s"></span>
+              </div>
+              <div id="sname-d">
+                <span id="sname-s"></span>
+              </div>
+              <div id="affili-d">
+                <span id="affili-s"></span>
+              </div>
+              <div id="pronoun-d">
+                <span id="pronoun-s"></span>
+              </div>
+              <div id="event-d">
+                <span id="event-s">Collaboration Meeting, July 20-24, 2026</span>
+              </div>
+              <div id="location-d">
+                <span id="location-s">Boston University</span>
+              </div>
+              <div id="logo1" class="logo"></div>
+            </div>   <!-- closes id="badge" -->
+          </div>  <!-- closes class="col-sm" -->
+        </div>   <!-- closes class="row" -->
+	
+      <div id="more_in_person">  <!-- Other in-person stuff -->
+
+        <h5>COVID Safety</h5>
+        
+  <p>THE FOLLOWING COVID INFO NEEDS UPDATING</p>
+        
+	<p>The University of Illinois no longer requires testing or masking for
+	COVID-19, but advises people to follow
+	<a href="https://www.cdc.gov/covid/prevention/index.html" target="_blank"
+	   rel="noopener noreferrer">current CDC guidelines</a>, and to be
+	aware of these
+	<a href="https://www.cdc.gov/respiratory-viruses/prevention/precautions-when-sick.html" target="_blank" rel="noopener noreferrer">
+	  CDC guidelines on the spread of respiratory viruses</a>.</p>
+	  <p>If you feel you are developing symptoms and wish to test, you can
+	  obtain a test kit at
+	  <a href="https://mckinley.illinois.edu/get-healthcare/flucovidresources"
+	     target="_blank" rel="noopener noreferrer">these locations</a>.</p>
+
+	<div  id="UI_info">
+	  <h5>Attendance/Participation</h5>
+	  <div class="form-group">
+	    <div class="form-check">
+	      <input class="form-check-input" type="checkbox" id="de_school" name="de_school">
+	      <label class="form-check-label" for="de_school">
+		<b>Check if you plan to attend DE School in person</b>
+	      </label>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="form-check">
+	      <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
+	      <label class="form-check-label" for="de_school">
+		<b>Check if you plan to attend Sprint Day in person</b>
+	      </label>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="form-check">
+	      <input class="form-check-input" type="checkbox" id="poster" name="poster">
+	      <label class="form-check-label" for="de_school">
+		<b>Check if you plan to present a poster</b>
+	      </label>
+	    </div>
+	  </div>
+	
+	<h5>Collaboration dinner</h5>
+	<p>The Collaboration dinner will be held on ???DATE???.
+	What is the fee?????
+	Early career attendees will also be invited to attend JuDO dinner
+	on Tuesday, ???????.</p>
+        </div>     <!-- end UI_info -->
+
+      </div> <!-- container -->
+
+    </div>
+
+  <hr>
+
+      
+
+
+
+
+
+      
       <h5>DESC Meeting Contact Persons</h5>
 
       As described in the <a href="https://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=6"
