@@ -26,19 +26,19 @@ class Participant(db.Model):
     early_career = db.Column(db.String(5))
 
     # All of the following are visible only for in-person
-    # Some should perhaps be restricted just to U of I, not satellites
+    # Some should perhaps be restricted just to the main meeting site, not satellites
     in_person = db.Column(db.String(5))
-    site = db.Column(db.String(20))    # One of "U of I", "Paris", ...
+    site = db.Column(db.String(20))    # Site name, e.g., Boston Univ, Paris/APC
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
     sprint = db.Column(db.String(5))
     poster = db.Column(db.String(5))
-    de_school = db.Column(db.String(5))               # UI only
-    # dinner = db.Column(db.String(5))                 # UI only
-    # dinner_plus_one = db.Column(db.String(5))        # UI only
-    # Tshirt_size = db.Column(db.String(5))            # UI only
-    # dietary = db.Column(db.String(500))
+    de_school = db.Column(db.String(5))               # main site only
+    # dinner = db.Column(db.String(5))                 # main site only
+    # dinner_plus_one = db.Column(db.String(5))        # main site only
+    # Tshirt_size = db.Column(db.String(5))            # main site only
+    # dietary = db.Column(db.String(500))              # main site only
 
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
@@ -110,9 +110,9 @@ def register():
     db.session.add(participant)
     db.session.commit()
     if participant.in_person == 'on':
-        if participant.site == 'UI':
-            payment_link = 'https://appserv7.admin.uillinois.edu/FormBuilderSurvey/Survey/ncsa/aspo/desc/Survey'
-            r = make_response(render_template('payment_UI.html',
+        if participant.site == 'BU':
+            payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!!
+            r = make_response(render_template('payment_BU.html',
                                               data=participant,
                                               payment_link=payment_link))
         else:

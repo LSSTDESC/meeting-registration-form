@@ -133,19 +133,19 @@
 
 <body>
   <div class="container">
-    <h2>Registration for the July 2025 DESC Collaboration Meeting</h2>
-    <h4>Monday - Friday, July 21 - 25, 2025</h4>
-    There is an in-person registration fee of $170 for early
-    career participants (students and postdocs) and $200 for senior participants at the main (University of Illinois) site. There is no registration fee for
-    satellite sites or remote participation. The fee
-    includes venue and other miscellaneous costs.  Registration for in-person attendance will
-    close on July 7.
+    <h2>Registration for the July 2026 DESC Collaboration Meeting</h2>
+    <h4>Monday - Friday, July 20 - 24, 2026</h4>
+    There is an in-person registration fee of $200 for the main (Boston University) site.
+    A Collaboration Meeting Dinner (in Boston) will be available for an additional $100 fee.
+
+    There is no registration fee for the Paris/APC satellite site or remote participation via Zoom.
+    Registration for in-person attendance will close on July 7.
     <br>
     Please join the Discovery Alliance Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
-      target="_blank" rel="noopener noreferrer">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the
-    meeting.
+							target="_blank" rel="noopener noreferrer">#desc-collab-meeting</a>
+    to keep updated on chats, discussions, and announcements during the meeting.
     <br>
-      See also the <a href="https://confluence.slac.stanford.edu/x/rJ6QIw">main meeting page</a> for more information, including a link to the developing agenda.
+    See also the <a href="https://confluence.slac.stanford.edu/x/nod4KQ">main meeting page</a> for more information, including a link to the developing agenda.
      <br>
     <br>
     <form action="" method="POST" id="main_form">
@@ -237,17 +237,18 @@
                 <span id="pronoun-s"></span>
               </div>
               <div id="event-d">
-                <span id="event-s">Collaboration Meeting, July 21-25, 2025</span>
+                <span id="event-s">Collaboration Meeting, July 20-24, 2025</span>
               </div>
               <div id="location-d">
-                <span id="location-s">U. of Illinois/ACP/ICTP-ASIFR</span>
+                <span id="location-s">Boston University & Paris/APC</span>
               </div>
               <div id="logo1" class="logo"></div>
             </div>   <!-- closes id="badge" -->
           </div>  <!-- closes class="col-sm" -->
         </div>   <!-- closes class="row" -->
 	
-      <div id="more_in_person">  <!-- Other in-person stuff -->
+	<div id="more_in_person">  <!-- Other in-person stuff -->
+	  <!--
         <h5>COVID Safety</h5>
 	<p>The University of Illinois no longer requires testing or masking for
 	COVID-19, but advises people to follow
@@ -260,8 +261,9 @@
 	  obtain a test kit at
 	  <a href="https://mckinley.illinois.edu/get-healthcare/flucovidresources"
 	     target="_blank" rel="noopener noreferrer">these locations</a>.</p>
-
-	<div  id="UI_info">
+	  -->
+	  
+	<div  id="BU_info">
 	  <h5>Attendance/Participation</h5>
 	  <div class="form-group">
 	    <div class="form-check">
@@ -289,11 +291,10 @@
 	  </div>
 	
 	<h5>Collaboration dinner</h5>
-	<p>The Collaboration dinner will be held on Wednesday, July 23.
-	There is no fee for particiapants; cost is included in registration.
-	Early career attendees will also be invited to attend  JuDO dinner
-	on Tuesday, July 22.</p>
-        </div>     <!-- end UI_info -->
+	<p>The Collaboration dinner will be held on Wednesday, July 22.
+	The fee for dinner is US$100.
+	</p>
+        </div>     <!-- end BU_info -->
 
       </div> <!-- container -->
 
@@ -352,17 +353,12 @@
 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="CL" id="CL">
-              <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
+              <label class="form-check-label" for="CL">CL: Galaxy Clusters</label>
             </div>
 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="CO" id="CO">
-              <label class="form-check-label" for="CO">CO: Computing</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="CSS" id="CSS">
-              <label class="form-check-label" for="CSS">CSS: Cosmological and Survey Simulations</label>
+              <label class="form-check-label" for="SCS">SCS: Survey Computing & Simulation</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -391,18 +387,8 @@
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="SA" id="SA">
-              <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
-            </div>
-
-            <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="SC" id="SC">
               <label class="form-check-label" for="SC">SC: Survey Coordination</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="SRV" id="SRV">
-              <label class="form-check-label" for="SRV">SRV: Science Release &amp; Validation</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -492,7 +478,14 @@
     </form>
   </div>
 
-  <!-- Modal Warning-->
+
+  <!--
+
+      Modal dialogs follow
+
+  -->
+  
+  <!-- Modal Warning that the (Heroku) backend is not functional -->
   <div class="modal fade" id="backendModal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -513,7 +506,7 @@
     </div>
   </div>
 
-  <!--
+  <!-- REGISTRATION CLOSED
   <div class="modal fade" id="registrationClosedModal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -555,8 +548,7 @@
         <span class="text-muted">
           <p class="lead">Privacy notice</p>
           <p>Your <mark>first name, last name, and affiliation will appear on a public
-              <a href="https://desc-july2025-collab-dev-62a59effbb.herokuapp.com"
-                 target="_blank" rel="noopener noreferrer">webpage</a> </mark> linked in the
+              webpage </mark> linked in the
             meeting's confluence participants page. Your email will be used to contact you when necessary. All data
             collected here may be shared with LSST DESC
             members who are on the Local Organizing Committee (LOC), the Scientific Organizing Committee (SOC), the
