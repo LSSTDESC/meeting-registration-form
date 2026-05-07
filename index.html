@@ -193,7 +193,7 @@
       <!-- The entire in_person_info block is hidden until people click the
 	   in-person attendance button -->
       <div id="in_person_info">
-	<input type="hidden" name="site" id="site" value="UI">
+	<input type="hidden" name="site" id="site" value="BU">
 	    
         <h5>Badge Text</h5>
         <div class="row">
@@ -668,6 +668,7 @@
         });
     });
 
+    // Badge
     $("input").keyup(function () {
       var target = $("#" + $(this).attr("id") + "-s");
       target.text($(this).val());
@@ -676,10 +677,12 @@
       var scale = badge.width() / target.width();
       if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
     });
+
     $(document).ready(function () {
       $('#in_person').click(function () {
         $('#in_person_info').toggle(500);
 
+	// Site
         if (document.getElementById("in_person").checked) {
           document.getElementById("pronoun").required = true;
 	  // Setting just one radio button to required should be sufficient
