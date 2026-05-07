@@ -28,7 +28,7 @@ class Participant(db.Model):
     # All of the following are visible only for in-person
     # Some should perhaps be restricted just to the main meeting site, not satellites
     in_person = db.Column(db.String(5))
-    site = db.Column(db.String(20))    # Site name, e.g., Boston Univ, Paris/APC
+    site = db.Column(db.String(20))    # Site name, e.g., Boston, Paris, or remote
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
@@ -107,9 +107,9 @@ def register():
     db.session.add(participant)
     db.session.commit()
     if participant.in_person == 'on':
-        if participant.site == 'BU':
+        if participant.site == 'Boston':
             payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!!
-            r = make_response(render_template('payment_BU.html',
+            r = make_response(render_template('payment_Boston.html',
                                               data=participant,
                                               payment_link=payment_link))
         else:
