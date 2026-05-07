@@ -700,7 +700,7 @@
           document.getElementById("pronoun").required = true;
 	  // Setting just one radio button to required should be sufficient
 	  // but doesn't hurt to set them all
-	  document.getElementByName("site").required = true;
+	  document.getElementsByName("site").required = true;
 	  //document.getElementById("UI").required = true
 	  //document.getElementById("APC").required = true
 	  //document.getElementById("ICTP-SAIFR").required = true
@@ -710,7 +710,7 @@
 
         } else {
           document.getElementById("pronoun").required = false;
-	  document.getElementByName("site").required = false;
+	  document.getElementsByName("site").required = false;
 	
 	  //document.getElementById("UI").required = false;	
 	  //document.getElementById("APC").required = false;
