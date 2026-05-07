@@ -179,7 +179,22 @@
       </div>
 
       <hr>
+	<!-- Site: which in-person site will the registrant attend? -->
+	
+      <div class="form-group">
+	<div class="form-check">
+	  <b>Select the site you will attend</b><br>
+	  <input class="form-check-input" type="radio" name="sites" id="opt1" value="Boston" required>
+	  <label class="form-check-label" for="opt1">Boston</label><br>
+	  <input class="form-check-input" type="radio" name="sites" id="opt2" value="Paris" required>
+	  <label class="form-check-label" for="opt2">Paris</label><br>
+	  <input class="form-check-input" type="radio" name="sites" id="opt3" value="remote" required>
+	  <label class="form-check-label" for="opt3">remote (Zoom)</label><br>
+	</div>
+      </div>
 
+      <hr>
+      
       <h5>In-person or Remote?</h5>
       <div class="form-group">
         <div class="form-check">
@@ -196,17 +211,6 @@
 	<input type="hidden" name="site" id="site" value="BU">
 
 
-	<!-- Site: which in-person site will the registrant attend? -->
-	
-	<div class="form-group">
-	  <div class="form-check">
-	    <b>Select the site you will attend</b><br>
-	    <input class="form-check-input" type="radio" name="site" id="opt1" value="Boston" required>
-	    <label class="form-check-label" for="opt1">Boston</label><br>
-	    <input class="form-check-input" type="radio" name="site" id="opt2" value="Paris" required>
-	    <label class="form-check-label" for="opt2">Paris</label><br>
-	  </div>
-	</div>
 	
         <h5>Badge Text</h5>
         <div class="row">
@@ -700,7 +704,7 @@
           document.getElementById("pronoun").required = true;
 	  // Setting just one radio button to required should be sufficient
 	  // but doesn't hurt to set them all
-	  document.getElementsByName("site").required = true;
+	  /////document.getElementsByName("site").required = true;
 	  //document.getElementById("UI").required = true
 	  //document.getElementById("APC").required = true
 	  //document.getElementById("ICTP-SAIFR").required = true
@@ -710,7 +714,7 @@
 
         } else {
           document.getElementById("pronoun").required = false;
-	  document.getElementsByName("site").required = false;
+	  /////document.getElementsByName("site").required = false;
 	
 	  //document.getElementById("UI").required = false;	
 	  //document.getElementById("APC").required = false;
