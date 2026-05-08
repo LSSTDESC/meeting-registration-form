@@ -96,11 +96,11 @@ def register():
     # Remove secret field
     del kwargs['secret']
 
-    # Special for July 2025 Collaboration Meeting
-    if 'in_person' not in kwargs:
-        kwargs['site'] = 'Remote'
-    elif kwargs['in_person'] != 'on':
-        kwargs['site'] = 'Remote'
+## Special for July 2025 Collaboration Meeting
+#    if 'in_person' not in kwargs:
+#        kwargs['site'] = 'Remote'
+#    elif kwargs['in_person'] != 'on':
+#        kwargs['site'] = 'Remote'
 
     participant = Participant(**kwargs)
 
