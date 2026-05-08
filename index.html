@@ -194,7 +194,8 @@
       </div>
 
       <hr>
-      
+
+      <!-- Obsolete "in-person" checkbox
       <h5>In-person or Remote?</h5>
       <div class="form-group">
         <div class="form-check">
@@ -204,10 +205,11 @@
           </label>
         </div>
       </div>
+      -->
 
       <!-- The entire in_person_info block is hidden until people click the
 	   in-person attendance button -->
-      <div id="in_person_info">
+      <div id="in_person_info" class="d-none">
 
 	<!-- The following can be permanently removed once radio button site selection is working
 	<input type="hidden" name="site" id="site" value="BU">
@@ -729,6 +731,22 @@
       });
     });
 
+<!-- BEGIN EXPERIMENTAL -->
+
+    document.querySelectorAll('input[name="site"]').forEach((radio) => {
+	radio.addEventListener('change', (e) => {
+	    const target = document.getElementById('in_person_info');
+	    if (e.target.value === 'show') {
+		target.classList.remove('d-none');
+	    } else {
+		target.classList.add('d-none');
+	    }
+	});
+    });
+
+<!-- END EXPERIMENTAL -->
+
+    
     $(document).ready(function () {
       $('#volunteer').click(function () {
         $('#volunteer_section').toggle(500);
