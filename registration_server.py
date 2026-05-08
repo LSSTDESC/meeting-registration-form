@@ -106,6 +106,10 @@ def register():
         r = make_response(render_template('payment_Boston.html',
                                           data=participant,
                                           payment_link=payment_link))
+    elif participant.site == 'Paris':
+        r = make_response(render_template('payment_Paris.html',
+                                          data=participant,
+                                          payment_link=payment_link))
     else:
         r = make_response(render_template('success.html', data=participant))
 
