@@ -96,24 +96,16 @@ def register():
     # Remove secret field
     del kwargs['secret']
 
-## Special for July 2025 Collaboration Meeting
-#    if 'in_person' not in kwargs:
-#        kwargs['site'] = 'Remote'
-#    elif kwargs['in_person'] != 'on':
-#        kwargs['site'] = 'Remote'
-
     participant = Participant(**kwargs)
 
     db.session.add(participant)
     db.session.commit()
-    if participant.in_person == 'on':
-        if participant.site == 'Boston':
-            payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!!
-            r = make_response(render_template('payment_Boston.html',
-                                              data=participant,
-                                              payment_link=payment_link))
-        else:
-            r = make_response(render_template('success.html', data=participant))
+
+    if participant.site == 'Boston':
+        payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!!
+        r = make_response(render_template('payment_Boston.html',
+                                          data=participant,
+                                          payment_link=payment_link))
     else:
         r = make_response(render_template('success.html', data=participant))
 
