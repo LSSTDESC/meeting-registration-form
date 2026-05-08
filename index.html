@@ -736,7 +736,7 @@
     document.querySelectorAll('input[name="site"]').forEach((radio) => {
 	radio.addEventListener('change', (e) => {
 	    const target = document.getElementById('in_person_info');
-	    if (e.target.value === 'show') {
+	    if (e.target.value !== 'remote') {
 		target.classList.remove('d-none');
 	    } else {
 		target.classList.add('d-none');
