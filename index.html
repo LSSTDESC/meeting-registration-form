@@ -45,10 +45,13 @@
 } */
     /* Hides the badge and in-person info until people
    sign up for in-person attendance.
- */
+   */
+
+    /*
     #in_person_info {
       display: none;
     }
+*/
 
     #volunteer_section {
       display: none;
@@ -735,11 +738,15 @@
 
     document.querySelectorAll('input[name="site"]').forEach((radio) => {
 	radio.addEventListener('change', (e) => {
+	    console.log("1");
 	    const target = document.getElementById('in_person_info');
+	    console.log("2");
 	    if (e.target.value !== 'remote') {
 		target.classList.remove('d-none');
+		console.log("3");
 	    } else {
 		target.classList.add('d-none');
+		console.log("4");
 	    }
 	});
     });
