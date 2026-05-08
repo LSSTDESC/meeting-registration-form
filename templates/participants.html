@@ -31,7 +31,8 @@
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
-	  <td>{% if item.in_person == "on" %}{{item.site}} {% else %}Remote{% endif %}</td>
+	  <td>{{item.site}}</td>
+<!--	  <td>{% if item.in_person == "on" %}{{item.site}} {% else %}Remote{% endif %}</td> -->
         </tr>
         {% endfor %}
       </tbody>
