@@ -745,9 +745,11 @@
 	    if (e.target.value !== 'remote') {
 		target.classList.remove('d-none');
 		document.getElementById("pronoun").required = true;
+		console.log("not remote");
 	    } else {
 		target.classList.add('d-none');
 		document.getElementById("pronoun").required = false;
+		console.log("remote");
 	    }
 	});
     });
