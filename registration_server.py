@@ -101,13 +101,14 @@ def register():
     db.session.add(participant)
     db.session.commit()
 
+    # This is where site-specific "registration successful" pages are displayed
     if participant.site == 'Boston':
-        payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!!
+        payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!! (but needed)
         r = make_response(render_template('payment_Boston.html',
                                           data=participant,
                                           payment_link=payment_link))
     elif participant.site == 'Paris':
-        payment_link = 'null'
+        payment_link = 'https://example.org'                   #!# FAKE URL (but not used)
         r = make_response(render_template('payment_Paris.html',
                                           data=participant,
                                           payment_link=payment_link))
@@ -124,7 +125,6 @@ def registered():
     """
     # Get list of participants
     participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person, Participant.site).all()
-    #in_persons = [p for p in participants if p.in_person == "on"]
     in_persons = [p for p in participants if p.site != "remote"]
     n_in_person = len(in_persons)
     n_remote = len(participants) - n_in_person
@@ -150,6 +150,7 @@ if __name__ == '__main__':
         with app.app_context():
             db.drop_all()
 
+    ## This option does not seem to work as of 5/2026
     if args.dump:
         print("Printing content of database.")
         for p in Participant.query.all():
