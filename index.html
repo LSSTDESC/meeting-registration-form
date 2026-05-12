@@ -39,20 +39,6 @@
       max-height: calc(100vh - 225px);
     }
 
-    /*
-#registrationModal .modal-footer {
-  justify-content: space-between;
-} */
-    /* Hides the badge and in-person info until people
-   sign up for in-person attendance.
-   */
-
-    /*
-    #in_person_info {
-      display: none;
-    }
-*/
-
     #volunteer_section {
       display: none;
     }
@@ -141,7 +127,7 @@
     <h4>Laboratoire Astroparticule et Cosmologie, Paris</h4>
     <h5>Monday July 20, 2026: Dark Energy School</h5>
     <h5>Tuesday-Friday, July 21-24, 2026: Collaboration Meeting</h5>
-    This meeting will offer two in-person sites to encourage greater interaction among DESC members who are unable to travel to the US: Boston University and Paris/APC.
+    This meeting will offer two in-person sites to encourage greater interaction among DESC members who are unable to travel to the US: Boston University and Paris/APC.<br>
     <ul>
       <li>The main site (Boston) will have local support (e.g. discounted hotel blocks, refreshments)
 	financed by a $US200 registration fee.</li>
@@ -205,7 +191,7 @@
       <hr>
 
 
-      <!-- The entire in_person_info block is hidden until people click the
+      <!-- The entire "in_person_info" block is hidden until people click an
 	   in-person attendance button -->
 
       <div id="in_person_info" class="d-none">
@@ -312,13 +298,9 @@
 	      The fee for dinner is US$100.  You may reserve a dinner in the payment section.
 	    </p>
 	  </div>   <!-- end dinner_info -->
-	  
-        </div>     <!-- end mainSite_info -->
-
+        </div>     <!-- end in_person_info -->
       </div> <!-- container -->
-
     </div>
-
   <hr>
 	
 	<h5>DESC Meeting Contact Persons</h5>
@@ -339,8 +321,6 @@
           </label>
         </div>
       </div>
-
-      
 
       <hr>
       <h5>Session Facilitators</h5>
@@ -496,11 +476,6 @@
   </div>
 
 
-  <!--
-
-      Modal dialogs follow
-
-  -->
   
   <!-- Modal Warning that the (Heroku) backend is not functional -->
   <div class="modal fade" id="backendModal" role="dialog">
@@ -558,7 +533,7 @@
     </div>
   </div>
 
-
+<!-- Footer/Privacy notice -->
   <footer class="footer">
     <div class="container">
       <dl class="row">
@@ -573,7 +548,9 @@
           </p>
       </dl>
     </div>
-  </footer>
+</footer>
+
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
   <script>
@@ -700,8 +677,8 @@
 
     document.querySelectorAll('input[name="site"]').forEach((radio) => {
 	radio.addEventListener('change', (e) => {
-	    const target = document.getElementById('in_person_info');
-	    const target2 = document.getElementById('dinner_info');
+	    const target = document.getElementById('in_person_info');  <!-- Boston or Paris -->
+	    const target2 = document.getElementById('dinner_info');    <!-- Boston only -->
 	    
 	    if (e.target.value !== 'remote') {
 		target.classList.remove('d-none');
