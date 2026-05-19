@@ -127,13 +127,16 @@
     <h4>Laboratoire Astroparticule et Cosmologie, Paris</h4>
     <h5>Monday July 20, 2026: Dark Energy School</h5>
     <h5>Tuesday-Friday, July 21-24, 2026: Collaboration Meeting</h5>
-    This meeting will offer two in-person sites to encourage greater interaction among DESC members who are unable to travel to the US: Boston University and Paris/APC.<br>
     <ul>
-      <li>The main site (Boston) will have local support (e.g. discounted hotel blocks, refreshments)
-	financed by a $US200 registration fee.</li>
-      <li>The satellite site (Paris) has no registration fee and is not guaranteed to have the same local support.</li>
-      <li>For those unable to travel to either site, we will support Zoom connections as we have in the past.</li>
-    </ul>
+      <li>This meeting will offer two in-person sites to encourage greater interaction among DESC members who are unable to travel to the US: Boston University and Paris/APC.</li>
+      <ul>
+	<li>The main site (Boston) will have local support (e.g. discounted hotel blocks, refreshments)
+	  financed by a registration fee (US$250 or US$200 for junior members).</li>
+	<li>The satellite site (Paris) has no registration fee and is not guaranteed to have the same local support.</li>
+	<li>For those unable to travel to either site, we will support Zoom connections as we have in the past.</li>
+      </ul>
+      <li>Also note that the main meeting format now includes Friday, 24 July, formerly "Sprint Day", while Sprint Activities are now spread throughout the week.</li>
+      </ul>
     Registration for in-person attendance will close on July 7.<br>
     
     Please join the Discovery Alliance Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
@@ -270,7 +273,7 @@
 	    <div class="form-check">
 	      <input class="form-check-input" type="checkbox" id="de_school" name="de_school">
 	      <label class="form-check-label" for="de_school">
-		<b>Check if you plan to attend DE School in person</b>
+		<b>Check if you plan to attend Dark Energy School in person</b>
 	      </label>
 	    </div>
 	  </div>
@@ -278,7 +281,7 @@
 	    <div class="form-check">
 	      <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
 	      <label class="form-check-label" for="de_school">
-		<b>Check if you plan to attend Sprint Day in person</b>
+		<b>Check if you plan to attend Sprint Activity in person</b>
 	      </label>
 	    </div>
 	  </div>
@@ -291,13 +294,17 @@
 	    </div>
 	  </div>
 	
-	  <div id="dinner_info" class="d-none">
-	    <h5>Collaboration dinner (Boston only)</h5>
+	  <div id="boston_only" class="d-none">
+	    <h5>Collaboration dinner</h5>
 	    <p>
-	      The Collaboration dinner will be held in Boston on Wednesday, July 22.
-	      The fee for dinner is US$100.  You may reserve a dinner in the payment section.
+	      The optional Collaboration dinner will be held in Boston on Wednesday, July 22.
+	      You may reserve a dinner in the payment section.
 	    </p>
-	  </div>   <!-- end dinner_info -->
+	    <h5>Baseball game</h5>
+	    <p>
+	      Optional tickets to a Red Sox baseball game will also be available in the payment section.
+	    </p>
+	  </div>   <!-- end boston_only -->
         </div>     <!-- end in_person_info -->
       </div> <!-- container -->
     </div>
@@ -410,6 +417,7 @@
 
       <hr>
 
+      <!--
       <h5>Speed Chat</h5>
       <p>This is a networking opportunity for early career members (student or postdoc) to "speed chat"
         with DESC Leadership members (DL), Pipeline Scientists (PS), and
@@ -432,6 +440,7 @@
         </li>
       </ul>
       <hr>
+      -->
       
       <h5>Accessibility and Accommodations</h5>
       <p>If you require any additional accommodations (e.g., closed captions,
@@ -678,8 +687,8 @@
 
     document.querySelectorAll('input[name="site"]').forEach((radio) => {
 	radio.addEventListener('change', (e) => {
-	    const target = document.getElementById('in_person_info');  <!-- Boston or Paris -->
-	    const target2 = document.getElementById('dinner_info');    <!-- Boston only -->
+	    const target = document.getElementById('in_person_info');  <!-- in-person only, Boston or Paris -->
+	    const target2 = document.getElementById('boston_only');    <!-- Boston only -->
 	    
 	    if (e.target.value !== 'remote') {
 		target.classList.remove('d-none');

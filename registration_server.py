@@ -103,7 +103,7 @@ def register():
 
     # This is where site-specific "registration successful" pages are displayed
     if participant.site == 'Boston':
-        payment_link = 'https://www.bu.edu/iar/DESC-payment'   #!# FAKE URL!! (but needed)
+        payment_link = 'https://sites.bu.edu/cosmology/lsst-desc-boston/'
         r = make_response(render_template('payment_Boston.html',
                                           data=participant,
                                           payment_link=payment_link))
