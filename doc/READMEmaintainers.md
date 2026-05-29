@@ -51,11 +51,7 @@ Then do the following:
    LSSTDESC/meeting-registration-form for production.  You will
    then be able to deploy or redeploy directly from the repo.
 
-   **NOTE:** To deploy to LSSTDESC/meeting-registration-form you will
-   need to be a member of the LSSTDESC/meeting-registration-form-admin
-   github group.  Any current member should be able to add you to that group.
-
-   **NOTE:** It is also possible to deploy or redeploy using the Heroku CLI (see
+   NOTE: It is also possible to deploy or redeploy using the Heroku CLI (see
    instructions below) but, under normal circumstances, connecting to
    GitHub will be simpler.
 
@@ -78,12 +74,8 @@ Then do the following:
 6. __Create database table__
    Click on the "More" button (upper right corner) and select the "Run console" option.
    Your run command should be "bash"
-   Then at the prompt type  
-       python registration_server.py --create  
-   Note that for a listing of first names, last names, and email addresses of registrants type  
-       python registration_server.py --dump  
-   To drop/delete the database table type  
-       python registration_server.py --drop
+   Then at the prompt type
+       python registration_server.py --create
 
 7. __Config variables__
    Go to "Settings" in upper menu bar. Scroll down if
@@ -97,7 +89,7 @@ Then do the following:
    * The URL used to display registered participants is just SERVER_URL from
      above
    * The URL used to register for the meeting looks like
-     https://lsstdesc.github.io/meeting-registration-form/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
+     https://lsstdesc.github.io/meeting-registration-from/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
 
      SERVER_URL is the value from above
      SECRET_KEY_VALUE is the value you chose for the SECRET_KEY config
@@ -159,10 +151,4 @@ Alternatively, you can put the database access credentials in a `.pgpass` file i
 hostname:port:database:username:password
 ```
 Set the permissions of the `.pgpass` file with `chmod 600 ~/.pgpass`, and you can then use client programs such as `pgsql` or `pgcli` to access the tables.
-
-## Random hints
-1. For the production deployment to work as expected, the desired git branch must be selected.  Start at https://github.com/LSSTDESC/meeting-registration-form, the Settings->Pages->Build and Deployment->Source Select "Deploy from a branch", and just under that, select the desired branch.  (Heroku will require you to manually redeploy if you change this setting in github.)
-
-
-
 
