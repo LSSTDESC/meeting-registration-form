@@ -26,34 +26,31 @@ class Participant(db.Model):
     early_career = db.Column(db.String(5))
 
     # All of the following are visible only for in-person
-    # Some should perhaps be restricted just to U of I, not satellites
+    # Some should perhaps be restricted just to the main meeting site, not satellites
     in_person = db.Column(db.String(5))
-    site = db.Column(db.String(20))    # One of "U of I", "Paris", ...
+    site = db.Column(db.String(20))    # Site name, e.g., Boston, Paris, or remote
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
     sprint = db.Column(db.String(5))
     poster = db.Column(db.String(5))
-    de_school = db.Column(db.String(5))               # UI only
-    # dinner = db.Column(db.String(5))                 # UI only
-    # dinner_plus_one = db.Column(db.String(5))        # UI only
-    # Tshirt_size = db.Column(db.String(5))            # UI only
-    # dietary = db.Column(db.String(500))
+    de_school = db.Column(db.String(5))               # main site only
+    # dinner = db.Column(db.String(5))                 # main site only
+    # dinner_plus_one = db.Column(db.String(5))        # main site only
+    # Tshirt_size = db.Column(db.String(5))            # main site only
+    # dietary = db.Column(db.String(500))              # main site only
 
     contact = db.Column(db.String(5))
     volunteer = db.Column(db.String(5))
 
     CL = db.Column(db.String(5))
-    CO = db.Column(db.String(5))
-    CSS = db.Column(db.String(5))
+    SCS = db.Column(db.String(5))
     DKM = db.Column(db.String(5))
     MCP = db.Column(db.String(5))
     PLC = db.Column(db.String(5))
     PO = db.Column(db.String(5))
     PZ = db.Column(db.String(5))
-    SA = db.Column(db.String(5))
     SC = db.Column(db.String(5))
-    SRV = db.Column(db.String(5))
     TD = db.Column(db.String(5))
     WLSS = db.Column(db.String(5))
     Social = db.Column(db.String(5))
@@ -99,24 +96,22 @@ def register():
     # Remove secret field
     del kwargs['secret']
 
-    # Special for July 2025 Collaboration Meeting
-    if 'in_person' not in kwargs:
-        kwargs['site'] = 'Remote'
-    elif kwargs['in_person'] != 'on':
-        kwargs['site'] = 'Remote'
-
     participant = Participant(**kwargs)
 
     db.session.add(participant)
     db.session.commit()
-    if participant.in_person == 'on':
-        if participant.site == 'UI':
-            payment_link = 'https://appserv7.admin.uillinois.edu/FormBuilderSurvey/Survey/ncsa/aspo/desc/Survey'
-            r = make_response(render_template('payment_UI.html',
-                                              data=participant,
-                                              payment_link=payment_link))
-        else:
-            r = make_response(render_template('success.html', data=participant))
+
+    # This is where site-specific "registration successful" pages are displayed
+    if participant.site == 'Boston':
+        payment_link = 'https://sites.bu.edu/cosmology/lsst-desc-boston/'
+        r = make_response(render_template('payment_Boston.html',
+                                          data=participant,
+                                          payment_link=payment_link))
+    elif participant.site == 'Paris':
+        payment_link = 'https://example.org'                   #!# FAKE URL (but not used)
+        r = make_response(render_template('payment_Paris.html',
+                                          data=participant,
+                                          payment_link=payment_link))
     else:
         r = make_response(render_template('success.html', data=participant))
 
@@ -130,7 +125,7 @@ def registered():
     """
     # Get list of participants
     participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person, Participant.site).all()
-    in_persons = [p for p in participants if p.in_person == "on"]
+    in_persons = [p for p in participants if p.site != "remote"]
     n_in_person = len(in_persons)
     n_remote = len(participants) - n_in_person
     return render_template('participants.html', data=participants,
@@ -149,11 +144,13 @@ if __name__ == '__main__':
         print("Creating database table if it doesn't exist")
         with app.app_context():
             db.create_all()
+            
     elif args.drop:
         print("Dropping database table if it exists")
         with app.app_context():
             db.drop_all()
 
+    ## This option does not seem to work as of 5/2026
     if args.dump:
         print("Printing content of database.")
         for p in Participant.query.all():

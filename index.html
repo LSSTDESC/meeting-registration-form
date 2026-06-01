@@ -39,17 +39,6 @@
       max-height: calc(100vh - 225px);
     }
 
-    /*
-#registrationModal .modal-footer {
-  justify-content: space-between;
-} */
-    /* Hides the badge and in-person info until people
-   sign up for in-person attendance.
- */
-    #in_person_info {
-      display: none;
-    }
-
     #volunteer_section {
       display: none;
     }
@@ -133,20 +122,33 @@
 
 <body>
   <div class="container">
-    <h2>Registration for the July 2025 DESC Collaboration Meeting</h2>
-    <h4>Monday - Friday, July 21 - 25, 2025</h4>
-    There is an in-person registration fee of $170 for early
-    career participants (students and postdocs) and $200 for senior participants at the main (University of Illinois) site. There is no registration fee for
-    satellite sites or remote participation. The fee
-    includes venue and other miscellaneous costs.  Registration for in-person attendance will
-    close on July 7.
-    <br>
-    Please join the Discovery Alliance Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80"
-      target="_blank" rel="noopener noreferrer">#desc-collab-meeting</a> to keep updated on chats, discussions, and announcements during the
-    meeting.
-    <br>
-      See also the <a href="https://confluence.slac.stanford.edu/x/rJ6QIw">main meeting page</a> for more information, including a link to the developing agenda.
-     <br>
+    <h1>Registration for July 2026 DESC Collaboration Meeting</h1>
+    <h4>Boston University and Northeastern University, Boston</h4>
+    <h4>Laboratoire Astroparticule et Cosmologie, Paris</h4>
+    <h5>Monday July 20, 2026: Dark Energy School</h5>
+    <h5>Tuesday-Friday, July 21-24, 2026: Collaboration Meeting</h5>
+    <ul>
+      <li>Collaboration meetings are open to all DESC members.  If you are not yet a member, you may <a href="https://lsstdesc.org/pages/apply.html" target="_blank" rel="noopener noreferrer">apply here</a>.</li>
+
+      <li>This meeting will offer two in-person sites to encourage greater interaction among DESC members who are unable to travel to the US: Boston University and Paris/APC.</li>
+      <ul>
+	<li>The main site (Boston) will have local support (e.g. discounted hotel blocks, refreshments)
+	  financed by a registration fee.</li>
+	<ul>
+	  <li>The in-person registration fee is US$250 or US$200 for early career (graduate student or post-doc) members, through July 1, 2026.  </li>
+	  <li>Late registrations will be accepted through July 7, 2026 at a slightly higher fee.</li>
+	</ul>
+	<li>The satellite site (Paris) has no registration fee and is not guaranteed to have the same local support.</li>
+	<li>For those unable to travel to either site, we will support Zoom connections (with recordings of most sessions) as we have in the past.</li>
+      </ul>
+
+      <li>For your travel planning, please also note that the main meeting now fully extends through Friday July 24th.  The former "Sprint Day" has become "Sprint Activities", distributed throughout the week.</li>
+    
+      <li>Please join the Discovery Alliance Slack channel <a href="https://lsstc.slack.com/archives/C90AMAG80" target="_blank" rel="noopener noreferrer">#desc-collab-meeting</a> to keep updated on discussions and announcements during the meeting.</li>
+
+      <li>See also the <a href="https://confluence.slac.stanford.edu/x/nod4KQ" target="_blank" rel="noopener noreferrer">main meeting page</a> for more information, including a link to the developing agenda.</li>
+    </ul>
+
     <br>
     <form action="" method="POST" id="main_form">
       <div class="form-row">
@@ -160,7 +162,7 @@
           <label for="last_name">Last Name</label>
           <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name"
             maxlength="100" required>
-          <div class="invalid-feedback">Please provide your last name.</div>
+          <div class="invalid-feedback">Please provide your full last name.</div>
         </div>
       </div>
 
@@ -174,27 +176,34 @@
       <div class="form-group">
         <label for="affili">Affiliation</label>
         <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" maxlength="100"
-          required>
+               required>
         <div class="invalid-feedback">Please provide your affiliation.</div>
+      </div>
+
+
+      <hr>
+      
+      <!-- Site: Will registrant participate remotely or in-person and, if so, where?  -->
+      <div class="form-group">
+	<div class="form-check">
+	  <h5>Select the site you will attend:</h5>
+	  <input class="form-check-input" type="radio" name="site" id="site1" value="Boston" required>
+	  <label class="form-check-label" for="site1">Boston</label><br>
+	  <input class="form-check-input" type="radio" name="site" id="site2" value="Paris" required>
+	  <label class="form-check-label" for="site2">Paris</label><br>
+	  <input class="form-check-input" type="radio" name="site" id="site3" value="remote" required>
+	  <label class="form-check-label" for="site3">remote (Zoom)</label><br>
+	</div>
       </div>
 
       <hr>
 
-      <h5>In-person or Remote?</h5>
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="in_person" name="in_person">
-          <label class="form-check-label" for="in_person">
-            <b>Check if you plan to attend in person</b>
-          </label>
-        </div>
-      </div>
 
-      <!-- The entire in_person_info block is hidden until people click the
+      <!-- The entire "in_person_info" block is hidden until people click an
 	   in-person attendance button -->
-      <div id="in_person_info">
-	<input type="hidden" name="site" id="site" value="UI">
-	    
+
+      <div id="in_person_info" class="d-none">
+
         <h5>Badge Text</h5>
         <div class="row">
           <div class="col-sm">
@@ -237,17 +246,18 @@
                 <span id="pronoun-s"></span>
               </div>
               <div id="event-d">
-                <span id="event-s">Collaboration Meeting, July 21-25, 2025</span>
+                <span id="event-s">Collaboration Meeting, July 20-24, 2026</span>
               </div>
               <div id="location-d">
-                <span id="location-s">U. of Illinois/ACP/ICTP-ASIFR</span>
+                <span id="location-s">Boston & Northeastern Univs, Paris/APC</span>
               </div>
               <div id="logo1" class="logo"></div>
             </div>   <!-- closes id="badge" -->
           </div>  <!-- closes class="col-sm" -->
         </div>   <!-- closes class="row" -->
 	
-      <div id="more_in_person">  <!-- Other in-person stuff -->
+	<div id="more_in_person">  <!-- Other in-person stuff -->
+	  <!--
         <h5>COVID Safety</h5>
 	<p>The University of Illinois no longer requires testing or masking for
 	COVID-19, but advises people to follow
@@ -260,14 +270,14 @@
 	  obtain a test kit at
 	  <a href="https://mckinley.illinois.edu/get-healthcare/flucovidresources"
 	     target="_blank" rel="noopener noreferrer">these locations</a>.</p>
-
-	<div  id="UI_info">
+	  -->
+	  
 	  <h5>Attendance/Participation</h5>
 	  <div class="form-group">
 	    <div class="form-check">
 	      <input class="form-check-input" type="checkbox" id="de_school" name="de_school">
 	      <label class="form-check-label" for="de_school">
-		<b>Check if you plan to attend DE School in person</b>
+		<b>Check if you plan to attend Dark Energy School in person</b>
 	      </label>
 	    </div>
 	  </div>
@@ -275,7 +285,7 @@
 	    <div class="form-check">
 	      <input class="form-check-input" type="checkbox" id="sprint" name="sprint">
 	      <label class="form-check-label" for="de_school">
-		<b>Check if you plan to attend Sprint Day in person</b>
+		<b>Check if you plan to attend Sprint Activities in person</b>
 	      </label>
 	    </div>
 	  </div>
@@ -288,35 +298,37 @@
 	    </div>
 	  </div>
 	
-	<h5>Collaboration dinner</h5>
-	<p>The Collaboration dinner will be held on Wednesday, July 23.
-	There is no fee for particiapants; cost is included in registration.
-	Early career attendees will also be invited to attend  JuDO dinner
-	on Tuesday, July 22.</p>
-        </div>     <!-- end UI_info -->
-
+	  <div id="boston_only" class="d-none">
+	    <h5>Collaboration dinner</h5>
+	    <p>
+	      The optional Collaboration dinner will be held in Boston on Wednesday, July 22.
+	      You may reserve a dinner in the payment section.
+	    </p>
+	    <h5>Baseball game</h5>
+	    <p>
+	      Optional tickets to a Red Sox baseball game will also be available in the payment section.
+	    </p>
+	  </div>   <!-- end boston_only -->
+        </div>     <!-- end in_person_info -->
       </div> <!-- container -->
-
-    </div>
-
-  <hr>
+   <hr>
 	
 	<h5>DESC Meeting Contact Persons</h5>
 
-      As described in the <a href="https://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=6"
-        target="_blank" rel="noopener noreferrer">DESC Meeting Contact Person Policy</a>, Meeting Contact Persons (MCPs) will be available (by
-      Zoom and Slack) to
-      meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful
-      situations.
-      MCPs will be selected from eligible participants, and be appointed by the Collaboration Council and the Management
-      Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
+	As described in the <a href="https://lsstdesc.org/sites/default/files/LSST_DESC_Professional_Conduct.pdf#page=6"
+			     target="_blank" rel="noopener noreferrer">DESC Meeting Contact Person Policy</a>,
+	Meeting Contact Persons (MCPs) will be available (by Zoom and Slack) to
+	meeting participants and be afforded the authority to take action to resolve disputes, conflicts, or harmful
+	situations.  MCPs will be selected from eligible participants, and be appointed by the Collaboration Council
+	and the Management Team. All MCP appointments will be confirmed and scheduled with candidates before the meeting.
 
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="contact" name="contact">
+          <input class="form-check-input" type="checkbox" id="contact" name="contact" checked>
           <label class="form-check-label" for="contact">
-            <b>Check if you do NOT wish to be considered for the role of an MCP.</b>
-          </label>
+            <b>Yes, I am willling to be considered for the role of an MCP</b>
+          </label><br>
+            Uncheck this box if you do NOT wish to be considered for the role of an MCP.
         </div>
       </div>
 
@@ -325,16 +337,14 @@
       <hr>
       <h5>Session Facilitators</h5>
       Special opportunity!
-      You (as a meeting participant) can help ensure the success of this meeting by enrolling as a Session Facilitator
+      You, as a meeting participant, can help ensure the success of this meeting by enrolling as a Session Facilitator
       for one or two sessions; this would involve, e.g., monitoring the chat window or raised hands in the participant
-      list on Zoom, and generally helping where needed, whether you are
-      in-person or remote.
+      list on Zoom, and generally helping where needed, whether you are in-person or remote.
       For a quick look at what's involved, see the
       <a href='https://docs.google.com/document/d/1HRU_1hApNuvmBxBLkygH54-EvGmfl2emlYinQrvppzs/edit?usp=sharing'
-         target="_blank" rel="noopener noreferrer">Session
-        Facilitator's Cheat Sheet</a>
-      New/junior members are especially encouraged to take advantage of this opportunity as it will help gain
-      familiarity within the DESC community.
+         target="_blank" rel="noopener noreferrer">Session Facilitator's Cheat Sheet</a>
+      New/junior members are especially encouraged to take advantage of this opportunity as it will help you gain
+      visibility within the DESC community.
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="volunteer" name="volunteer">
@@ -352,17 +362,12 @@
 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="CL" id="CL">
-              <label class="form-check-label" for="CL">CL: Clusters of Galaxies</label>
+              <label class="form-check-label" for="CL">CL: Galaxy Clusters</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="CO" id="CO">
-              <label class="form-check-label" for="CO">CO: Computing</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="CSS" id="CSS">
-              <label class="form-check-label" for="CSS">CSS: Cosmological and Survey Simulations</label>
+              <input class="form-check-input" type="checkbox" name="SCS" id="SCS">
+              <label class="form-check-label" for="SCS">SCS: Survey Computing & Simulation</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -391,18 +396,8 @@
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="SA" id="SA">
-              <label class="form-check-label" for="SA">SA: Sensor Anomalies</label>
-            </div>
-
-            <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="SC" id="SC">
               <label class="form-check-label" for="SC">SC: Survey Coordination</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="SRV" id="SRV">
-              <label class="form-check-label" for="SRV">SRV: Science Release &amp; Validation</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -414,12 +409,12 @@
               <input class="form-check-input" type="checkbox" name="WLSS" id="WLSS">
               <label class="form-check-label" for="WLSS">WLSS: Weak Lensing/LSS</label>
             </div>
-
+<!--  This item is for virtual only meetings that have Zoom-enabled social events
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="Social" id="Social">
               <label class="form-check-label" for="Social">Social Events</label>
             </div>
-
+-->
           </div>
 
         </div>
@@ -427,6 +422,7 @@
 
       <hr>
 
+      <!--
       <h5>Speed Chat</h5>
       <p>This is a networking opportunity for early career members (student or postdoc) to "speed chat"
         with DESC Leadership members (DL), Pipeline Scientists (PS), and
@@ -449,15 +445,15 @@
         </li>
       </ul>
       <hr>
+      -->
+      
       <h5>Accessibility and Accommodations</h5>
       <p>If you require any additional accommodations (e.g., closed captions,
         alt-text for screen readers, etc), please fill out
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmk06kahjTjbdRd8uuYydPqP-ALY10vBVrZci7uyVwltXFHg/viewform?usp=header"
-	   target="_blank" rel="noopener noreferrer">this anonymous form.</a>
-	<!--
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeES7HZylmSQcTuMk1GLy6u3mvsssuK4aB-DmdRoBlxOxMmcw/viewform?usp=sharing" target="_blank" rel="noopener noreferrer">this anonymous form.</a> -->
+        <a href="https://docs.google.com/forms/d/153qIRt7n_oqQqzs3Z5s12vZ06ptWyohpLq1TFXb1zRw/edit" target="_blank" rel="noopener noreferrer>this anonymous form.</a>
       </p>
       <hr>
+      
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="recording" id="recording" required>
@@ -471,6 +467,7 @@
           <div class="invalid-feedback">Please acknowledge that you may be recorded.</div>
         </div>
       </div>
+      
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="code_of_conduct" id="code_of_conduct" required>
@@ -483,16 +480,19 @@
           <div class="invalid-feedback">You must agree to the code of conduct before registering.</div>
         </div>
       </div>
+      
       <div class="form-group" id="register_button">
-        <button id="register" class="btn btn-primary" type="button">Register</button>
-        <small class="form-text text-muted">Please disable ad or pop-up blockers if you encounter any difficulties with
-          completing the registration.</small>
+        <button id="register" class="btn btn-primary" type="button">Register</button><br>
+	<small class-"form-text text-muted">Any <span style="color: red;">red text</span> that appears after pressing "Register" indicates a missing response.</small><br>
+        <small class="form-text text-muted">Please disable ad or pop-up blockers if you encounter any difficulties completing the registration.</small>
       </div>
       <input type="hidden" name="secret" id="secret" value="">
     </form>
   </div>
 
-  <!-- Modal Warning-->
+
+  
+  <!-- Modal Warning that the (Heroku) backend is not functional -->
   <div class="modal fade" id="backendModal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -513,7 +513,7 @@
     </div>
   </div>
 
-  <!--
+  <!-- REGISTRATION CLOSED
   <div class="modal fade" id="registrationClosedModal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -548,23 +548,24 @@
     </div>
   </div>
 
-
+<!-- Footer/Privacy notice -->
   <footer class="footer">
     <div class="container">
       <dl class="row">
         <span class="text-muted">
           <p class="lead">Privacy notice</p>
           <p>Your <mark>first name, last name, and affiliation will appear on a public
-              <a href="https://desc-july2025-collab-dev-62a59effbb.herokuapp.com"
-                 target="_blank" rel="noopener noreferrer">webpage</a> </mark> linked in the
-            meeting's confluence participants page. Your email will be used to contact you when necessary. All data
+              webpage </mark> linked in the
+            meeting&apos;s confluence participants page. Your email will be used to contact you when necessary. All data
             collected here may be shared with LSST DESC
             members who are on the Local Organizing Committee (LOC), the Scientific Organizing Committee (SOC), the
-            Meetings Committee, the Collaboration Council, and the Management Team.
+            Meetings Committee, the Collaboration Council, and the Management Team.</span>
           </p>
       </dl>
     </div>
-  </footer>
+</footer>
+
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
   <script>
@@ -582,9 +583,6 @@
             backdrop: 'static',
             keyboard: false
             });
-	  // Guessing something like this might go here
-	  // Registration Successful so far, so let's proceed to payment
-	  // document.getElementById("payment_form").submit()
         }
       });
 
@@ -677,6 +675,7 @@
         });
     });
 
+    // Badge
     $("input").keyup(function () {
       var target = $("#" + $(this).attr("id") + "-s");
       target.text($(this).val());
@@ -685,39 +684,44 @@
       var scale = badge.width() / target.width();
       if (scale < 1) target.css("font-size", (scale * 100).toString() + "%");
     });
-    $(document).ready(function () {
-      $('#in_person').click(function () {
-        $('#in_person_info').toggle(500);
 
-        if (document.getElementById("in_person").checked) {
-          document.getElementById("pronoun").required = true;
-	  // Setting just one radio button to required should be sufficient
-	  // but doesn't hurt to set them all
-	  document.getElementById("UI").required = true
-	  document.getElementById("APC").required = true
-	  document.getElementById("ICTP-SAIFR").required = true
 
-	  // Uncomment if we have covid rules
-          // document.getElementById("covid_rules").required = true;
+// Conditional reveal of web elements.
+    
+//    The first set is site-specific for in-person registrants only, based upon radio buttons. -->
 
-        } else {
-          document.getElementById("pronoun").required = false;
-	
-	  document.getElementById("UI").required = false;	
-	  document.getElementById("APC").required = false;
-	  document.getElementById("ICTP-SAIFR").required = false;
-          // document.getElementById("covid_rules").required = false;
+    document.querySelectorAll('input[name="site"]').forEach((radio) => {
+	radio.addEventListener('change', (e) => {
+	    const target = document.getElementById('in_person_info');  <!-- in-person only, Boston or Paris -->
+	    const target2 = document.getElementById('boston_only');    <!-- Boston only -->
+	    
+	    if (e.target.value !== 'remote') {
+		target.classList.remove('d-none');
+		document.getElementById("pronoun").required = true;
 
-        };
+		if (e.target.value === 'Boston') {
+		    target2.classList.remove('d-none');
+		} else {
+		    target2.classList.add('d-none');
+		}
 
-      });
+	    } else {
+		target.classList.add('d-none');
+		target2.classList.add('d-none');
+		document.getElementById("pronoun").required = false;
+
+	    }
+	});
     });
 
+// The second set reveals options for Session Facilitator volunteers, based upon checkbox. -->
+    
     $(document).ready(function () {
       $('#volunteer').click(function () {
         $('#volunteer_section').toggle(500);
       });
     });
+    
   </script>
 
 </body>

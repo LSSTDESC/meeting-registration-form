@@ -1,6 +1,6 @@
 ﻿# For Maintainers
 ## Overview
-The meeting-registration-form repo is an application running on the free platform Heroku which handles/includes web forms, a PostgreSQL database, a Python program, and some ancillary files needed to describe the app to Heroku.
+The meeting-registration-form repo is an application running on the Heroku platform which handles/includes web forms, a PostgreSQL database, a Python program, and some ancillary files needed to describe the app to Heroku.
 
 ### Web pages
 The main one is `index.html`, which is the form people use to register. `success.html` is displayed after a successful registration. `participants.html` describes the table used to display minimal participant information for public viewing: first name, last name and affiliation.
@@ -10,7 +10,6 @@ The main one is `index.html`, which is the form people use to register. `success
 
 ### Dependencies
 Dependencies are described in `Pipfile` in a general way; `Pipfile.lock` contains detailed information about exactly which versions of everything were used.  Under normal circumstances, the ones in the repo can be used as is, with no changes. In the unlikely event you do have to change something, see the section **Updating Dependencies** below.
-
 
 ## Updating the meeting-registration-form Repo
 
@@ -42,7 +41,7 @@ then select __desc-meeting__
 
 Then do the following:
 
-1. __Create your app__
+1. __Create a new app__
    It can be called something like desc-july2025-collab or
    desc_july2025-collab-dev if this is a development deploy associated
    with your fork.   You do this by clicking the __New__ button.
@@ -56,22 +55,29 @@ Then do the following:
    instructions below) but, under normal circumstances, connecting to
    GitHub will be simpler.
 
-3. __Discover SERVER_URL__
-   Deploy, then click "view".  You'll get an error,
+3. __Deploy__
+  In the "Manual deploy" section, click on "Deploy Branch".  You should see a log of 
+  the actions Heroku takes to create this deployment.
+  
+4. __Discover SERVER_URL__
+   Once deployed, click "view".  You'll get an error,
    but save the URL in the tab or window that pops up because you will
    need it later.
 
-4. __Attach a database__
+5. __Attach a database__
    Click on "Resources" in the upper menu bar, then on
-   "Add-on Services".   Select Heroku Postgres
+   "Add-on Services".   Select Heroku Postgres in the Elements Marketplace.  
+   Note that this is where real $$ charges begin.  This step may take some time; 
+   pay attention to the "Actions" column in the Add-on Services table.  
+   Once you see "Provisioned", you're ready to go.
 
-5. __Create database table__
-   Click on the "More" button and select the "Run console" option.
+6. __Create database table__
+   Click on the "More" button (upper right corner) and select the "Run console" option.
    Your run command should be "bash"
    Then at the prompt type
        python registration_server.py --create
 
-6. __Config variables__
+7. __Config variables__
    Go to "Settings" in upper menu bar. Scroll down if
    necessary and click on "Reveal Config Vars".  Make a note of the value
    of DATABASE_URL; you'll need it later.  Also create a variable called
@@ -81,13 +87,13 @@ Then do the following:
 
 ### Useful URLs
    * The URL used to display registered participants is just SERVER_URL from
-     step 3
+     above
    * The URL used to register for the meeting looks like
      https://lsstdesc.github.io/meeting-registration-from/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
 
-     SERVER_URL is the value from step 3
+     SERVER_URL is the value from above
      SECRET_KEY_VALUE is the value you chose for the SECRET_KEY config
-     variable in step 5
+     variable from above
 
 **NOTE:** For your fork the registration URL will be a little different. `lsstdesc.github.io` will instead be `your-github-user.github.io`.   If your forked repo is not named meeting-registration-form, that part of the URL will also have to change.
 

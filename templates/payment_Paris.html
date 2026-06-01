@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+
+    <style>
+      span.red { color: #FF0000; }
+    </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <p>
+      Dear {{data.first_name}} {{data.last_name}},
+      <br><br>
+      Thank you for registering for the July 2026 DESC Meeting in Paris!
+      <br><br>
+      <span class="red"><b>
+	There is no registration fee to attend at the Paris/APC satellite location.
+      </b></span>
+    </p>
+<!--    <a href="{{payment_link}}" target="_blank" rel="noreferrer noopener"><b>Pay registration fee<b></a> -->
+    <br>
+    <br>
+<h5> Your registration information has been saved, you may simply close this tab.</h5>
+<!--    <button onclick="self.close()">Close tab and exit</button> -->
+  </div>
+</body>
+
+</html>
