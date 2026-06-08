@@ -11,11 +11,57 @@
 <body>
 
   <div class="container">
-    <!-- <h2>LSST DESC Meeting participants</h2> -->
-    <!-- <br> -->
-    Number of registered participants: {{data|length}} <br>
-    {{n_in_person}} in-person and {{n_remote}} remote
-    <br>
+    <h2>LSST DESC Meeting Registrants</h2>
+    <hr>
+    <style>
+      table, th, td {
+	  border:1px solid black;
+	  border-collapse: collapse;
+	  padding: 8px;
+      }
+      th {
+	  text-align: center;
+	  background-color: #eeeeee;
+	  color: #000000;
+      }
+    </style>
+
+    <div class="row">
+      <div class="col-md-3">
+	  <table>
+	    <tr>
+	      <td><span style="color: red;">{{timestamp}} UTC</span></td>
+	    </tr>
+	  </table>
+	<ul>
+	  <li>{{data|length}} registered participants</li>
+	  <li>{{n_in_person}} attending in-person </li>
+	</ul>
+      </div>
+
+      <div class="col-md-9">
+	<table>
+	  <thead>
+            <tr>
+              <th>Site</th>
+              <th># registrants</th>
+            </tr>
+	  </thead>
+	  <tbody>
+            {% for item in sites %}
+            <tr>
+              <td>{{item}}</td>
+              <td align='right'>{{sites[item]}}</td>
+            </tr>
+            {% endfor %}
+	  </tbody>
+	</table>
+      </div>
+    </div>
+    
+    <hr>
+
+    <h2>Registrant List:</h2>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
@@ -32,7 +78,6 @@
           <td>{{item.last_name}}</td>
           <td>{{item.affiliation}}</td>
 	  <td>{{item.site}}</td>
-<!--	  <td>{% if item.in_person == "on" %}{{item.site}} {% else %}Remote{% endif %}</td> -->
         </tr>
         {% endfor %}
       </tbody>
