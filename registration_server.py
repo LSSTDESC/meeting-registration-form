@@ -21,44 +21,38 @@ class Participant(db.Model):
     last_name = db.Column(db.String(200))
     email = db.Column(db.String(200))
     affiliation = db.Column(db.String(200))
+    descmember = db.Column(db.String(5))
+
+    comp_access = db.Column(db.String(5))
 
     # For statistics.  Also sometimes used to determine reg. fee
-    early_career = db.Column(db.String(5))
+    #early_career = db.Column(db.String(5))
 
     # All of the following are visible only for in-person
     # Some should perhaps be restricted just to the main meeting site, not satellites
-    in_person = db.Column(db.String(5))
-    site = db.Column(db.String(20))    # Site name, e.g., Boston, Paris, or remote
+    site = db.Column(db.String(25))    # Site name, e.g., Boston, Paris, or remote
+
+    need_badge = db.Column(db.String(5))
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
-    sprint = db.Column(db.String(5))
-    poster = db.Column(db.String(5))
-    de_school = db.Column(db.String(5))               # main site only
-    # dinner = db.Column(db.String(5))                 # main site only
-    # dinner_plus_one = db.Column(db.String(5))        # main site only
-    # Tshirt_size = db.Column(db.String(5))            # main site only
-    # dietary = db.Column(db.String(500))              # main site only
 
+    covid_rules = db.Column(db.String(5))
+
+    monday = db.Column(db.String(5))
+    tuesday = db.Column(db.String(5))
+    wednesday = db.Column(db.String(5))
+    thursday = db.Column(db.String(5))
+    friday = db.Column(db.String(5))
+
+    dietary = db.Column(db.String(200))
     contact = db.Column(db.String(5))
-    volunteer = db.Column(db.String(5))
 
-    CL = db.Column(db.String(5))
-    SCS = db.Column(db.String(5))
-    DKM = db.Column(db.String(5))
-    MCP = db.Column(db.String(5))
-    PLC = db.Column(db.String(5))
-    PO = db.Column(db.String(5))
-    PZ = db.Column(db.String(5))
-    SC = db.Column(db.String(5))
-    TD = db.Column(db.String(5))
-    WLSS = db.Column(db.String(5))
-    Social = db.Column(db.String(5))
+    newbie = db.Column(db.String(5))
+    first_sprint = db.Column(db.String(5))
 
     recording = db.Column(db.String(5))
     code_of_conduct = db.Column(db.String(5))
-
-    speedchat = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Participant: %r %r [%r]>' % (self.first_name, self.last_name, self.email)
@@ -102,18 +96,19 @@ def register():
     db.session.commit()
 
     # This is where site-specific "registration successful" pages are displayed
-    if participant.site == 'Boston':
-        payment_link = 'https://sites.bu.edu/cosmology/lsst-desc-boston/'
-        r = make_response(render_template('payment_Boston.html',
-                                          data=participant,
-                                          payment_link=payment_link))
-    elif participant.site == 'Paris':
-        payment_link = 'https://example.org'                   #!# FAKE URL (but not used)
-        r = make_response(render_template('payment_Paris.html',
-                                          data=participant,
-                                          payment_link=payment_link))
-    else:
-        r = make_response(render_template('success.html', data=participant))
+    #if participant.site == 'Boston':
+    #    payment_link = 'https://sites.bu.edu/cosmology/lsst-desc-boston/'
+    #    r = make_response(render_template('payment_Boston.html',
+    #                                      data=participant,
+    #                                      payment_link=payment_link))
+    #elif participant.site == 'Paris':
+    #    payment_link = 'https://example.org'                   #!# FAKE URL (but not used)
+    #    r = make_response(render_template('payment_Paris.html',
+    #                                      data=participant,
+    #                                      payment_link=payment_link))
+    #else:
+    #    r = make_response(render_template('success.html', data=participant))
+    r = make_response(render_template('success.html', data=participant))
 
     r.headers.set('Access-Control-Allow-Origin', "*")
     return r
@@ -125,15 +120,16 @@ def registered():
     """
     from datetime import datetime
     # Get list of participants
-    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.in_person, Participant.site).all()
+    participants = Participant.query.order_by(Participant.last_name, Participant.first_name).with_entities(Participant.first_name, Participant.last_name, Participant.affiliation, Participant.site).all()
     #in_persons = [p for p in participants if p.site != "remote"]
     #n_in_person = len(in_persons)
 
     sites = {}
     n_in_person = 0
     for p in participants:
-        sites[p[4]] = sites.get(p[4],0) + 1
-        if p[4] != "remote": n_in_person += 1
+        sites[p[3]] = sites.get(p[3],0) + 1
+        #if p[4] != "remote": n_in_person += 1
+        if "remote" not in p[3]: n_in_person += 1
         pass
 
     sites = dict(sorted(sites.items()))
