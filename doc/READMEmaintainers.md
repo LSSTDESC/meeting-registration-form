@@ -89,7 +89,7 @@ Then do the following:
    * The URL used to display registered participants is just SERVER_URL from
      above
    * The URL used to register for the meeting looks like
-     https://lsstdesc.github.io/meeting-registration-from/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
+     https://lsstdesc.github.io/meeting-registration-form/index.html?backend=SERVER_URL&secret=SECRET_KEY_VALUE
 
      SERVER_URL is the value from above
      SECRET_KEY_VALUE is the value you chose for the SECRET_KEY config
